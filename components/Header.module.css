@@ -1,0 +1,68 @@
+.header {
+  position: relative;
+  height: 100vh;
+  background: var(--color-black);
+}
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.info .title {
+  margin: auto;
+  width: 95%;
+  max-width: 32rem;
+}
+
+@media (min-width: 768px) {
+  .info .title {
+    max-width: 52rem;
+  }
+}
+
+.info p {
+  margin: 0 auto 2rem auto;
+  width: 95%;
+  max-width: 31rem;
+  font-size: var(--small);
+  text-shadow: 1px 1px 0 var(--color-black);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .info p {
+    font-size: var(--medium);
+    max-width: 50rem;
+  }
+}
+
+.info .ctaContainer button {
+  margin: 0.5rem auto;
+  height: 5rem;
+  width: 65%;
+  max-width: 18rem;
+  font-size: var(--small);
+  text-shadow: 1px 1px 0 var(--color-black);
+  color: var(--color-white);
+  background: var(--color-red-gradient);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .info .ctaContainer button {
+    height: 5.25rem;
+    font-size: var(--medium);
+    transition: all 0.25s ease;
+  }
+
+  .info .ctaContainer button:hover {
+    transform: translateY(-2px);
+  }
+}
