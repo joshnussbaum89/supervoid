@@ -1,0 +1,21 @@
+.desktopNav {
+  display: none;
+  font-size: var(--medium);
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    margin: 0;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktopNav a:hover {
+    transition: all 0.25s ease;
+    color: var(--color-red);
+  }
+}

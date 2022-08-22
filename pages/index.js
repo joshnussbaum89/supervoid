@@ -13,10 +13,12 @@ export default function Home() {
           name="description"
           content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
         />
+        <meta
+          name="keywords"
+          content="lighting, music, video, concerts, film, design, animation, philadelphia"
+        />
       </Head>
-      <main>
-        <Header />
-      </main>
+      <Header />
     </>
   )
 }

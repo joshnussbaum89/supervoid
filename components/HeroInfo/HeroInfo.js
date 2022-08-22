@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { info, title, ctaContainer } from './HeroInfo.module.css'
 import titleImage from '../../public/images/supervoid-title-text-no-tv.png'
+import { info, title, ctaContainer } from './HeroInfo.module.css'
 
 export default function HeroInfo() {
   return (
