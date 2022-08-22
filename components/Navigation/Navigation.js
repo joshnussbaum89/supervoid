@@ -1,22 +1,14 @@
-{
-  /* TODO: 
-     1. break out any possible components
-     2. create active hamburger logic
-     3. create hide/show onScroll logic
-  */
-}
+/* TODO: 
+  1. create active hamburger logic
+  2. create hide/show onScroll logic
+*/
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  navigation,
-  desktopNav,
-  background,
-  hamburger,
-  top,
-  bottom,
-} from './Navigation.module.css'
+import DesktopNavigation from '../DesktopNavigation/DesktopNavigation'
+import Hamburger from '../Hamburger/Hamburger'
 import heroBackground from '../../public/images/supervoid-logo-voidstar-stylized.png'
+import { navigation, background } from './Navigation.module.css'
 
 export default function Navigation() {
   return (
@@ -30,21 +22,8 @@ export default function Navigation() {
           />
         </div>
       </Link>
-      <ul className={desktopNav}>
-        <li>
-          <Link href="/#portfolio">Portfolio</Link>
-        </li>
-        <li>
-          <Link href="/rentals">Rentals</Link>
-        </li>
-        <li>
-          <Link href="/#about">About</Link>
-        </li>
-      </ul>
-      <div className={hamburger}>
-        <div className={top}></div>
-        <div className={bottom}></div>
-      </div>
+      <DesktopNavigation />
+      <Hamburger />
     </nav>
   )
 }
