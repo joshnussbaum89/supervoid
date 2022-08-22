@@ -1,3 +1,2 @@
-export default function RentalsPage() {
-  return <p>rentals page</p>
-}
+// TODO: build Rentals page
+export default function RentalsPage() {}
