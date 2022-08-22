@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import supernova from '../../public/images/supernova-site-background.png'
-import { backgroundImage } from './HeroBackground.module.css'
+import { backgroundImage } from './HomePageHeroBackground.module.css'
 
-export default function HeroBackground() {
+export default function HomePageHeroBackground() {
   return (
     <div className={backgroundImage}>
       <Image

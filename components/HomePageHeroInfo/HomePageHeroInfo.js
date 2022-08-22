@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import titleImage from '../../public/images/supervoid-title-text-no-tv.png'
-import { info, title, ctaContainer } from './HeroInfo.module.css'
+import { info, title, ctaContainer } from './HomePageHeroInfo.module.css'
 
-export default function HeroInfo() {
+export default function HomePageHeroInfo() {
   return (
     <section className={info}>
       <div className={title}>

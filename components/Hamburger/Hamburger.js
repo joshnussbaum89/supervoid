@@ -1,8 +1,14 @@
-import { hamburger, top, bottom } from './Hamburger.module.css'
+import { hamburger, top, bottom, active } from './Hamburger.module.css'
 
-export default function Hamburger() {
+export default function Hamburger({
+  handleMobileNavDisplay,
+  mobileNavIsActive,
+}) {
   return (
-    <div className={hamburger}>
+    <div
+      onClick={handleMobileNavDisplay}
+      className={mobileNavIsActive ? `${hamburger} ${active}` : `${hamburger}`}
+    >
       <div className={top}></div>
       <div className={bottom}></div>
     </div>

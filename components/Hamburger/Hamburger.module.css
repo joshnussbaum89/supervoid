@@ -33,11 +33,10 @@
   transition: all 0.4s ease;
 }
 
-/* TODO: build active hamburger logic */
-/* .hamburger.active .top {
+.hamburger.active .top {
   transform: translateY(2.5px) rotate(45deg);
 }
 
 .hamburger.active .bottom {
   transform: translateY(-2.5px) rotate(-45deg);
-} */
+}
