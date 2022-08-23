@@ -38,6 +38,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  overflow: auto;
 }
 
 html {
@@ -103,4 +104,24 @@ li {
 a {
   text-decoration: none;
   color: var(--color-white);
+}
+
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--color-black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-white);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-white);
 }
