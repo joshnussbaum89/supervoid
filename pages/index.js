@@ -1,6 +1,13 @@
 import Head from 'next/head'
+import Portfolio from '../components/Portfolio/Portfolio'
+import About from '../components/About/About'
+import useSWR from 'swr'
+
+const fetchProjectData = (url) => fetch(url).then((res) => res.json())
 
 export default function Home() {
+  const { data, error } = useSWR('/api/staticdata', fetchProjectData)
+
   return (
     <>
       <Head>
@@ -17,6 +24,8 @@ export default function Home() {
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
       </Head>
+      <Portfolio projectData={data} projectDataError={error} />
+      <About />
     </>
   )
 }

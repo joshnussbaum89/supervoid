@@ -1,0 +1,55 @@
+.portfolio {
+  padding-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  .portfolio {
+    padding-top: 9rem;
+  }
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .projects {
+    margin: auto;
+    max-width: 1440px;
+  }
+}
+
+.projectContainer {
+  position: relative;
+}
+
+.projectContainer span {
+  padding: 0 !important;
+}
+
+.image {
+  object-fit: contain;
+  position: relative !important;
+  height: unset !important;
+}
+
+.projectContainer .projectOverlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-faded-black);
+  color: var(--color-white);
+  transition: all 0.4s ease;
+}
+
+.projectContainer .projectOverlay h3 {
+  text-align: end;
+  padding: 0.75rem 0.75rem 0.5rem;
+}
