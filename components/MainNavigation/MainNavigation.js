@@ -1,18 +1,17 @@
-// TODO: create hide/show onScroll logic
-
 import Image from 'next/image'
 import Link from 'next/link'
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation'
 import Hamburger from '../Hamburger/Hamburger'
 import siteLogo from '../../public/images/supervoid-logo-voidstar-stylized.png'
-import { navigation, logo } from './MainNavigation.module.css'
+import { navigation, logo, show } from './MainNavigation.module.css'
 
 export default function MainNavigation({
-  handleMobileNavDisplay,
+  mainNavIsVisible,
   mobileNavIsActive,
+  handleMobileNavDisplay,
 }) {
   return (
-    <nav className={navigation}>
+    <nav className={mainNavIsVisible ? `${navigation} ${show}` : navigation}>
       <Link href="/">
         <div
           onClick={mobileNavIsActive ? handleMobileNavDisplay : null}

@@ -4,19 +4,17 @@
   align-items: center;
   width: 100%;
   position: fixed;
-  /* TODO: build hide/show logic */
-  /* top: -102px; */
-  top: 0;
+  top: -150px;
   z-index: 3;
-  /* opacity: 0; */
+  opacity: 0;
   background: var(--color-black);
-  /* transition: all 0.4s ease; */
+  transition: all 0.4s ease;
 }
 
-/* .navigation.show {
+.navigation.show {
   top: 0;
   opacity: 1;
-} */
+}
 
 .navigation .logo {
   width: 8rem;

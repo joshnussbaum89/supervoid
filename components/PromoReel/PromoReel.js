@@ -7,7 +7,6 @@ export default function PromoReel({ reelIsActive, handleReelDisplay }) {
         src="https://player.vimeo.com/video/690321472?h=e01e074c87&title=0&byline=0&portrait=0"
         frameBorder="0"
         allow="autoplay; fullscreen; picture-in-picture"
-        same
       ></iframe>
       <div className={close} onClick={handleReelDisplay}>
         <div className={top}></div>
