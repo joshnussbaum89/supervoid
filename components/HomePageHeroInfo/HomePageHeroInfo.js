@@ -12,10 +12,7 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
           placeholder="blur"
         />
       </div>
-      <p>
-        We are a team of animators, designers, engineers, and programmers,
-        working together to bring wild stuff to your screen.
-      </p>
+      <p>Psychedelic Dreams for Stage + Screen</p>
       <div className={ctaContainer}>
         <button onClick={handleReelDisplay}>2022 reel</button>
       </div>

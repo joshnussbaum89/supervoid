@@ -1,14 +1,30 @@
-import { about, contactInfo, email } from './About.module.css'
+// TODO: break out into separate component once design confirmed with Drew
+
+import Image from 'next/image'
+import drewAndKeppler from '../../public/images/drew-keppler-2005.jpg'
+import {
+  about,
+  contactInfo,
+  email,
+  imageContainer,
+  services,
+} from './About.module.css'
 
 export default function About() {
   return (
     <section id="about" className={about}>
       <h2>About</h2>
       <p>
-        <span>SUPERVOID</span> is a creative studio from Philadelphia, PA. We
-        create atmosphere and tell stories through lighting and visuals. We are
-        a diverse team of animators, designers, engineers, and programmers,
-        working together under a united vision.
+        <span>supervoid</span> is the Philly-based studio of Drew Mercadante +
+        Matt Keppler.
+      </p>
+      <p>
+        Music videos, live performance visuals, and social media content make up
+        the majority of their projects. Veering from techno-psychedelia to adult
+        swim-esque chaotic whimsy, their work is a reflection of who they are -
+        best friends who grew up playing in punk bands together. Always
+        evolving, never taking it too seriously. If it looks like something
+        you&apos;ve already seen before, then what was the point of making it?
       </p>
       <div className={contactInfo}>
         <a
@@ -21,6 +37,32 @@ export default function About() {
           </svg>
         </a>
         <p className={email}>info@supervoid.tv</p>
+      </div>
+      <figure className={imageContainer}>
+        <Image
+          src={drewAndKeppler}
+          layout="responsive"
+          alt="Highschool yearbook photo of Drew Mercedante and Matt Keppler"
+        />
+        <figcaption>2005 - present</figcaption>
+      </figure>
+      <div className={services}>
+        <h3>Services</h3>
+        <ul>
+          <li>Creative/Show Direction</li>
+          <li>Lighting Design</li>
+          <li>Lighting Programming</li>
+          <li>Screens Producer</li>
+          <li>Media Server Programming</li>
+          <li>Multi-Cam Director</li>
+          <li>Notch</li>
+          <li>2D & Cel Animation</li>
+          <li>Webcast/Streaming</li>
+          <li>Design/Illustration</li>
+          <li>Cinematography</li>
+          <li>Typography</li>
+          <li>Analog Video</li>
+        </ul>
       </div>
     </section>
   )
