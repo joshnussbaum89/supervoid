@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import Image from 'next/image'
+import ProjectModal from '../ProjectModal/ProjectModal'
 import {
   portfolio,
   projects,
@@ -8,6 +10,20 @@ import {
 } from './Portfolio.module.css'
 
 export default function Portfolio({ projectData, projectDataError }) {
+  const [modalIsActive, setModalIsActive] = useState(false)
+  const [modalData, setModalData] = useState({})
+
+  const handleModalDisplay = (event) => {
+    const { currentTarget } = event
+
+    const gif = currentTarget.getAttribute('data-gif')
+    const client = currentTarget.getAttribute('data-client')
+    const project = currentTarget.getAttribute('data-project')
+    const description = currentTarget.getAttribute('data-description')
+
+    setModalIsActive(!modalIsActive)
+    setModalData({ gif, client, project, description })
+  }
   return (
     <section id="portfolio" className={portfolio}>
       <h2>portfolio</h2>
@@ -18,7 +34,15 @@ export default function Portfolio({ projectData, projectDataError }) {
       ) : (
         <div className={projects}>
           {JSON.parse(projectData).map((project) => (
-            <div className={projectContainer} key={project.id}>
+            <div
+              className={projectContainer}
+              key={project.id}
+              data-gif={project.gif}
+              data-client={project.client}
+              data-project={project.project}
+              data-description={project.description}
+              onClick={handleModalDisplay}
+            >
               <Image
                 className={image}
                 src={project.gif}
@@ -34,6 +58,11 @@ export default function Portfolio({ projectData, projectDataError }) {
           ))}
         </div>
       )}
+      <ProjectModal
+        modalIsActive={modalIsActive}
+        modalData={modalData}
+        handleModalDisplay={handleModalDisplay}
+      />
     </section>
   )
 }

@@ -30,6 +30,12 @@
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .projectContainer {
+    cursor: pointer;
+  }
+}
+
 .projectContainer span {
   padding: 0 !important;
 }
@@ -52,4 +58,10 @@
 .projectContainer .projectOverlay h3 {
   text-align: end;
   padding: 0.75rem 0.75rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .projectContainer .projectOverlay h3 {
+    padding: 1rem 1rem 0.66rem;
+  }
 }
