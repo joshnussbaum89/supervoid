@@ -21,7 +21,6 @@ export default function MainNavigation({
             src={siteLogo}
             title="Supervoid"
             alt="Supervoid Logo Voidstar Stylized"
-            placeholder="blur"
             priority
           />
         </div>

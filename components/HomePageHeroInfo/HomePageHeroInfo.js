@@ -6,12 +6,7 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
   return (
     <section className={info}>
       <div className={title}>
-        <Image
-          src={titleImage}
-          alt="Supervoid.tv Site Title"
-          placeholder="blur"
-          priority
-        />
+        <Image src={titleImage} alt="Supervoid.tv Site Title" priority />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
       <div className={ctaContainer}>

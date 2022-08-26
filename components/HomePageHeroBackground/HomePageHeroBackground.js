@@ -8,7 +8,6 @@ export default function HomePageHeroBackground() {
       <Image
         src={supernova}
         alt="Exploding supernova with black and white clouds"
-        placeholder="blur"
         priority
       />
     </div>
