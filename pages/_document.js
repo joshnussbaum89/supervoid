@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 
 export default class MyDocument extends Document {
   render() {
@@ -20,6 +21,10 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <Script
+            src="https://player.vimeo.com/api/player.js"
+            strategy="beforeInteractive"
+          />
         </body>
       </Html>
     )

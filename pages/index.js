@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Portfolio from '../components/Portfolio/Portfolio'
 import About from '../components/About/About'
-import useSWR from 'swr'
+// import useSWR from 'swr'
 
 // TODO: get rid of this shit. just put it in an object.
+// TRY: including the Vimeo <script> https://nextjs.org/docs/basic-features/script
 // const fetchProjectData = (url) => fetch(url).then((res) => res.json())
 const data = [
   {
