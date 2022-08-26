@@ -50,6 +50,7 @@ export default function Portfolio({ projectData }) {
               width="100%"
               height="100%"
               layout="responsive"
+              priority
             />
             <div className={projectOverlay}>
               <h3>{project.client}</h3>

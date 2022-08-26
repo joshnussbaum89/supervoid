@@ -10,6 +10,7 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
           src={titleImage}
           alt="Supervoid.tv Site Title"
           placeholder="blur"
+          priority
         />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
