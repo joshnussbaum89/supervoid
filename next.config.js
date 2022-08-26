@@ -4,7 +4,6 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['videoapi-muybridge.vimeocdn.com'],
-    unoptimized: true,
   },
 }
 
