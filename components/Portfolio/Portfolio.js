@@ -24,7 +24,7 @@ export default function Portfolio({ projectData }) {
     setModalIsActive(!modalIsActive)
     setModalData({ gif, client, project, description })
   }
-  
+
   return (
     <section id="portfolio" className={portfolio}>
       <h2>portfolio</h2>
