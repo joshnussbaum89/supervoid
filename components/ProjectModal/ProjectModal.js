@@ -36,7 +36,7 @@ export default function ProjectModal({
     setModalData({ id, gif, client, project, description })
   }
 
-  const handleNavigationClick = () => (direction) => {
+  const handleNavigationClick = (direction) => {
     if (direction === 'previous') {
       setCurrentProjectID((currentProjectID -= 1))
     } else {
@@ -58,7 +58,7 @@ export default function ProjectModal({
             <div className={projectNavigation}>
               <div
                 className={navigateLeft}
-                onClick={handleNavigationClick('previous')}
+                onClick={() => handleNavigationClick('previous')}
               >
                 <svg
                   version="1.1"
@@ -77,7 +77,7 @@ export default function ProjectModal({
               </div>
               <div
                 className={navigateRight}
-                onClick={handleNavigationClick('next')}
+                onClick={() => handleNavigationClick('next')}
               >
                 <svg
                   version="1.1"
