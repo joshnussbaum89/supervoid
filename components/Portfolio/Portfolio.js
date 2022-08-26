@@ -9,7 +9,7 @@ import {
   projectOverlay,
 } from './Portfolio.module.css'
 
-export default function Portfolio({ projectData, projectDataError }) {
+export default function Portfolio({ projectData }) {
   const [modalIsActive, setModalIsActive] = useState(false)
   const [modalData, setModalData] = useState({})
 
@@ -24,14 +24,10 @@ export default function Portfolio({ projectData, projectDataError }) {
     setModalIsActive(!modalIsActive)
     setModalData({ gif, client, project, description })
   }
+  
   return (
     <section id="portfolio" className={portfolio}>
       <h2>portfolio</h2>
-      {/* {projectDataError ? (
-        <h3>Failed to load portfolio, please reload the page and try again</h3>
-      ) : !projectData ? (
-        <h3>Loading...</h3>
-      ) : ( */}
       <div className={projects}>
         {projectData.map((project) => (
           <div
@@ -57,8 +53,6 @@ export default function Portfolio({ projectData, projectDataError }) {
           </div>
         ))}
       </div>
-      {/* ) */}
-      {/* } */}
       <ProjectModal
         modalIsActive={modalIsActive}
         modalData={modalData}
