@@ -21,6 +21,7 @@ export default function ProjectModal({
   modalIsActive,
   modalData,
   handleModalDisplay,
+  vimeoIoImageLoader,
 }) {
   const { gif, client, project, description } = modalData
 
@@ -69,6 +70,7 @@ export default function ProjectModal({
             </div>
             <Image
               className={image}
+              loader={vimeoIoImageLoader}
               src={gif}
               alt={`${client} ${project}`}
               width="100%"

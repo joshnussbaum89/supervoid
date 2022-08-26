@@ -60,6 +60,7 @@ export default function Portfolio({ projectData }) {
         ))}
       </div>
       <ProjectModal
+        vimeoIoImageLoader={vimeoIoImageLoader}
         modalIsActive={modalIsActive}
         modalData={modalData}
         handleModalDisplay={handleModalDisplay}
