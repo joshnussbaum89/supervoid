@@ -8,7 +8,9 @@ const nextConfig = {
     domains: ['videoapi-muybridge.vimeocdn.com'],
   },
   // Use the CDN in production and localhost for development.
-  assetPrefix: isProd ? 'https://videoapi-muybridge.vimeocdn.com' : undefined,
+  assetPrefix: isProd
+    ? 'https://videoapi-muybridge.vimeocdn.com'
+    : 'https://videoapi-muybridge.vimeocdn.com',
 }
 
 module.exports = nextConfig
