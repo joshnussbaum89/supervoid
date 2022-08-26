@@ -12,17 +12,20 @@ import {
 export default function Portfolio({ projectData }) {
   const [modalIsActive, setModalIsActive] = useState(false)
   const [modalData, setModalData] = useState({})
+  const [currentProjectID, setCurrentProjectID] = useState(0)
 
   const handleModalDisplay = (event) => {
     const { currentTarget } = event
 
+    const id = +currentTarget.getAttribute('data-id')
     const gif = currentTarget.getAttribute('data-gif')
     const client = currentTarget.getAttribute('data-client')
     const project = currentTarget.getAttribute('data-project')
     const description = currentTarget.getAttribute('data-description')
 
     setModalIsActive(!modalIsActive)
-    setModalData({ gif, client, project, description })
+    setModalData({ id, gif, client, project, description })
+    setCurrentProjectID(id)
   }
 
   const vimeoIoImageLoader = ({ src, width, quality }) =>
@@ -36,6 +39,7 @@ export default function Portfolio({ projectData }) {
           <div
             className={projectContainer}
             key={project.id}
+            data-id={project.id}
             data-gif={project.gif}
             data-client={project.client}
             data-project={project.project}
@@ -59,8 +63,12 @@ export default function Portfolio({ projectData }) {
       </div>
       <ProjectModal
         vimeoIoImageLoader={vimeoIoImageLoader}
+        projectData={projectData}
         modalIsActive={modalIsActive}
         modalData={modalData}
+        setModalData={setModalData}
+        currentProjectID={currentProjectID}
+        setCurrentProjectID={setCurrentProjectID}
         handleModalDisplay={handleModalDisplay}
       />
     </section>

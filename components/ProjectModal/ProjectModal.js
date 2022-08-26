@@ -1,3 +1,5 @@
+// TODO: show/hide navigation arrows when all the way left or right
+
 import Image from 'next/image'
 import {
   projectModal,
@@ -18,12 +20,31 @@ import {
 } from './ProjectModal.module.css'
 
 export default function ProjectModal({
+  vimeoIoImageLoader,
+  projectData,
   modalIsActive,
   modalData,
+  setModalData,
+  currentProjectID,
+  setCurrentProjectID,
   handleModalDisplay,
-  vimeoIoImageLoader,
 }) {
-  const { gif, client, project, description } = modalData
+  const updateModalData = () => {
+    const { id, gif, client, project, description } =
+      projectData[currentProjectID]
+
+    setModalData({ id, gif, client, project, description })
+  }
+
+  const handleNavigationClick = () => (direction) => {
+    if (direction === 'previous') {
+      setCurrentProjectID((currentProjectID -= 1))
+    } else {
+      setCurrentProjectID((currentProjectID += 1))
+    }
+
+    updateModalData()
+  }
 
   return (
     <>
@@ -35,7 +56,10 @@ export default function ProjectModal({
               <div className={bottom}></div>
             </div>
             <div className={projectNavigation}>
-              <div className={navigateLeft}>
+              <div
+                className={navigateLeft}
+                onClick={handleNavigationClick('previous')}
+              >
                 <svg
                   version="1.1"
                   id="Capa_1"
@@ -51,7 +75,10 @@ export default function ProjectModal({
                   </g>
                 </svg>
               </div>
-              <div className={navigateRight}>
+              <div
+                className={navigateRight}
+                onClick={handleNavigationClick('next')}
+              >
                 <svg
                   version="1.1"
                   id="Capa_1"
@@ -71,21 +98,21 @@ export default function ProjectModal({
             <Image
               className={image}
               loader={vimeoIoImageLoader}
-              src={gif}
-              alt={`${client} ${project}`}
+              src={modalData.gif}
+              alt={`${modalData.client} ${modalData.project}`}
               width="100%"
               height="100%"
               layout="responsive"
             />
             <div className={modalInfo}>
-              <h3 className={modalClient}>{client}</h3>
+              <h3 className={modalClient}>{modalData.client}</h3>
               <p className={modalProject}>
                 <span className={modalLabel}>Project: </span>
-                {project}
+                {modalData.project}
               </p>
               <p className={modalDate}>
                 <span className={modalLabel}>Description: </span>
-                {description}
+                {modalData.description}
               </p>
             </div>
           </div>
