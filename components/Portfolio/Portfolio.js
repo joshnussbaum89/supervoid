@@ -25,7 +25,8 @@ export default function Portfolio({ projectData }) {
     setModalData({ gif, client, project, description })
   }
 
-  const vimeoIoImageLoader = ({ src, width, quality }) => `${src}`
+  const vimeoIoImageLoader = ({ src, width, quality }) =>
+    `${src}&w=${width}&q=${quality || 75}`
 
   return (
     <section id="portfolio" className={portfolio}>

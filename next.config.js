@@ -5,11 +5,6 @@ const nextConfig = {
   images: {
     domains: ['videoapi-muybridge.vimeocdn.com'],
   },
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
-  },
 }
 
 module.exports = nextConfig
