@@ -38,46 +38,6 @@
   }
 }
 
-.modalContent span {
-  padding: 0 !important;
-}
-
-.image {
-  object-fit: contain;
-  position: relative !important;
-  height: unset !important;
-}
-
-.modalInfo {
-  height: 8rem;
-}
-
-.modalInfo p {
-  font-size: var(--extraSmall);
-  color: var(--color-grey);
-  margin-bottom: 0.75rem;
-}
-
-@media (min-width: 768px) {
-  .modalInfo p {
-    font-size: var(--small);
-  }
-}
-
-.modalInfo .modalLabel {
-  color: var(--color-white);
-}
-
-.modalInfo h3 {
-  text-align: left;
-  margin-bottom: 1rem;
-  padding: 0;
-}
-
-.modalDate {
-  padding-bottom: 3rem;
-}
-
 .close {
   position: absolute;
   top: 9px;
@@ -141,4 +101,45 @@
 
 .navigateRight svg {
   transform: rotate(180deg);
+}
+
+.image {
+  object-fit: contain;
+  position: relative !important;
+  height: unset !important;
+  user-select: none;
+}
+
+.modalContent span {
+  padding: 0 !important;
+}
+
+.modalInfo {
+  height: 8rem;
+}
+
+.modalInfo h3 {
+  text-align: left;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.modalInfo p {
+  font-size: var(--extraSmall);
+  color: var(--color-grey);
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .modalInfo p {
+    font-size: var(--small);
+  }
+}
+
+.modalDate {
+  padding-bottom: 3rem;
+}
+
+.modalDate .modalLabel {
+  color: var(--color-white);
 }

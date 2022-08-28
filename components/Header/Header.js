@@ -45,39 +45,36 @@ export default function Header() {
   const handleReelDisplay = () => setReelIsActive(!reelIsActive)
 
   // Determine header styling based on currently displayed page
-  const navigationToDisplay =
-    pathname === '/' ? (
-      <header className={homeHeader}>
-        <MainNavigation
-          handleMobileNavDisplay={handleMobileNavDisplay}
-          mobileNavIsActive={mobileNavIsActive}
-          mainNavIsVisible={mainNavIsVisible}
-        />
-        <HomePageHeroInfo handleReelDisplay={handleReelDisplay} />
-        <HomePageHeroBackground />
-        <PromoReel
-          handleReelDisplay={handleReelDisplay}
-          reelIsActive={reelIsActive}
-        />
-        <MobileNavigation
-          handleMobileNavDisplay={handleMobileNavDisplay}
-          mobileNavIsActive={mobileNavIsActive}
-        />
-      </header>
-    ) : pathname === '/rentals' ? (
-      <header className={rentalsHeader}>
-        <MainNavigation
-          handleMobileNavDisplay={handleMobileNavDisplay}
-          mobileNavIsActive={mobileNavIsActive}
-          mainNavIsVisible={mainNavIsVisible}
-        />
-        <PageTitle title="Rentals" />
-        <MobileNavigation
-          handleMobileNavDisplay={handleMobileNavDisplay}
-          mobileNavIsActive={mobileNavIsActive}
-        />
-      </header>
-    ) : null
-
-  return <>{navigationToDisplay}</>
+  return pathname === '/' ? (
+    <header className={homeHeader}>
+      <MainNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+        mainNavIsVisible={mainNavIsVisible}
+      />
+      <HomePageHeroInfo handleReelDisplay={handleReelDisplay} />
+      <HomePageHeroBackground />
+      <PromoReel
+        handleReelDisplay={handleReelDisplay}
+        reelIsActive={reelIsActive}
+      />
+      <MobileNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+      />
+    </header>
+  ) : pathname === '/rentals' ? (
+    <header className={rentalsHeader}>
+      <MainNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+        mainNavIsVisible={mainNavIsVisible}
+      />
+      <PageTitle title="Rentals" />
+      <MobileNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+      />
+    </header>
+  ) : null
 }
