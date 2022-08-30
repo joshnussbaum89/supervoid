@@ -136,10 +136,10 @@
   }
 }
 
-.modalDate {
-  padding-bottom: 3rem;
+.modalInfo .modalLabel {
+  color: var(--color-white);
 }
 
-.modalDate .modalLabel {
-  color: var(--color-white);
+.modalDate {
+  padding-bottom: 3rem;
 }
