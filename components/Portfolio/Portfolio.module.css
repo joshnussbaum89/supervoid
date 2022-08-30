@@ -35,13 +35,11 @@
     cursor: pointer;
   }
 }
-
 .projectContainer span {
   padding: 0 !important;
 }
 
 .image {
-  object-fit: contain;
   position: relative !important;
   height: unset !important;
 }

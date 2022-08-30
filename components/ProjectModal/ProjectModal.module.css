@@ -104,7 +104,6 @@
 }
 
 .image {
-  object-fit: contain;
   position: relative !important;
   height: unset !important;
   user-select: none;

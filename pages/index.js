@@ -2,7 +2,30 @@ import Head from 'next/head'
 import Portfolio from '../components/Portfolio/Portfolio'
 import About from '../components/About/About'
 
-export default function Home() {
+export default function Home({ data }) {
+  return (
+    <>
+      <Head>
+        <title>
+          SUPERVOID: Custom Stage Visuals, Animations, Music Videos,
+          Livestreaming and more
+        </title>
+        <meta
+          name="description"
+          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
+        />
+        <meta
+          name="keywords"
+          content="lighting, music, video, concerts, film, design, animation, philadelphia"
+        />
+      </Head>
+      <Portfolio projectData={data} />
+      <About />
+    </>
+  )
+}
+
+export async function getStaticProps() {
   const data = [
     {
       id: 0,
@@ -219,24 +242,9 @@ export default function Home() {
     },
   ]
 
-  return (
-    <>
-      <Head>
-        <title>
-          SUPERVOID: Custom Stage Visuals, Animations, Music Videos,
-          Livestreaming and more
-        </title>
-        <meta
-          name="description"
-          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
-        />
-        <meta
-          name="keywords"
-          content="lighting, music, video, concerts, film, design, animation, philadelphia"
-        />
-      </Head>
-      <Portfolio projectData={data} />
-      <About />
-    </>
-  )
+  return {
+    props: {
+      data,
+    },
+  }
 }
