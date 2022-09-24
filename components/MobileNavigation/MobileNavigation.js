@@ -1,5 +1,8 @@
+// Components
 import Link from 'next/link'
-import { navigation, active } from './MobileNavigation.module.css'
+
+// Styles
+import styles from './MobileNavigation.module.css'
 
 export default function MobileNavigation({
   handleMobileNavDisplay,
@@ -8,7 +11,9 @@ export default function MobileNavigation({
   return (
     <nav
       className={
-        mobileNavIsActive ? `${navigation} ${active}` : `${navigation}`
+        mobileNavIsActive
+          ? `${styles.navigation} ${styles.active}`
+          : `${styles.navigation}`
       }
     >
       <ul>

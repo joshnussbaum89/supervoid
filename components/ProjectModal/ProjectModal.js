@@ -1,22 +1,10 @@
 // TODO: fix container layout shift when modal GIF loads
 
+// Components
 import Image from 'next/image'
-import {
-  projectModal,
-  active,
-  modalContent,
-  close,
-  top,
-  bottom,
-  projectNavigation,
-  navigateLeft,
-  navigateRight,
-  hide,
-  image,
-  modalInfo,
-  modalLabel,
-  modalDate,
-} from './ProjectModal.module.css'
+
+// Styles
+import styles from './ProjectModal.module.css'
 
 export default function ProjectModal({
   vimeoIoImageLoader,
@@ -48,16 +36,18 @@ export default function ProjectModal({
   }
 
   return modalIsActive ? (
-    <div className={`${projectModal} ${active}`}>
-      <div className={modalContent}>
-        <div className={close} onClick={handleModalDisplay}>
-          <div className={top}></div>
-          <div className={bottom}></div>
+    <div className={`${styles.projectModal} ${styles.active}`}>
+      <div className={styles.modalContent}>
+        <div className={styles.close} onClick={handleModalDisplay}>
+          <div className={styles.top}></div>
+          <div className={styles.bottom}></div>
         </div>
-        <div className={projectNavigation}>
+        <div className={styles.projectNavigation}>
           <div
             className={
-              currentProjectID === 0 ? `${navigateLeft} ${hide}` : navigateLeft
+              currentProjectID === 0
+                ? `${styles.navigateLeft} ${styles.hide}`
+                : styles.navigateLeft
             }
             onClick={() => handleNavigationClick('previous')}
           >
@@ -79,8 +69,8 @@ export default function ProjectModal({
           <div
             className={
               currentProjectID === projectData.length - 1
-                ? `${navigateRight} ${hide}`
-                : navigateRight
+                ? `${styles.navigateRight} ${styles.hide}`
+                : styles.navigateRight
             }
             onClick={() => handleNavigationClick('next')}
           >
@@ -101,7 +91,7 @@ export default function ProjectModal({
           </div>
         </div>
         <Image
-          className={image}
+          className={styles.image}
           loader={vimeoIoImageLoader}
           src={modalData.gif}
           alt={`${modalData.client} ${modalData.project}`}
@@ -109,20 +99,20 @@ export default function ProjectModal({
           height="100%"
           layout="responsive"
         />
-        <div className={modalInfo}>
+        <div className={styles.modalInfo}>
           <h3>{modalData.client}</h3>
           <p>
-            <span className={modalLabel}>Project: </span>
+            <span className={styles.modalLabel}>Project: </span>
             {modalData.project}
           </p>
-          <p className={modalDate}>
-            <span className={modalLabel}>Description: </span>
+          <p className={styles.modalDate}>
+            <span className={styles.modalLabel}>Description: </span>
             {modalData.description}
           </p>
         </div>
       </div>
     </div>
   ) : (
-    <div className={projectModal}></div>
+    <div className={styles.projectModal}></div>
   )
 }

@@ -1,9 +1,12 @@
+// Components
 import Image from 'next/image'
 import Link from 'next/link'
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation'
 import Hamburger from '../Hamburger/Hamburger'
+
+// Styles
+import styles from './MainNavigation.module.css'
 import siteLogo from '../../public/images/supervoid-logo-voidstar-stylized.png'
-import { navigation, logo, show } from './MainNavigation.module.css'
 
 export default function MainNavigation({
   mainNavIsVisible,
@@ -11,11 +14,17 @@ export default function MainNavigation({
   handleMobileNavDisplay,
 }) {
   return (
-    <nav className={mainNavIsVisible ? `${navigation} ${show}` : navigation}>
+    <nav
+      className={
+        mainNavIsVisible
+          ? `${styles.navigation} ${styles.show}`
+          : styles.navigation
+      }
+    >
       <Link href="/">
         <div
           onClick={mobileNavIsActive ? handleMobileNavDisplay : null}
-          className={logo}
+          className={styles.logo}
         >
           <Image
             src={siteLogo}

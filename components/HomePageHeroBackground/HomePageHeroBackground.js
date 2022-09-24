@@ -1,10 +1,13 @@
+// Components
 import Image from 'next/image'
+
+// Styles, images
+import styles from './HomePageHeroBackground.module.css'
 import supernova from '../../public/images/supernova-site-background.png'
-import { backgroundImage } from './HomePageHeroBackground.module.css'
 
 export default function HomePageHeroBackground() {
   return (
-    <div className={backgroundImage}>
+    <div className={styles.backgroundImage}>
       <Image
         src={supernova}
         alt="Exploding supernova with black and white clouds"

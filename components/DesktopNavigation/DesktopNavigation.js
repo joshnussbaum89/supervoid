@@ -1,9 +1,12 @@
+// Components
 import Link from 'next/link'
-import { desktopNav } from './DesktopNavigation.module.css'
+
+// Styles
+import styles from './DesktopNavigation.module.css'
 
 export default function DesktopNavigation() {
   return (
-    <ul className={desktopNav}>
+    <ul className={styles.desktopNav}>
       <li>
         <Link href="/#portfolio">Portfolio</Link>
       </li>

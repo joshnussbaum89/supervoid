@@ -1,13 +1,10 @@
+// Components
 import { useState } from 'react'
 import Image from 'next/image'
 import ProjectModal from '../ProjectModal/ProjectModal'
-import {
-  portfolio,
-  projects,
-  projectContainer,
-  image,
-  projectOverlay,
-} from './Portfolio.module.css'
+
+// Styles
+import styles from './Portfolio.module.css'
 
 export default function Portfolio({ projectData }) {
   const [modalIsActive, setModalIsActive] = useState(false)
@@ -32,12 +29,12 @@ export default function Portfolio({ projectData }) {
     `${src}&w=${width}&q=${quality || 75}`
 
   return (
-    <section id="portfolio" className={portfolio}>
+    <section id="portfolio" className={styles.portfolio}>
       <h2>portfolio</h2>
-      <div className={projects}>
+      <div className={styles.projects}>
         {projectData.map((project) => (
           <div
-            className={projectContainer}
+            className={styles.projectContainer}
             key={project.id}
             data-id={project.id}
             data-gif={project.gif}
@@ -48,14 +45,14 @@ export default function Portfolio({ projectData }) {
           >
             <Image
               loader={vimeoIoImageLoader}
-              className={image}
+              className={styles.image}
               src={project.gif}
               alt={`${project.client} - ${project.description}`}
               width="100%"
               height="100%"
               layout="responsive"
             />
-            <div className={projectOverlay}>
+            <div className={styles.projectOverlay}>
               <h3>{project.client}</h3>
             </div>
           </div>

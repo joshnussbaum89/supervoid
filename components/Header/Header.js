@@ -1,3 +1,4 @@
+// Components
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import MainNavigation from '../MainNavigation/MainNavigation'
@@ -6,17 +7,18 @@ import HomePageHeroInfo from '../HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
 import PromoReel from '../PromoReel/PromoReel'
-import { homeHeader, rentalsHeader } from './Header.module.css'
+
+// Styles
+import styles from './Header.module.css'
 
 export default function Header() {
-  // Current user path
-  const { pathname } = useRouter()
-
-  // State
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)
   const [reelIsActive, setReelIsActive] = useState(false)
+
+  // Current user path
+  const { pathname } = useRouter()
 
   // Hide/show main navigation
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function Header() {
 
   // Determine header styling based on currently displayed page
   return pathname === '/' ? (
-    <header className={homeHeader}>
+    <header className={styles.homeHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
@@ -64,7 +66,7 @@ export default function Header() {
       />
     </header>
   ) : pathname === '/rentals' ? (
-    <header className={rentalsHeader}>
+    <header className={styles.rentalsHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
