@@ -221,11 +221,8 @@ export default function Home() {
 
   return (
     <>
+      {/* Head tag for this page only */}
       <Head>
-        <title>
-          SUPERVOID: Custom Stage Visuals, Animations, Music Videos,
-          Livestreaming and more
-        </title>
         <meta
           name="description"
           content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
@@ -234,6 +231,26 @@ export default function Home() {
           name="keywords"
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
+        <meta property="og:title" content="SUPERVOID TV" />
+        <meta
+          property="og:url"
+          // TODO: replace with https://supervoid.tv in PROD
+          content="https://supervoid-next-joshnussbaum89.vercel.app"
+        />
+        <meta
+          property="og:description"
+          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          // TODO: replace with https://supervoid.tv in PROD
+          content="https://supervoid-next-joshnussbaum89.vercel.app/images/supernova-site-background.png"
+        />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:site" content="@SUPERVOIDtv" />
+        <meta property="twitter:creator" content="@SUPERVOIDtv" />
+        <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
       <Portfolio projectData={data} />
       <About />

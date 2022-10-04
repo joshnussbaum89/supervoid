@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 
-// TODO: put code here that will be used on all pages
+// Code that is used on all pages
 export default function Document() {
   return (
     <Html>
@@ -16,7 +16,11 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/images/supervoid-favicon.png" />
+        <link
+          rel="icon"
+          href="/images/supernova-site-background.png"
+          type="image/png"
+        />
       </Head>
       <body>
         <Main />
