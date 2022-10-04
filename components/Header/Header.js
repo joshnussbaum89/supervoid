@@ -11,6 +11,7 @@ import PromoReel from '../PromoReel/PromoReel'
 // Styles
 import styles from './Header.module.css'
 
+// TODO: Should this be dynamic for every page?
 export default function Header() {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)

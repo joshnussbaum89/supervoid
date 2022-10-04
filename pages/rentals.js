@@ -1,4 +1,11 @@
+import Header from '../components/Header/Header'
+
 // TODO: build Rentals page
 export default function RentalsPage() {
-  return <p>rentals...</p>
+  return (
+    <>
+      <Header />
+      <p>rentals...</p>
+    </>
+  )
 }

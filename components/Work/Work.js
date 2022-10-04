@@ -4,9 +4,9 @@ import Image from 'next/future/image'
 import ProjectModal from '../ProjectModal/ProjectModal'
 
 // Styles
-import styles from './Portfolio.module.css'
+import styles from './Work.module.css'
 
-export default function Portfolio({ projectData }) {
+export default function Work({ projectData }) {
   const [modalIsActive, setModalIsActive] = useState(false)
   const [modalData, setModalData] = useState({})
   const [currentProjectID, setCurrentProjectID] = useState(0)
@@ -29,8 +29,8 @@ export default function Portfolio({ projectData }) {
     `${src}&w=${width}&q=${quality || 75}`
 
   return (
-    <section id="portfolio" className={styles.portfolio}>
-      <h2>portfolio</h2>
+    <section id="work" className={styles.work}>
+      <h2>work</h2>
       <div className={styles.projects}>
         {projectData.map((project) => (
           <div

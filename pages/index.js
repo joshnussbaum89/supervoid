@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Portfolio from '../components/Portfolio/Portfolio'
+import Header from '../components/Header/Header'
+import Work from '../components/Work/Work'
 import About from '../components/About/About'
 
 export default function Home() {
@@ -252,8 +253,11 @@ export default function Home() {
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
-      <Portfolio projectData={data} />
-      <About />
+      <Header />
+      <main>
+        <Work projectData={data} />
+        <About />
+      </main>
     </>
   )
 }

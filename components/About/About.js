@@ -1,5 +1,3 @@
-// TODO: break out into separate component once design confirmed with Drew
-
 // Components
 import Image from 'next/image'
 
@@ -9,7 +7,7 @@ import drewAndKeppler from '../../public/images/drew-keppler-2005.jpg'
 
 export default function About() {
   return (
-    <section id="about" className={styles.about}>
+    <footer id="about" className={styles.about}>
       <h2>About</h2>
       <p>
         <span>supervoid</span> is the Philly-based studio of Drew Mercadante +
@@ -61,6 +59,6 @@ export default function About() {
           <li>Analog Video</li>
         </ul>
       </div>
-    </section>
+    </footer>
   )
 }
