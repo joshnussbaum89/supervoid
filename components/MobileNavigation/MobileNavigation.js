@@ -18,13 +18,13 @@ export default function MobileNavigation({
     >
       <ul>
         <li onClick={handleMobileNavDisplay}>
-          <Link href="/#portfolio">Portfolio</Link>
-        </li>
-        <li onClick={handleMobileNavDisplay}>
-          <Link href="/rentals">Rentals</Link>
+          <Link href="/#work">Work</Link>
         </li>
         <li onClick={handleMobileNavDisplay}>
           <Link href="/#about">About</Link>
+        </li>
+        <li onClick={handleMobileNavDisplay}>
+          <Link href="/rentals">Rentals</Link>
         </li>
       </ul>
     </nav>
