@@ -13,9 +13,12 @@
   }
 }
 
+.desktopNav a {
+  transition: var(--transition-normal);
+}
+
 @media (min-width: 768px) {
   .desktopNav a:hover {
-    transition: all 0.25s ease;
     color: var(--color-red);
   }
 }

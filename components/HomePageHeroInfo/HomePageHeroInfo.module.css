@@ -47,7 +47,7 @@
   .info .ctaContainer button {
     height: 5.25rem;
     font-size: var(--medium);
-    transition: all 0.25s ease;
+    transition: var(--transition-normal);
   }
 
   .info .ctaContainer button:hover {

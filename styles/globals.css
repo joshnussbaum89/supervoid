@@ -28,6 +28,8 @@
   --large: 2.25rem;
   --extraLarge: 3.5rem;
   --titleLarge: 5.5rem;
+
+  --transition-normal: all 0.25s ease-in-out;
 }
 
 * {

@@ -25,10 +25,10 @@ export default function Header() {
   useEffect(() => {
     const hideShowMainNavigation = () => {
       if (typeof window !== 'undefined') {
-        if (window.scrollY > previousScrollPosition) {
-          setMainNavIsVisible(false)
-        } else {
+        if (window.scrollY > 0) {
           setMainNavIsVisible(true)
+        } else {
+          setMainNavIsVisible(false)
         }
 
         setPreviousScrollPosition(window.scrollY)

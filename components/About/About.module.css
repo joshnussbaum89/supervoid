@@ -47,7 +47,7 @@
 .contactInfo svg {
   width: 1.5rem;
   fill: var(--color-white);
-  transition: all 0.25s ease;
+  transition: var(--transition-normal);
 }
 
 @media (min-width: 768px) {

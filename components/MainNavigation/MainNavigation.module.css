@@ -4,16 +4,14 @@
   align-items: center;
   width: 100%;
   position: fixed;
-  top: -150px;
+  top: 0;
   z-index: 3;
-  opacity: 0;
-  background: var(--color-black);
-  transition: all 0.4s ease;
+  background: transparent;
+  transition: var(--transition-normal);
 }
 
 .navigation.show {
-  top: 0;
-  opacity: 1;
+  background: var(--color-black);
 }
 
 .navigation .logo {
