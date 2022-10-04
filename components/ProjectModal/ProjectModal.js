@@ -1,7 +1,5 @@
-// TODO: fix container layout shift when modal GIF loads
-
 // Components
-import Image from 'next/image'
+import Image from 'next/future/image'
 
 // Styles
 import styles from './ProjectModal.module.css'
@@ -91,13 +89,12 @@ export default function ProjectModal({
           </div>
         </div>
         <Image
+          src={modalData.gif}
           className={styles.image}
           loader={vimeoIoImageLoader}
-          src={modalData.gif}
           alt={`${modalData.client} ${modalData.project}`}
-          width="100%"
-          height="100%"
-          layout="responsive"
+          width="618"
+          height="347"
         />
         <div className={styles.modalInfo}>
           <h3>{modalData.client}</h3>

@@ -1,6 +1,6 @@
-// Components
+// Components, hooks
 import { useState } from 'react'
-import Image from 'next/image'
+import Image from 'next/future/image'
 import ProjectModal from '../ProjectModal/ProjectModal'
 
 // Styles
@@ -44,13 +44,13 @@ export default function Portfolio({ projectData }) {
             onClick={handleModalDisplay}
           >
             <Image
-              loader={vimeoIoImageLoader}
-              className={styles.image}
               src={project.gif}
+              className={styles.image}
+              loader={vimeoIoImageLoader}
+              loading="lazy"
               alt={`${project.client} - ${project.description}`}
-              width="100%"
-              height="100%"
-              layout="responsive"
+              width="720"
+              height="411"
             />
             <div className={styles.projectOverlay}>
               <h3>{project.client}</h3>

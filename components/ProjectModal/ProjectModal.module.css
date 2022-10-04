@@ -104,13 +104,9 @@
 }
 
 .image {
-  position: relative !important;
-  height: unset !important;
+  width: 100%;
+  height: 100%;
   user-select: none;
-}
-
-.modalContent span {
-  padding: 0 !important;
 }
 
 .modalInfo {
