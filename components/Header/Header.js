@@ -23,22 +23,29 @@ export default function Header() {
 
   // Hide/show main navigation
   useEffect(() => {
+    // On scroll
     const hideShowMainNavigation = () => {
-      if (typeof window !== 'undefined') {
-        if (window.scrollY > 0) {
-          setMainNavIsVisible(true)
-        } else {
-          setMainNavIsVisible(false)
-        }
+      if (window.scrollY > 0) {
+        setMainNavIsVisible(true)
+      } else {
+        setMainNavIsVisible(false)
+      }
+      setPreviousScrollPosition(window.scrollY)
+    }
 
-        setPreviousScrollPosition(window.scrollY)
+    // On resize
+    const hideShowMobileNavigation = () => {
+      if (window.innerWidth > 768) {
+        setMobileNavIsActive(false)
       }
     }
 
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', hideShowMainNavigation)
+      window.addEventListener('resize', hideShowMobileNavigation)
       return () => {
         window.removeEventListener('scroll', hideShowMainNavigation)
+        window.addEventListener('resize', hideShowMobileNavigation)
       }
     }
   }, [previousScrollPosition])
