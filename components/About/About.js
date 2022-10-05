@@ -1,6 +1,17 @@
 // Components
 import Image from 'next/future/image'
 
+// import Swiper core and required modules
+import { Navigation, Pagination, A11y } from 'swiper'
+
+// Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
 // Styles, images
 import styles from './About.module.css'
 import drewAndKepplerPast from '../../public/images/drew-keppler-2005.webp'
@@ -53,30 +64,31 @@ export default function About() {
           </a>
         </div>
       </div>
-      <div
-        className={`${styles.swiper} ${styles.mySwiper}`}
+      <Swiper
+        className={`${styles.swiper} swiper`}
+        modules={[Navigation, Pagination, A11y]}
+        pagination={{ clickable: true }}
         data-aos="fade-up"
         data-aos-duration="600"
       >
-        <div className={styles.swiperWrapper}>
+        <SwiperSlide>
           <Image
             src={drewAndKepplerPast}
-            className={styles.swiperSlide}
             width="632"
             height="355"
             alt="Highschool yearbook photo of Drew Mercedante and Matt Keppler"
           />
+        </SwiperSlide>
+        <SwiperSlide>
           <Image
             src={drewAndKepplerPresent}
-            className={styles.swiperSlide}
             width="632"
             height="355"
             alt="Present day photo of Drew Mercedante and Matt Keppler at the Supervoid office"
           />
-        </div>
-        <div className={styles.swiperPagination}></div>
+        </SwiperSlide>
         <p>2005 - present</p>
-      </div>
+      </Swiper>
       <div
         className={styles.aboutImagesContainer}
         data-aos="fade-up"

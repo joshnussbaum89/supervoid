@@ -127,3 +127,34 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-white);
 }
+
+.swiper {
+  width: 100%;
+  margin: 0 auto 4rem;
+  border-radius: 1%;
+}
+
+@media (min-width: 768px) {
+  .swiper {
+    display: none;
+  }
+}
+
+.swiper-slide img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  border-radius: 1%;
+  cursor: grab;
+}
+
+.swiper .swiper-pagination-bullet {
+  background: var(--color-grey);
+  opacity: 0.5;
+}
+
+.swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--color-white);
+  opacity: 1;
+}
