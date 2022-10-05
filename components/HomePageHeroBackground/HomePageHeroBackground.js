@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 // Styles, images
 import styles from './HomePageHeroBackground.module.css'
-import supernova from '../../public/images/supernova-site-background.png'
+import supernova from '../../public/images/supernova-site-background.webp'
 
 export default function HomePageHeroBackground() {
   return (

@@ -29,17 +29,20 @@
   text-transform: uppercase;
 }
 
+.about .email {
+  margin: 0;
+  color: var(--color-white);
+}
+
 .contactInfo {
   display: flex;
   justify-content: center;
   gap: 3rem;
-  margin: 2rem 0 4rem;
+  margin: 1.5rem 0 4rem;
 }
 
 @media (min-width: 768px) {
   .contactInfo {
-    display: flex;
-    justify-content: center;
     gap: 4rem;
   }
 }
@@ -47,56 +50,110 @@
 .contactInfo svg {
   width: 1.5rem;
   fill: var(--color-white);
-  transition: var(--transition-normal);
 }
 
 @media (min-width: 768px) {
   .contactInfo svg {
     width: 2rem;
+    transition: var(--transition-normal);
   }
+}
 
+@media (min-width: 768px) {
   .contactInfo svg:hover {
     fill: var(--color-red);
     transform: translateY(-2px);
   }
 }
 
-.contactInfo .email {
-  margin: 0;
-  color: var(--color-white);
-}
-
-.imageContainer {
+.swiper {
+  width: 100%;
   margin: 0 auto 4rem;
-  width: 90%;
-  max-width: 40rem;
-  text-align: center;
-}
-
-.imageContainer img {
   border-radius: 1%;
 }
 
-.imageContainer figcaption {
+@media (min-width: 768px) {
+  .swiper {
+    display: none;
+  }
+}
+
+.swiperSlide {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  border-radius: 1%;
+  cursor: grab;
+}
+
+.swiper .swiperPaginationBullet {
+  background: var(--color-grey);
+  opacity: 0.5;
+}
+
+.swiper .swiperPaginationBullet.swiperPaginationBulletActive {
+  background: var(--color-white);
+  opacity: 1;
+}
+
+.swiper p {
   margin-top: 0.5rem;
+  margin-bottom: 2rem;
   font-family: 'IBM Plex Sans KR', sans-serif;
   font-size: var(--extraSmall);
   color: var(--color-white);
 }
 
-.services {
+.aboutImagesContainer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .aboutImagesContainer {
+    display: block;
+    margin: 0 auto 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .aboutImages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+.aboutImages img {
+  margin: auto;
+  min-width: 100%;
+  height: auto;
+  width: 100%;
+  border-radius: 1%;
+}
+
+@media (min-width: 768px) {
+  .aboutImagesContainer p {
+    margin-top: 0.5rem;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-size: var(--extraSmall);
+    color: var(--color-white);
+  }
+}
+
+.aboutServices {
   text-align: center;
 }
 
-.services h3 {
+.aboutServices h3 {
   text-decoration: underline;
 }
 
-.services ul {
+.aboutServices ul {
   padding: 0;
 }
 
-.services li {
+.aboutServices li {
   font-size: var(--extraSmall);
   color: var(--color-grey);
 }

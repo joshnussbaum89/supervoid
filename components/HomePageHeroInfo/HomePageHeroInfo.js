@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 // Styles, images
 import styles from './HomePageHeroInfo.module.css'
-import titleImage from '../../public/images/supervoid-title-text-no-tv.png'
+import titleImage from '../../public/images/supervoid-title-text-no-tv.webp'
 
 export default function HomePageHeroInfo({ handleReelDisplay }) {
   return (
