@@ -14,6 +14,7 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
           width={832}
           height={120}
           priority
+          placeholder="blur"
           alt="Supervoid title image text"
         />
       </div>
