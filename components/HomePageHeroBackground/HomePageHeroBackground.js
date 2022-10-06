@@ -13,6 +13,7 @@ export default function HomePageHeroBackground() {
         width={800}
         height={800}
         priority
+        placeholder="blur"
         alt="Exploding supernova with black and white clouds"
       />
     </div>
