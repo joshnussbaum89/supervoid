@@ -47,10 +47,9 @@ export default function Work({ projectData }) {
               src={project.gif}
               className={styles.image}
               loader={vimeoIoImageLoader}
-              loading="lazy"
+              width={720}
+              height={405}
               alt={`${project.client} - ${project.description}`}
-              width="720"
-              height="411"
             />
             <div className={styles.projectOverlay}>
               <h3>{project.client}</h3>

@@ -93,8 +93,8 @@ export default function ProjectModal({
           className={styles.image}
           loader={vimeoIoImageLoader}
           alt={`${modalData.client} ${modalData.project}`}
-          width="618"
-          height="347"
+          width={618}
+          height={347}
         />
         <div className={styles.modalInfo}>
           <h3>{modalData.client}</h3>

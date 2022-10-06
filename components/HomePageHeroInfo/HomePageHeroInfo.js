@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/image'
+import Image from 'next/future/image'
 
 // Styles, images
 import styles from './HomePageHeroInfo.module.css'
@@ -9,7 +9,13 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
   return (
     <section className={styles.info}>
       <div className={styles.title}>
-        <Image src={titleImage} alt="Supervoid title image text" priority />
+        <Image
+          src={titleImage}
+          width={832}
+          height={120}
+          priority
+          alt="Supervoid title image text"
+        />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
       <div className={styles.ctaContainer}>

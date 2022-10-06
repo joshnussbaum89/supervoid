@@ -88,7 +88,8 @@ h3 {
 p,
 li,
 a,
-button {
+button,
+figcaption {
   font-family: inherit;
   font-weight: 300;
   letter-spacing: 0.1rem;
@@ -157,4 +158,11 @@ a {
 .swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: var(--color-white);
   opacity: 1;
+}
+
+/* Remove light grey border from loading images */
+@media not all and (min-resolution: 0.001dpcm) {
+  img[loading='lazy'] {
+    clip-path: inset(0.5px);
+  }
 }

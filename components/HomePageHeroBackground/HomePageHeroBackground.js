@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/image'
+import Image from 'next/future/image'
 
 // Styles, images
 import styles from './HomePageHeroBackground.module.css'
@@ -10,8 +10,10 @@ export default function HomePageHeroBackground() {
     <div className={styles.backgroundImage}>
       <Image
         src={supernova}
-        alt="Exploding supernova with black and white clouds"
+        width={800}
+        height={800}
         priority
+        alt="Exploding supernova with black and white clouds"
       />
     </div>
   )

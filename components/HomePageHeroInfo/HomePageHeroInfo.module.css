@@ -8,10 +8,16 @@
   z-index: 1;
 }
 
-.info .title {
+.title {
   margin: auto;
   width: 95%;
   max-width: 52rem;
+}
+
+.title img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .info p {
