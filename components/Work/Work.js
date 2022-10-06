@@ -42,6 +42,8 @@ export default function Work({ projectData }) {
             data-project={project.project}
             data-description={project.description}
             onClick={handleModalDisplay}
+            data-aos="fade-up"
+            data-aos-duration="600"
           >
             <Image
               src={project.gif}

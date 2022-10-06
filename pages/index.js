@@ -1,7 +1,14 @@
+// Hooks
+import { useEffect } from 'react'
+
+// Components
 import Head from 'next/head'
 import Header from '../components/Header/Header'
 import Work from '../components/Work/Work'
 import About from '../components/About/About'
+
+// Animate on Scroll (AOS) library
+import AOS from 'aos'
 
 export default function Home() {
   const data = [
@@ -232,6 +239,12 @@ export default function Home() {
       gif: 'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/07534631-061c-4617-9009-ca87d094c66a.gif?ClientID=vimeo-core-prod&Date=1647119026&Signature=979b8b33b4197570ff1bc5db47110b9d13483914',
     },
   ]
+
+  // Initialize AOS library
+  useEffect(() => {
+    AOS.init({ once: true })
+  })
+
   return (
     <>
       {/* Head tag for this page only */}
