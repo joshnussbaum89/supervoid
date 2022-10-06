@@ -18,7 +18,7 @@ export default function Document() {
         />
         <link
           rel="icon"
-          href="/images/supernova-site-background.png"
+          href="/images/supernova-site-background.webp"
           type="image/png"
         />
       </Head>
