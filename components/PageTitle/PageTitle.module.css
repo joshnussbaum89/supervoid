@@ -4,11 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  font-size: var(--extraLarge);
-}
-
-@media (min-width: 768px) {
-  .titleText {
-    font-size: var(--titleLarge);
-  }
+  font-size: clamp(var(--large), 10vw + 1rem, var(--titleLarge));
+  font-weight: 300;
+  text-shadow: 1px 1px 0 var(--color-black);
 }

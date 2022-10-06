@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import MainNavigation from '../MainNavigation/MainNavigation'
 import HomePageHeroBackground from '../HomePageHeroBackground/HomePageHeroBackground'
+import RentalsPageHeroBackground from '../RentalsPageHeroBackground/RentalsPageHeroBackground'
 import HomePageHeroInfo from '../HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
@@ -80,6 +81,7 @@ export default function Header() {
         mobileNavIsActive={mobileNavIsActive}
         mainNavIsVisible={mainNavIsVisible}
       />
+      <RentalsPageHeroBackground />
       <PageTitle title="Rentals" />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}

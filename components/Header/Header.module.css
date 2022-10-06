@@ -7,9 +7,3 @@
 .homeHeader {
   background: var(--color-black);
 }
-
-.rentalsHeader {
-  background-image: url('../../public/images/msg-test-pattern.webp');
-  background-size: cover;
-  background-position: center;
-}

@@ -74,16 +74,18 @@ export default function About() {
         <SwiperSlide>
           <Image
             src={drewAndKepplerPast}
-            width="632"
-            height="355"
+            width={632}
+            height={355}
+            placeholder="blur"
             alt="Highschool yearbook photo of Drew Mercedante and Matt Keppler"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
             src={drewAndKepplerPresent}
-            width="632"
-            height="355"
+            width={632}
+            height={355}
+            placeholder="blur"
             alt="Present day photo of Drew Mercedante and Matt Keppler at the Supervoid office"
           />
         </SwiperSlide>
@@ -99,12 +101,14 @@ export default function About() {
             src={drewAndKepplerPast}
             width={632}
             height={356}
+            placeholder="blur"
             alt="Highschool yearbook photo of Drew Mercedante and Matt Keppler"
           />
           <Image
             src={drewAndKepplerPresent}
             width={632}
             height={356}
+            placeholder="blur"
             alt="Present day photo of Drew Mercedante and Matt Keppler at the Supervoid office"
           />
         </div>
