@@ -65,7 +65,7 @@ export default function About() {
         </div>
       </div>
       <Swiper
-        className={`${styles.swiper} swiper`}
+        className={styles.swiper}
         modules={[Navigation, Pagination, A11y]}
         pagination={{ clickable: true }}
         data-aos="fade-up"

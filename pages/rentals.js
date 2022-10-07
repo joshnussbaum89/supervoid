@@ -4,11 +4,12 @@ import Head from 'next/head'
 import Header from '../components/Header/Header'
 import RentalsDescription from '../components/RentalsPage/Description/Description'
 import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
+import Footer from '../components/RentalsPage/Footer/Footer'
 
 // Animate on Scroll (AOS) library
 import AOS from 'aos'
 
-export default function RentalsPage() {
+export default function RentalsPage({ pathname }) {
   // Initialize AOS library
   useEffect(() => {
     AOS.init({ once: true })
@@ -52,6 +53,7 @@ export default function RentalsPage() {
         <RentalsDescription />
         <ServerSpecs />
       </main>
+      <Footer pathname={pathname} />
     </>
   )
 }

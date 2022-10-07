@@ -141,6 +141,10 @@ a {
   }
 }
 
+[data-pathname='rentals'] .swiper-wrapper {
+  margin-bottom: 3rem;
+}
+
 .swiper-slide img {
   display: block;
   margin: auto;
