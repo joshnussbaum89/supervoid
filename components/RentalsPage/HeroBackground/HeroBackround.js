@@ -2,10 +2,10 @@
 import Image from 'next/future/image'
 
 // Styles, images
-import styles from './RentalsPageHeroBackground.module.css'
-import supernova from '../../public/images/msg-test-pattern.webp'
+import styles from './HeroBackground.module.css'
+import supernova from '../../../public/images/msg-test-pattern.webp'
 
-export default function HomePageHeroBackground() {
+export default function RentalsPageHeroBackground() {
   return (
     <div className={styles.backgroundImage}>
       <Image

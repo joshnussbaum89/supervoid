@@ -7,3 +7,7 @@
 .homeHeader {
   background: var(--color-black);
 }
+
+.rentalsHeader {
+  margin-bottom: 16rem;
+}

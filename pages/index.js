@@ -265,13 +265,13 @@ export default function Home() {
         />
         <meta
           property="og:description"
-          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
+          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more."
         />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
           // TODO: replace with https://supervoid.tv in PROD
-          content="https://supervoid-next-joshnussbaum89.vercel.app/images/supernova-site-background.png"
+          content="https://supervoid-next-joshnussbaum89.vercel.app/images/supernova-site-background.webp"
         />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
