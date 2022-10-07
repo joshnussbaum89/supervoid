@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import Header from '../components/Header/Header'
 import RentalsDescription from '../components/RentalsPage/Description/Description'
+import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
 
 // Animate on Scroll (AOS) library
 import AOS from 'aos'
@@ -49,6 +50,7 @@ export default function RentalsPage() {
       <Header />
       <main>
         <RentalsDescription />
+        <ServerSpecs />
       </main>
     </>
   )
