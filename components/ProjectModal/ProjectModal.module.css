@@ -9,11 +9,11 @@
   height: 100%;
   background-color: var(--color-faded-black);
   transition: var(--transition-normal);
+  overflow: auto;
 }
 
 .projectModal.active {
   z-index: 100;
-  display: flex;
   opacity: 1;
 }
 

@@ -10,7 +10,7 @@ import About from '../components/About/About'
 // Animate on Scroll (AOS) library
 import AOS from 'aos'
 
-export default function Home() {
+export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
   const data = [
     {
       id: 0,
@@ -240,8 +240,19 @@ export default function Home() {
     },
   ]
 
-  // Initialize AOS library
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const body = document.querySelector('body')
+
+      // Remove scrolling when modal overlay is shown
+      if (overlayDisplayed) {
+        body.classList.add('overlay-active')
+      } else {
+        body.classList.remove('overlay-active')
+      }
+    }
+
+    // Initialize AOS library
     AOS.init({ once: true })
   })
 
@@ -278,9 +289,16 @@ export default function Home() {
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
-      <Header />
+      <Header
+        overlayDisplayed={overlayDisplayed}
+        setOverlayDisplayed={setOverlayDisplayed}
+      />
       <main>
-        <Work projectData={data} />
+        <Work
+          projectData={data}
+          overlayDisplayed={overlayDisplayed}
+          setOverlayDisplayed={setOverlayDisplayed}
+        />
         <About />
       </main>
     </>

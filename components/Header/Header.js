@@ -13,7 +13,7 @@ import PromoReel from '../PromoReel/PromoReel'
 import styles from './Header.module.css'
 
 // TODO: Should this be dynamic for every page?
-export default function Header() {
+export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)
@@ -51,9 +51,17 @@ export default function Header() {
     }
   }, [previousScrollPosition])
 
-  // Hide/show mobile navigation + promo reel
-  const handleMobileNavDisplay = () => setMobileNavIsActive(!mobileNavIsActive)
-  const handleReelDisplay = () => setReelIsActive(!reelIsActive)
+  // Hide/show mobile navigation
+  const handleMobileNavDisplay = () => {
+    setMobileNavIsActive(!mobileNavIsActive)
+    setOverlayDisplayed(!overlayDisplayed)
+  }
+
+  // Hide/show promo reel
+  const handleReelDisplay = () => {
+    setReelIsActive(!reelIsActive)
+    setOverlayDisplayed(!overlayDisplayed)
+  }
 
   // Determine header styling based on currently displayed page
   return pathname === '/' ? (

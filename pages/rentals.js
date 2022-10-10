@@ -9,9 +9,24 @@ import Footer from '../components/RentalsPage/Footer/Footer'
 // Animate on Scroll (AOS) library
 import AOS from 'aos'
 
-export default function RentalsPage({ pathname }) {
-  // Initialize AOS library
+export default function RentalsPage({
+  pathname,
+  overlayDisplayed,
+  setOverlayDisplayed,
+}) {
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const body = document.querySelector('body')
+
+      // Remove scrolling when modal overlay is shown
+      if (overlayDisplayed) {
+        body.classList.add('overlay-active')
+      } else {
+        body.classList.remove('overlay-active')
+      }
+    }
+
+    // Initialize AOS library
     AOS.init({ once: true })
   })
 
@@ -48,7 +63,10 @@ export default function RentalsPage({ pathname }) {
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Rentals</title>
       </Head>
-      <Header />
+      <Header
+        overlayDisplayed={overlayDisplayed}
+        setOverlayDisplayed={setOverlayDisplayed}
+      />
       <main>
         <RentalsDescription />
         <ServerSpecs />

@@ -6,7 +6,11 @@ import ProjectModal from '../ProjectModal/ProjectModal'
 // Styles
 import styles from './Work.module.css'
 
-export default function Work({ projectData }) {
+export default function Work({
+  projectData,
+  overlayDisplayed,
+  setOverlayDisplayed,
+}) {
   const [modalIsActive, setModalIsActive] = useState(false)
   const [modalData, setModalData] = useState({})
   const [currentProjectID, setCurrentProjectID] = useState(0)
@@ -23,6 +27,7 @@ export default function Work({ projectData }) {
     setModalIsActive(!modalIsActive)
     setModalData({ id, gif, client, project, description })
     setCurrentProjectID(id)
+    setOverlayDisplayed(!overlayDisplayed)
   }
 
   const vimeoIoImageLoader = ({ src, width, quality }) =>
