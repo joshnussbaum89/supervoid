@@ -1,5 +1,6 @@
 // Components
 import Image from 'next/future/image'
+import SupervoidCTA from '../SupervoidCTA/SupervoidCTA'
 
 // Styles, images
 import styles from './HomePageHeroInfo.module.css'
@@ -19,9 +20,7 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
         />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
-      <div className={styles.ctaContainer}>
-        <button onClick={handleReelDisplay}>2022 reel</button>
-      </div>
+      <SupervoidCTA handleClick={handleReelDisplay} buttonText="2022 reel" />
     </section>
   )
 }

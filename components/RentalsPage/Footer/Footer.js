@@ -1,5 +1,6 @@
-import Link from 'next/link'
+// Components
 import Image from 'next/future/image'
+import SupervoidCTA from '../../SupervoidCTA/SupervoidCTA'
 
 // import Swiper core and required modules
 import { Navigation, Pagination, A11y } from 'swiper'
@@ -26,9 +27,7 @@ export default function Footer({ pathname }) {
       data-aos="fade-up"
       data-aos-duration="600"
     >
-      <div className={styles.supervoidCTA}>
-        <Link href="/#about">contact us</Link>
-      </div>
+      <SupervoidCTA urlPath="/#about" buttonText="contact us" />
       <Swiper
         className={styles.swiper}
         modules={[Navigation, Pagination, A11y]}
