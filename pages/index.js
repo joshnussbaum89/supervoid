@@ -269,11 +269,7 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
         <meta property="og:title" content="SUPERVOID TV" />
-        <meta
-          property="og:url"
-          // TODO: replace with https://supervoid.tv in PROD
-          content="https://supervoid-next-joshnussbaum89.vercel.app"
-        />
+        <meta property="og:url" content="https://supervoid.tv" />
         <meta
           property="og:description"
           content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more."
@@ -281,8 +277,7 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          // TODO: replace with https://supervoid.tv in PROD
-          content="https://supervoid-next-joshnussbaum89.vercel.app/images/supernova-site-background.webp"
+          content="https://supervoid.tv/images/supernova-site-background.webp"
         />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
