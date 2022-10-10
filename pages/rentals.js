@@ -42,8 +42,8 @@ export default function RentalsPage({
           name="keywords"
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
-        <meta property="og:title" content="SUPERVOID TV" />
-        <meta property="og:url" content="https://supervoid.tv" />
+        <meta property="og:title" content="SUPERVOID TV: Rentals" />
+        <meta property="og:url" content="https://supervoid.tv/rentals" />
         <meta
           property="og:description"
           content="Custom media server racks built in house to meet the needs of shows large and small."
