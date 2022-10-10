@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 
 // Code that is used on all pages
 export default function Document() {
@@ -25,10 +24,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Script
-          src="https://player.vimeo.com/api/player.js"
-          strategy="lazyOnload"
-        />
       </body>
     </Html>
   )
