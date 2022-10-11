@@ -12,11 +12,11 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
       <div className={styles.title}>
         <Image
           src={titleImage}
-          width={832}
-          height={120}
-          priority
-          placeholder="blur"
+          width={1728}
+          height={250}
+          sizes="(min-width: 768px) 52rem, 100vw"
           alt="Supervoid title image text"
+          priority
         />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
