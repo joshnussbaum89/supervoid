@@ -1,13 +1,19 @@
-// Components
-import { useRouter } from 'next/router'
+// Hooks
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
+
+// Components
 import MainNavigation from '../MainNavigation/MainNavigation'
 import HomePageHeroBackground from '../HeroBackground/HeroBackground'
 import RentalsPageHeroBackground from '../RentalsPage/HeroBackground/HeroBackround'
 import HomePageHeroInfo from '../HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
-import PromoReel from '../PromoReel/PromoReel'
+const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
+  // loading: () => <h2>Loading...</h2>,
+  ssr: false,
+})
 
 // Styles
 import styles from './Header.module.css'
@@ -73,10 +79,12 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
       />
       <HomePageHeroInfo handleReelDisplay={handleReelDisplay} />
       <HomePageHeroBackground />
-      <PromoReel
-        handleReelDisplay={handleReelDisplay}
-        reelIsActive={reelIsActive}
-      />
+      {reelIsActive && (
+        <PromoReel
+          handleReelDisplay={handleReelDisplay}
+          reelIsActive={reelIsActive}
+        />
+      )}
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}

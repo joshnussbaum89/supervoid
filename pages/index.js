@@ -1,11 +1,15 @@
 // Hooks
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
+import dynamic from 'next/dynamic'
 
 // Components
 import Head from 'next/head'
 import Header from '../components/Header/Header'
 import Work from '../components/Work/Work'
-import About from '../components/About/About'
+const About = dynamic(() => import('../components/About/About'), {
+  suspense: true,
+  ssr: false,
+})
 
 // Animate on Scroll (AOS) library
 import AOS from 'aos'
@@ -289,12 +293,16 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         setOverlayDisplayed={setOverlayDisplayed}
       />
       <main>
-        <Work
-          projectData={data}
-          overlayDisplayed={overlayDisplayed}
-          setOverlayDisplayed={setOverlayDisplayed}
-        />
-        <About />
+        <Suspense>
+          <Work
+            projectData={data}
+            overlayDisplayed={overlayDisplayed}
+            setOverlayDisplayed={setOverlayDisplayed}
+          />
+        </Suspense>
+        <Suspense>
+          <About />
+        </Suspense>
       </main>
     </>
   )

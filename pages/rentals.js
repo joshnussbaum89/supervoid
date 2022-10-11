@@ -1,10 +1,19 @@
-// Components
-import { useEffect } from 'react'
+// Hooks
+import { useEffect, Suspense } from 'react'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
+
+// Components
 import Header from '../components/Header/Header'
 import RentalsDescription from '../components/RentalsPage/Description/Description'
 import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
-import Footer from '../components/RentalsPage/Footer/Footer'
+const Footer = dynamic(
+  () => import('../components/RentalsPage/Footer/Footer'),
+  {
+    suspense: true,
+    ssr: false,
+  }
+)
 
 // Animate on Scroll (AOS) library
 import AOS from 'aos'
@@ -66,7 +75,9 @@ export default function RentalsPage({
         <RentalsDescription />
         <ServerSpecs />
       </main>
-      <Footer pathname={pathname} />
+      <Suspense>
+        <Footer pathname={pathname} />
+      </Suspense>
     </>
   )
 }
