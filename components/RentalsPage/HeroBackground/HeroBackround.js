@@ -12,9 +12,9 @@ export default function RentalsPageHeroBackground() {
         src={supernova}
         width={4000}
         height={2667}
-        priority
-        placeholder="blur"
+        sizes="100vw"
         alt="Test pattern on a big screen on the Madison Square Garden stage"
+        priority
       />
       <div className={styles.shadow}></div>
     </div>

@@ -35,9 +35,9 @@ export default function RentalsDescription() {
         <figure data-aos="fade-up" data-aos-duration="600">
           <Image
             src={tateMcrae}
-            width={900}
-            height={588}
-            placeholder="blur"
+            width={2048}
+            height={1338}
+            sizes="(min-width: 768px) 50vw, 100vw"
             alt="Tate McRae performing at Made In America festival in Philadelphia, PA"
           />
           <figcaption>Tate McRae at MIA festival</figcaption>

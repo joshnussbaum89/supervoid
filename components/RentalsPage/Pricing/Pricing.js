@@ -10,9 +10,9 @@ export default function Pricing() {
     <div className={styles.pricing} data-aos="fade-up" data-aos-duration="600">
       <Image
         src={flyRack}
-        width={503}
-        height={570}
-        placeholder="blur"
+        width={1204}
+        height={1365}
+        sizes="(min-width: 768px) 50vw, 100vw"
         alt="Drew Mercadante standing with Supervoid 2RU Fly Rack Kit"
       />
       <p>

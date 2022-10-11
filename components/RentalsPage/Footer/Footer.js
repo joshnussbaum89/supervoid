@@ -36,27 +36,27 @@ export default function Footer({ pathname }) {
         <SwiperSlide>
           <Image
             src={danAndShay}
-            width={467}
-            height={700}
-            placeholder="blur"
+            width={2000}
+            height={3000}
+            sizes="100vw"
             alt="Dan + Shay Stadium Tour 2022"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
             src={tomMorello}
-            width={467}
-            height={700}
-            placeholder="blur"
+            width={2000}
+            height={3000}
+            sizes="100vw"
             alt="Tom Morello Rage Against the Machine Tour 2022"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
             src={tateMcrae}
-            width={467}
-            height={700}
-            placeholder="blur"
+            width={1450}
+            height={2175}
+            sizes="100vw"
             alt="Tate McRae Made In America Festival 2022"
           />
         </SwiperSlide>
@@ -64,23 +64,23 @@ export default function Footer({ pathname }) {
       <div className={styles.gallery}>
         <Image
           src={danAndShay}
-          width={330}
-          height={495}
-          placeholder="blur"
+          width={2000}
+          height={3000}
+          sizes="(min-width: 768px) 33vw, 100vw"
           alt="Dan + Shay Stadium Tour 2022"
         />
         <Image
           src={tomMorello}
-          width={330}
-          height={495}
-          placeholder="blur"
+          width={2000}
+          height={3000}
+          sizes="(min-width: 768px) 33vw, 100vw"
           alt="Tom Morello Rage Against the Machine Tour 2022"
         />
         <Image
           src={tateMcrae}
-          width={330}
-          height={495}
-          placeholder="blur"
+          width={1450}
+          height={2175}
+          sizes="(min-width: 768px) 33vw, 100vw"
           alt="Tate McRae Made In America Festival 2022"
         />
       </div>

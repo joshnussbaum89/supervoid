@@ -1,4 +1,6 @@
 .pricing {
+  display: grid;
+  justify-items: center;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 16rem;
@@ -6,7 +8,6 @@
 
 @media (min-width: 768px) {
   .pricing {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: center;

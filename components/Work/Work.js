@@ -56,6 +56,7 @@ export default function Work({
               loader={vimeoIoImageLoader}
               width={720}
               height={405}
+              sizes="(min-width: 768px) 50vw, 100vw"
               alt={`${project.client} - ${project.description}`}
             />
             <div className={styles.projectOverlay}>
