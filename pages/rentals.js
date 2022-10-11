@@ -11,7 +11,6 @@ const Footer = dynamic(
   () => import('../components/RentalsPage/Footer/Footer'),
   {
     suspense: true,
-    ssr: false,
   }
 )
 

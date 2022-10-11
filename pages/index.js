@@ -8,7 +8,6 @@ import Header from '../components/Header/Header'
 import Work from '../components/Work/Work'
 const About = dynamic(() => import('../components/About/About'), {
   suspense: true,
-  ssr: false,
 })
 
 // Animate on Scroll (AOS) library
