@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 
 // Styles
 import '../styles/globals.css'
-import 'aos/dist/aos.css'
 
 function MyApp({ Component, pageProps }) {
   const [overlayDisplayed, setOverlayDisplayed] = useState(false)

@@ -2,6 +2,7 @@
 import { useEffect, Suspense } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import Script from 'next/script'
 
 // Components
 import Header from '../components/Header/Header'
@@ -13,9 +14,6 @@ const Footer = dynamic(
     suspense: true,
   }
 )
-
-// Animate on Scroll (AOS) library
-import AOS from 'aos'
 
 export default function RentalsPage({
   pathname,
@@ -33,9 +31,6 @@ export default function RentalsPage({
         body.classList.remove('overlay-active')
       }
     }
-
-    // Initialize AOS library
-    AOS.init({ once: true })
   })
 
   return (
@@ -66,6 +61,12 @@ export default function RentalsPage({
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Rentals</title>
       </Head>
+      {/* Animate on Scroll library (AOS) */}
+      <Script
+        src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+        strategy="lazyOnload"
+        onLoad={() => AOS.init({ once: true })}
+      />
       <Header
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}

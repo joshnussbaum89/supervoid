@@ -1,6 +1,7 @@
 // Hooks
 import { useEffect, Suspense } from 'react'
 import dynamic from 'next/dynamic'
+import Script from 'next/script'
 
 // Components
 import Head from 'next/head'
@@ -9,9 +10,6 @@ import Work from '../components/Work/Work'
 const About = dynamic(() => import('../components/About/About'), {
   suspense: true,
 })
-
-// Animate on Scroll (AOS) library
-import AOS from 'aos'
 
 export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
   const data = [
@@ -254,9 +252,6 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         body.classList.remove('overlay-active')
       }
     }
-
-    // Initialize AOS library
-    AOS.init({ once: true })
   })
 
   return (
@@ -287,6 +282,12 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
+      {/* Animate on Scroll library (AOS) */}
+      <Script
+        src="https://unpkg.com/aos@2.3.1/dist/aos.js"
+        strategy="lazyOnload"
+        onLoad={() => AOS.init({ once: true })}
+      />
       <Header
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
