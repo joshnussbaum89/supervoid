@@ -1,25 +1,11 @@
-// Hooks
-import { useEffect, Suspense } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
-import dynamic from 'next/dynamic'
-
-// Components
+import { createClient } from 'next-sanity'
+import { PortableText } from '@portabletext/react'
 import Header from '../components/Header/Header'
-import RentalsDescription from '../components/RentalsPage/Description/Description'
-import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
-const Footer = dynamic(
-  () => import('../components/RentalsPage/Footer/Footer'),
-  {
-    suspense: true,
-  }
-)
+import { useEffect } from 'react'
 
-export default function RentalsPage({
-  pathname,
-  overlayDisplayed,
-  setOverlayDisplayed,
-}) {
+export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const body = document.querySelector('body')
@@ -32,10 +18,8 @@ export default function RentalsPage({
       }
     }
   })
-
   return (
-    <>
-      {/* Head tag for this page only */}
+    <div>
       <Head>
         <meta
           name="description"
@@ -59,7 +43,7 @@ export default function RentalsPage({
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
-        <title>SUPERVOID: Rentals</title>
+        <title>SUPERVOID: Labs</title>
       </Head>
       {/* Animate on Scroll library (AOS) */}
       <Script
@@ -70,13 +54,30 @@ export default function RentalsPage({
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
       />
-      <main>
-        <RentalsDescription />
-        <ServerSpecs />
-      </main>
-      <Suspense>
-        <Footer pathname={pathname} />
-      </Suspense>
-    </>
+      {/* Sanity Posts */}
+      {posts.map((post) => (
+        <div key={post._id}>
+          <h2>{post.title}</h2>
+          <PortableText value={post.body} />
+        </div>
+      ))}
+    </div>
   )
+}
+
+const client = createClient({
+  projectId: 'gd9aazh0',
+  dataset: 'production',
+  apiVersion: '2022-10-14',
+  useCdn: false,
+})
+
+export async function getStaticProps() {
+  const posts = await client.fetch(`*[_type == "post"]`)
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }

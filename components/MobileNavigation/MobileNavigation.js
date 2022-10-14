@@ -26,6 +26,9 @@ export default function MobileNavigation({
         <li onClick={handleMobileNavDisplay}>
           <Link href="/rentals">Rentals</Link>
         </li>
+        <li onClick={handleMobileNavDisplay}>
+          <Link href="/labs">Labs</Link>
+        </li>
       </ul>
     </nav>
   )

@@ -1,7 +1,7 @@
 // Hooks
 import { useEffect, Suspense } from 'react'
-import dynamic from 'next/dynamic'
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 
 // Components
 import Head from 'next/head'
@@ -285,8 +285,7 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
       {/* Animate on Scroll library (AOS) */}
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-        strategy="lazyOnload"
-        onLoad={() => AOS.init({ once: true })}
+        onReady={() => AOS.init({ once: true })}
       />
       <Header
         overlayDisplayed={overlayDisplayed}

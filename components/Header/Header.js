@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import MainNavigation from '../MainNavigation/MainNavigation'
 import HomePageHeroBackground from '../HeroBackground/HeroBackground'
 import RentalsPageHeroBackground from '../RentalsPage/HeroBackground/HeroBackround'
+import LabsPageHeroBackground from '../LabsPage/HeroBackground/HeroBackround'
 import HomePageHeroInfo from '../HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
@@ -99,6 +100,20 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
       />
       <RentalsPageHeroBackground />
       <PageTitle title="Rentals" />
+      <MobileNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+      />
+    </header>
+  ) : pathname === '/labs' ? (
+    <header className={styles.rentalsHeader}>
+      <MainNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+        mainNavIsVisible={mainNavIsVisible}
+      />
+      <LabsPageHeroBackground />
+      <PageTitle title="Labs" />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
