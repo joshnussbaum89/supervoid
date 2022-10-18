@@ -1,10 +1,14 @@
+// Components, hooks
+import { useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
-import { createClient } from 'next-sanity'
-import { PortableText } from '@portabletext/react'
 import Header from '../components/Header/Header'
-import { useEffect } from 'react'
 
+// Helpers
+import { getPosts } from '../lib/getPosts'
+import PostTitleCard from '../components/LabsPage/PostTitleCard/PostTitleCard'
+
+// "Labs" (Blog) page
 export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -54,26 +58,19 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
       />
-      {/* Sanity Posts */}
-      {posts.map((post) => (
-        <div key={post._id}>
-          <h2>{post.title}</h2>
-          <PortableText value={post.body} />
-        </div>
-      ))}
+
+      <main>
+        {posts.map((post) => (
+          <PostTitleCard key={post._id} post={post} />
+        ))}
+      </main>
     </div>
   )
 }
 
-const client = createClient({
-  projectId: 'gd9aazh0',
-  dataset: 'production',
-  apiVersion: '2022-10-14',
-  useCdn: false,
-})
-
+// Fetch Sanity posts
 export async function getStaticProps() {
-  const posts = await client.fetch(`*[_type == "post"]`)
+  const posts = await getPosts()
 
   return {
     props: {
