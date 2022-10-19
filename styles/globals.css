@@ -147,7 +147,7 @@ a {
   }
 }
 
-[data-pathname='rentals'] .swiper-wrapper {
+[data-urlPath='/rentals'] .swiper-wrapper {
   margin-bottom: 3rem;
 }
 

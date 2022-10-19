@@ -16,9 +16,9 @@ const Footer = dynamic(
 )
 
 export default function RentalsPage({
-  pathname,
   overlayDisplayed,
   setOverlayDisplayed,
+  urlPath,
 }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -67,13 +67,14 @@ export default function RentalsPage({
       <Header
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
+        urlPath={urlPath}
       />
       <main>
         <RentalsDescription />
         <ServerSpecs />
       </main>
       <Suspense>
-        <Footer pathname={pathname} />
+        <Footer urlPath={urlPath} />
       </Suspense>
     </>
   )

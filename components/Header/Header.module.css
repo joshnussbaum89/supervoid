@@ -1,5 +1,6 @@
 .homeHeader,
-.rentalsHeader {
+.rentalsHeader,
+.labsHeader {
   position: relative;
   height: 100vh;
 }
@@ -8,6 +9,11 @@
   background: var(--color-black);
 }
 
-.rentalsHeader {
+.rentalsHeader,
+.labsHeader {
   margin-bottom: 16rem;
+}
+
+.singlePostHeader {
+  height: 25vh;
 }

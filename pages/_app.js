@@ -9,12 +9,12 @@ function MyApp({ Component, pageProps }) {
   const [overlayDisplayed, setOverlayDisplayed] = useState(false)
 
   // Track URL path
-  const urlPath = useRouter().pathname.replace('/', '')
+  const { pathname } = useRouter()
 
   return (
     <Component
       {...pageProps}
-      pathname={urlPath}
+      urlPath={pathname}
       overlayDisplayed={overlayDisplayed}
       setOverlayDisplayed={setOverlayDisplayed}
     />

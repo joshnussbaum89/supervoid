@@ -11,7 +11,11 @@ const About = dynamic(() => import('../components/About/About'), {
   suspense: true,
 })
 
-export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
+export default function Home({
+  overlayDisplayed,
+  setOverlayDisplayed,
+  urlPath,
+}) {
   const data = [
     {
       id: 0,
@@ -290,6 +294,7 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
       <Header
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
+        urlPath={urlPath}
       />
       <main>
         <Suspense>

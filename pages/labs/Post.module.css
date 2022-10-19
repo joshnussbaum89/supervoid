@@ -1,5 +1,32 @@
 .post {
+  width: 85%;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto 16rem;
+}
+
+.post p {
+  margin-bottom: 1rem;
+  color: var(--color-grey);
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  padding: 0;
+}
+
+.header p {
+  text-align: center;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1%;
+  margin-bottom: 2rem;
 }

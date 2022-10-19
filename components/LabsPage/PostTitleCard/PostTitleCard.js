@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../../../sanityClient'
+import { formatDate } from '../../../lib/formatDate'
 
 // Styles, images
 import styles from './PostTitleCard.module.css'
@@ -14,12 +15,7 @@ export default function PostTitleCard({ post }) {
   const urlFor = (source) => builder.image(source)
 
   // Format 'published at' date
-  const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    timeZone: 'UTC',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
+  const formattedDate = formatDate(post.publishedAt)
 
   // Format preview text
   const previewText = post.body[0].children[0].text.substring(0, 200)

@@ -19,11 +19,11 @@ import danAndShay from '../../../public/images/dan-shay.webp'
 import tomMorello from '../../../public/images/tom-morello_red.webp'
 import tateMcrae from '../../../public/images/tate-mcrae-mia_red.webp'
 
-export default function Footer({ pathname }) {
+export default function Footer({ urlPath }) {
   return (
     <footer
       className={styles.footer}
-      data-pathname={pathname}
+      data-urlPath={urlPath}
       data-aos="fade-up"
       data-aos-duration="600"
     >

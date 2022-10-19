@@ -1,6 +1,5 @@
 // Hooks
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 
 // Components
@@ -19,15 +18,16 @@ const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
 // Styles
 import styles from './Header.module.css'
 
-// TODO: Should this be dynamic for every page?
-export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
+// Dynamic for each page (tracking URL path)
+export default function Header({
+  overlayDisplayed,
+  setOverlayDisplayed,
+  urlPath,
+}) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)
   const [reelIsActive, setReelIsActive] = useState(false)
-
-  // Current user path
-  const { pathname } = useRouter()
 
   // Hide/show main navigation
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
   }
 
   // Determine header styling based on currently displayed page
-  return pathname === '/' ? (
+  return urlPath === '/' ? (
     <header className={styles.homeHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
@@ -91,7 +91,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/rentals' ? (
+  ) : urlPath === '/rentals' ? (
     <header className={styles.rentalsHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
@@ -105,8 +105,8 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/labs' ? (
-    <header className={styles.rentalsHeader}>
+  ) : urlPath === '/labs' ? (
+    <header className={styles.labsHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
@@ -116,6 +116,18 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
       <PageTitle
         title="Labs"
         body="Insights into our creative process for our current projects"
+      />
+      <MobileNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+      />
+    </header>
+  ) : urlPath === '/labs/[slug]' ? (
+    <header className={styles.singlePostHeader}>
+      <MainNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+        mainNavIsVisible={mainNavIsVisible}
       />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}

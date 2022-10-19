@@ -9,7 +9,12 @@ import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPo
 import { getAllPosts } from '../lib/getAllPosts'
 
 // "Labs" (Blog) page
-export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
+export default function Labs({
+  posts,
+  overlayDisplayed,
+  setOverlayDisplayed,
+  urlPath,
+}) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const body = document.querySelector('body')
@@ -57,8 +62,8 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
       <Header
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
+        urlPath={urlPath}
       />
-
       <main>
         <MostRecentPosts posts={posts} />
       </main>
