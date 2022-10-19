@@ -35,7 +35,6 @@ export default function RentalsPage({
 
   return (
     <>
-      {/* Head tag for this page only */}
       <Head>
         <meta
           name="description"
@@ -61,7 +60,6 @@ export default function RentalsPage({
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Rentals</title>
       </Head>
-      {/* Animate on Scroll library (AOS) */}
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}

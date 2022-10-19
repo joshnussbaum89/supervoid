@@ -5,7 +5,7 @@ import Script from 'next/script'
 import Header from '../components/Header/Header'
 
 // Helpers
-import { getPosts } from '../lib/getPosts'
+import { getAllPosts } from '../lib/getAllPosts'
 import PostTitleCard from '../components/LabsPage/PostTitleCard/PostTitleCard'
 
 // "Labs" (Blog) page
@@ -22,6 +22,8 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
       }
     }
   })
+
+  console.log(posts)
   return (
     <div>
       <Head>
@@ -33,8 +35,8 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
           name="keywords"
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
-        <meta property="og:title" content="SUPERVOID TV: Rentals" />
-        <meta property="og:url" content="https://supervoid.tv/rentals" />
+        <meta property="og:title" content="SUPERVOID TV: Labs" />
+        <meta property="og:url" content="https://supervoid.tv/labs" />
         <meta
           property="og:description"
           content="Custom media server racks built in house to meet the needs of shows large and small."
@@ -49,7 +51,6 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Labs</title>
       </Head>
-      {/* Animate on Scroll library (AOS) */}
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}
@@ -70,7 +71,7 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
 
 // Fetch Sanity posts
 export async function getStaticProps() {
-  const posts = await getPosts()
+  const posts = await getAllPosts()
 
   return {
     props: {

@@ -1,6 +1,6 @@
 // Components, hooks
 import { PortableText } from '@portabletext/react'
-import { getPosts } from '../../lib/getPosts'
+import { getAllPosts } from '../../lib/getAllPosts'
 
 // Styles
 import styles from './Post.module.css'
@@ -17,7 +17,7 @@ export default function Post({ post }) {
 
 // Create dynamic URLs from post slug
 export async function getStaticPaths() {
-  const posts = await getPosts()
+  const posts = await getAllPosts()
 
   const paths = posts.map((post) => ({
     params: {
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 // Get post props
 export async function getStaticProps(context) {
-  const posts = await getPosts()
+  const posts = await getAllPosts()
 
   return {
     props: {

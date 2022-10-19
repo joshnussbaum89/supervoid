@@ -113,7 +113,10 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mainNavIsVisible={mainNavIsVisible}
       />
       <LabsPageHeroBackground />
-      <PageTitle title="Labs" />
+      <PageTitle
+        title="Labs"
+        body="Insights into our creative process for our current projects"
+      />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
