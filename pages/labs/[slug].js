@@ -1,4 +1,4 @@
-// Components, hooks
+// Components, helpers
 import { PortableText } from '@portabletext/react'
 import { getAllPosts } from '../../lib/getAllPosts'
 

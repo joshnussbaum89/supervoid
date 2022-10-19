@@ -3,10 +3,10 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
 import Header from '../components/Header/Header'
+import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
 // Helpers
 import { getAllPosts } from '../lib/getAllPosts'
-import PostTitleCard from '../components/LabsPage/PostTitleCard/PostTitleCard'
 
 // "Labs" (Blog) page
 export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
@@ -23,7 +23,6 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
     }
   })
 
-  console.log(posts)
   return (
     <div>
       <Head>
@@ -61,9 +60,7 @@ export default function Labs({ posts, overlayDisplayed, setOverlayDisplayed }) {
       />
 
       <main>
-        {posts.map((post) => (
-          <PostTitleCard key={post._id} post={post} />
-        ))}
+        <MostRecentPosts posts={posts} />
       </main>
     </div>
   )

@@ -1,9 +1,35 @@
-.post {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.post figure {
+  margin: 0;
+}
+
+.post img,
+.post h2 {
+  cursor: pointer;
 }
 
 .post h2 {
-  cursor: pointer;
+  margin: 1.5rem 0 1rem;
+  padding: 0;
+  font-size: var(--small);
+  text-align: left;
+  transition: var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  .post h2:hover {
+    color: var(--color-red);
+  }
+}
+
+.post p {
+  margin: 1rem 0;
+  font-size: var(--extraSmall);
+  color: var(--color-grey);
+  text-overflow: ellipsis;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1%;
 }
