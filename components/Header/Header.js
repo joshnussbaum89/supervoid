@@ -18,7 +18,7 @@ const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
 // Styles
 import styles from './Header.module.css'
 
-// This is dynamic for every page
+// Dynamic for each page (tracking URL path)
 export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
