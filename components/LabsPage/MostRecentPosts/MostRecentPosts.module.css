@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  width: 85%;
+  width: 95%;
+  max-width: 1440px;
   margin: 0 auto 16rem;
 }
 

@@ -27,6 +27,14 @@ export default {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      fields: [
+        {
+          title:
+            'Alternative Text (one brief descriptive sentence or phrase used for SEO)',
+          name: 'alt',
+          type: 'string',
+        },
+      ],
       options: {
         hotspot: true,
       },
@@ -52,7 +60,6 @@ export default {
       type: 'blockContent',
     },
   ],
-
   preview: {
     select: {
       title: 'title',

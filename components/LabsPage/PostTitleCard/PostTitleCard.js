@@ -34,13 +34,19 @@ export default function PostTitleCard({ post }) {
             query: { slug: post.slug.current },
           }}
         >
-          <Image
-            src={urlFor(post.mainImage).url()}
-            className={styles.image}
-            width={1000}
-            height={1000}
-            alt=""
-          />
+          <div className={styles.imageContainer}>
+            <Image
+              src={urlFor(post.mainImage).url()}
+              className={styles.image}
+              sizes="(min-width: 768px) 50vw,
+              (min-width: 1024px) 33vw,
+              100vw"
+              fill
+              alt={
+                post.mainImage.alt ? post.mainImage.alt : 'Lab preview image'
+              }
+            />
+          </div>
         </Link>
         <figcaption>
           <Link

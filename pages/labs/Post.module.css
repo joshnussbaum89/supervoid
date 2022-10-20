@@ -1,5 +1,5 @@
 .post {
-  width: 85%;
+  width: 95%;
   max-width: 1000px;
   display: flex;
   flex-direction: column;
@@ -7,9 +7,22 @@
   margin: 0 auto 16rem;
 }
 
+@media (min-width: 768px) {
+  .post {
+    width: 85%;
+  }
+}
+
 .post p {
+  font-size: var(--extraSmall);
   margin-bottom: 1rem;
   color: var(--color-grey);
+}
+
+@media (min-width: 768px) {
+  .post p {
+    font-size: var(--small);
+  }
 }
 
 .header {
