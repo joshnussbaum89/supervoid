@@ -1,3 +1,15 @@
+.header {
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  padding: 0;
+}
+
+.header p {
+  text-align: center;
+}
+
 .post {
   width: 95%;
   max-width: 1000px;
@@ -13,6 +25,10 @@
   }
 }
 
+.post .postInfo {
+  font-size: var(--extraSmall);
+}
+
 .post p {
   font-size: var(--extraSmall);
   margin-bottom: 1rem;
@@ -23,18 +39,6 @@
   .post p {
     font-size: var(--small);
   }
-}
-
-.header {
-  margin-bottom: 1rem;
-}
-
-.header h2 {
-  padding: 0;
-}
-
-.header p {
-  text-align: center;
 }
 
 .image {

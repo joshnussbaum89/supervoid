@@ -3,6 +3,7 @@ import Image from 'next/future/image'
 import Header from '../../components/Header/Header'
 import { PortableText } from '@portabletext/react'
 import { getAllPosts } from '../../lib/getAllPosts'
+import { getAllAuthors } from '../../lib/getAllAuthors'
 import { formatDate } from '../../lib/formatDate'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../../sanityClient'
@@ -13,6 +14,7 @@ import styles from './Post.module.css'
 // Create post based on post clicked
 export default function Post({
   post,
+  author,
   overlayDisplayed,
   setOverlayDisplayed,
   urlPath,
@@ -34,14 +36,17 @@ export default function Post({
       <div className={styles.post}>
         <div className={styles.header}>
           <h2>{post[0].title}</h2>
-          <p>{formattedDate}</p>
+          <p className={styles.postInfo}>
+            {author[0].name} | {formattedDate}
+          </p>
         </div>
         <Image
           src={urlFor(post[0].mainImage).url()}
           className={styles.image}
+          // TODO: handle CLS similar to main 'labs' page images
           width={1000}
           height={1000}
-          alt=""
+          alt={post[0].mainImage.alt}
         />
         <PortableText value={post[0].body} />
       </div>
@@ -62,13 +67,25 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-// Get post props
+// Get post + author props
 export async function getStaticProps(context) {
-  const posts = await getAllPosts()
+  const allPosts = await getAllPosts()
+  const allAuthors = await getAllAuthors()
+
+  // Get current post
+  const post = allPosts.filter(
+    (post) => post.slug.current === context.params.slug
+  )
+
+  // Get post author
+  const author = allAuthors.filter(
+    (author) => author._id === post[0].author._ref
+  )
 
   return {
     props: {
-      post: posts.filter((post) => post.slug.current === context.params.slug),
+      post,
+      author,
     },
   }
 }
