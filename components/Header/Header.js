@@ -18,7 +18,7 @@ const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
 // Styles
 import styles from './Header.module.css'
 
-// TODO: Should this be dynamic for every page?
+// This is dynamic for every page
 export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)

@@ -1,15 +1,12 @@
 // Hooks
-import { useEffect, Suspense } from 'react'
-import dynamic from 'next/dynamic'
+import { useEffect } from 'react'
 import Script from 'next/script'
 
 // Components
 import Head from 'next/head'
 import Header from '../components/Header/Header'
 import Work from '../components/Work/Work'
-const About = dynamic(() => import('../components/About/About'), {
-  suspense: true,
-})
+import About from '../components/About/About'
 
 export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
   const data = [
@@ -293,16 +290,12 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         setOverlayDisplayed={setOverlayDisplayed}
       />
       <main>
-        <Suspense>
-          <Work
-            projectData={data}
-            overlayDisplayed={overlayDisplayed}
-            setOverlayDisplayed={setOverlayDisplayed}
-          />
-        </Suspense>
-        <Suspense>
-          <About />
-        </Suspense>
+        <Work
+          projectData={data}
+          overlayDisplayed={overlayDisplayed}
+          setOverlayDisplayed={setOverlayDisplayed}
+        />
+        <About />
       </main>
     </>
   )

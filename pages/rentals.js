@@ -1,19 +1,13 @@
 // Hooks
-import { useEffect, Suspense } from 'react'
+import { useEffect } from 'react'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 import Script from 'next/script'
 
 // Components
 import Header from '../components/Header/Header'
 import RentalsDescription from '../components/RentalsPage/Description/Description'
 import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
-const Footer = dynamic(
-  () => import('../components/RentalsPage/Footer/Footer'),
-  {
-    suspense: true,
-  }
-)
+import Footer from '../components/RentalsPage/Footer/Footer'
 
 export default function RentalsPage({
   pathname,
@@ -75,9 +69,7 @@ export default function RentalsPage({
         <RentalsDescription />
         <ServerSpecs />
       </main>
-      <Suspense>
-        <Footer pathname={pathname} />
-      </Suspense>
+      <Footer pathname={pathname} />
     </>
   )
 }
