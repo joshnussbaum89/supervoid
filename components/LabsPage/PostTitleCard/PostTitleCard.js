@@ -25,26 +25,30 @@ export default function PostTitleCard({ post }) {
       ? `${previewText}...`
       : `${previewText.substring(0, 199)}...`
 
+  // Populate post values
+  const { title, mainImage } = post
+  const altText = mainImage.alt ? mainImage.alt : 'Lab preview image'
+  const slug = post.slug.current
+  // TODO: add author
+
   return (
     <div className={styles.post}>
       <figure>
         <Link
           href={{
             pathname: `/labs/[slug]`,
-            query: { slug: post.slug.current },
+            query: { slug },
           }}
         >
           <div className={styles.imageContainer}>
             <Image
-              src={urlFor(post.mainImage).url()}
+              src={urlFor(mainImage).url()}
               className={styles.image}
               sizes="(min-width: 768px) 50vw,
               (min-width: 1024px) 33vw,
               100vw"
               fill
-              alt={
-                post.mainImage.alt ? post.mainImage.alt : 'Lab preview image'
-              }
+              alt={altText}
             />
           </div>
         </Link>
@@ -52,10 +56,10 @@ export default function PostTitleCard({ post }) {
           <Link
             href={{
               pathname: `/labs/[slug]`,
-              query: { slug: post.slug.current },
+              query: { slug },
             }}
           >
-            <h2>{post.title}</h2>
+            <h2>{title}</h2>
           </Link>
           <p>{formattedDate}</p>
           <p>{formattedText}</p>

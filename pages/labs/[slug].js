@@ -26,6 +26,11 @@ export default function Post({
   // Format 'published at' date
   const formattedDate = formatDate(post[0].publishedAt)
 
+  // Populate post values
+  const { title, mainImage, body } = post[0]
+  const altText = mainImage.alt ? mainImage.alt : 'Lab header image'
+  const { name } = author[0]
+
   return (
     <>
       <Header
@@ -34,21 +39,24 @@ export default function Post({
         urlPath={urlPath}
       />
       <div className={styles.post}>
-        <div className={styles.header}>
-          <h2>{post[0].title}</h2>
-          <p className={styles.postInfo}>
-            {author[0].name} | {formattedDate}
+        <div className={styles.postHeader}>
+          <h2>{title}</h2>
+          <p>
+            {name} | {formattedDate}
           </p>
         </div>
-        <Image
-          src={urlFor(post[0].mainImage).url()}
-          className={styles.image}
-          // TODO: handle CLS similar to main 'labs' page images
-          width={1000}
-          height={1000}
-          alt={post[0].mainImage.alt}
-        />
-        <PortableText value={post[0].body} />
+        <div className={styles.imageContainer}>
+          <Image
+            src={urlFor(mainImage).url()}
+            className={styles.image}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            fill
+            alt={altText}
+          />
+        </div>
+        <div className={styles.postBody}>
+          <PortableText value={body} />
+        </div>
       </div>
     </>
   )
