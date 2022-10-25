@@ -7,10 +7,12 @@ import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPo
 
 // Helpers
 import { getAllPosts } from '../lib/getAllPosts'
+import { getAllAuthors } from '../lib/getAllAuthors'
 
 // "Labs" (Blog) page
 export default function Labs({
   posts,
+  authors,
   overlayDisplayed,
   setOverlayDisplayed,
   urlPath,
@@ -65,19 +67,21 @@ export default function Labs({
         urlPath={urlPath}
       />
       <main>
-        <MostRecentPosts posts={posts} />
+        <MostRecentPosts posts={posts} authors={authors} />
       </main>
     </div>
   )
 }
 
-// Fetch Sanity posts
+// Fetch Sanity posts + authors
 export async function getStaticProps() {
   const posts = await getAllPosts()
+  const authors = await getAllAuthors()
 
   return {
     props: {
       posts,
+      authors,
     },
   }
 }

@@ -9,7 +9,7 @@ import styles from './PostTitleCard.module.css'
 import Image from 'next/future/image'
 
 // "Labs" page post preview card
-export default function PostTitleCard({ post }) {
+export default function PostTitleCard({ post, author }) {
   // Build image from Sanity data
   const builder = imageUrlBuilder(client)
   const urlFor = (source) => builder.image(source)
@@ -29,7 +29,7 @@ export default function PostTitleCard({ post }) {
   const { title, mainImage } = post
   const altText = mainImage.alt ? mainImage.alt : 'Lab preview image'
   const slug = post.slug.current
-  // TODO: add author
+  const authorName = author[0].name
 
   return (
     <div className={styles.post}>
@@ -61,7 +61,9 @@ export default function PostTitleCard({ post }) {
           >
             <h2>{title}</h2>
           </Link>
-          <p>{formattedDate}</p>
+          <p>
+            {authorName} | {formattedDate}
+          </p>
           <p>{formattedText}</p>
         </figcaption>
       </figure>
