@@ -3,6 +3,7 @@ import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../../../sanityClient'
 import { formatDate } from '../../../lib/formatDate'
+import { ellipsisText } from '../../../lib/ellipsisText'
 
 // Styles, images
 import styles from './PostTitleCard.module.css'
@@ -18,12 +19,7 @@ export default function PostTitleCard({ post, author }) {
   const formattedDate = formatDate(post.publishedAt)
 
   // Format preview text
-  const previewText = post.body[0].children[0].text.substring(0, 200)
-  const lastChar = previewText[previewText.length - 1]
-  const formattedText =
-    lastChar !== ' '
-      ? `${previewText}...`
-      : `${previewText.substring(0, 199)}...`
+  const formattedPreviewText = ellipsisText(post.body[0].children[0].text, 200)
 
   // Populate post values
   const { title, mainImage } = post
@@ -64,7 +60,7 @@ export default function PostTitleCard({ post, author }) {
           <p>
             {authorName} | {formattedDate}
           </p>
-          <p>{formattedText}</p>
+          <p>{formattedPreviewText}</p>
         </figcaption>
       </figure>
     </div>
