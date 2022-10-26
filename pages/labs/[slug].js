@@ -43,10 +43,17 @@ export async function getStaticProps(context) {
     (author) => author._id === post[0].author._ref
   )
 
+  // Calculate prev and next post information
+  const currentPostIndex = allPosts.findIndex((lab) => lab._id === post[0]._id)
+  const previousPost = allPosts[currentPostIndex - 1]
+  const nextPost = allPosts[currentPostIndex + 1]
+
   return {
     props: {
       post,
       author,
+      previousPost: previousPost ? previousPost : null,
+      nextPost: nextPost ? nextPost : null,
     },
   }
 }
@@ -55,6 +62,8 @@ export async function getStaticProps(context) {
 export default function Post({
   post,
   author,
+  previousPost,
+  nextPost,
   overlayDisplayed,
   setOverlayDisplayed,
   urlPath,
@@ -71,6 +80,13 @@ export default function Post({
     post[0].body[0].children[0].text,
     100
   )
+
+  // Format prev button text
+  const formattedPrevButtonText =
+    previousPost && ellipsisText(previousPost.title, 10)
+
+  // Format next button text
+  const formattedNextButtonText = nextPost && ellipsisText(nextPost.title, 10)
 
   // Populate post values
   const { title, mainImage, body, slug } = post[0]
@@ -147,45 +163,50 @@ export default function Post({
             }}
           />
         </div>
+        {/* TODO: create separate navigation components */}
         <div className={styles.postNavigation}>
-          <Link href="#">
-            <div className={styles.previous}>
-              <svg
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="30.725px"
-                height="30.725px"
-                viewBox="0 0 30.725 30.725"
-              >
-                <g>
-                  <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
-                </g>
-              </svg>
-              <p>Prev Post</p>
-            </div>
-          </Link>
-          <Link href="#">
-            <div className={styles.next}>
-              <p>Next Post</p>
-              <svg
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="30.725px"
-                height="30.725px"
-                viewBox="0 0 30.725 30.725"
-              >
-                <g>
-                  <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
-                </g>
-              </svg>
-            </div>
-          </Link>
+          {previousPost?.slug.current && (
+            <Link href={`${previousPost.slug.current}`}>
+              <div className={styles.previous} title={previousPost.title}>
+                <svg
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30.725px"
+                  height="30.725px"
+                  viewBox="0 0 30.725 30.725"
+                >
+                  <g>
+                    <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
+                  </g>
+                </svg>
+                <p>{formattedPrevButtonText}</p>
+              </div>
+            </Link>
+          )}
+          {nextPost?.slug.current && (
+            <Link href={`${nextPost.slug.current}`}>
+              <div className={styles.next} title={nextPost.title}>
+                <p>{formattedNextButtonText}</p>
+                <svg
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  x="0px"
+                  y="0px"
+                  width="30.725px"
+                  height="30.725px"
+                  viewBox="0 0 30.725 30.725"
+                >
+                  <g>
+                    <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
+                  </g>
+                </svg>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </>
