@@ -29,15 +29,18 @@ export default {
       type: 'image',
       fields: [
         {
-          title:
-            'Alternative Text (one brief descriptive sentence or phrase used for SEO)',
           name: 'alt',
-          type: 'string',
+          title: 'Alternative Text',
+          type: 'text',
+          description: `Some of your visitors cannot see images, 
+            be they blind, color-blind, low-sighted; 
+            alternative text is of great help for those 
+            people that can rely on it to have a good idea of 
+            what's on your page.`,
+          options: { isHighlighted: true },
         },
       ],
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
     },
     {
       name: 'categories',

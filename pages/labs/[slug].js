@@ -56,7 +56,24 @@ export default function Post({
           />
         </div>
         <div className={styles.postBody}>
-          <PortableText value={body} />
+          <PortableText
+            value={body}
+            components={{
+              types: {
+                image: ({ value }) => {
+                  return (
+                    <Image
+                      src={urlFor(value.asset).url()}
+                      width={750}
+                      height={750}
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                      alt={value.alt ? value.alt : 'Post body image'}
+                    />
+                  )
+                },
+              },
+            }}
+          />
         </div>
       </div>
     </>

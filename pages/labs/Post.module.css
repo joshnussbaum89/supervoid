@@ -2,6 +2,7 @@
   width: 95%;
   max-width: 1000px;
   margin: 0 auto 16rem;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -38,6 +39,35 @@
   border-radius: 1%;
 }
 
+.postBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-grey);
+}
+
+.postBody:before {
+  content: '';
+  display: block;
+  margin: auto;
+  width: 50px;
+  height: 2px;
+  margin-bottom: 1.6rem;
+  background-color: var(--color-grey);
+}
+
+.postBody h3 {
+  margin: 1rem 0 2rem;
+  font-size: var(--medium);
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .postBody h3 {
+    font-size: var(--large);
+  }
+}
+
 .postBody p {
   margin-bottom: 1rem;
   font-size: var(--extraSmall);
@@ -49,11 +79,72 @@
   }
 }
 
-.postBody:before {
-  content: '';
+.postBody a {
+  text-decoration: underline;
+  transition: var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  .postBody a:hover {
+    color: var(--color-red);
+  }
+}
+
+.postBody blockquote {
+  margin: 1rem 1rem 2rem;
+  padding: 1rem;
+  font-size: var(--small);
+  color: var(--color-white);
+  border-left: 6px solid var(--color-white);
+  quotes: '\201C''\201D''\2018''\2019';
+}
+
+@media (min-width: 768px) {
+  .postBody blockquote {
+    font-size: var(--medium);
+  }
+}
+
+.postBody blockquote:before {
+  content: open-quote;
+  margin-right: 0.25em;
+  font-size: var(--extraLarge);
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+  color: var(--color-white);
+}
+
+.postBody blockquote:after {
+  content: close-quote;
+  margin-left: 0.25em;
+  font-size: var(--extraLarge);
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+  color: var(--color-white);
+}
+
+.postBody ul {
+  display: inline-block;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  text-align: left;
+}
+
+.postBody li {
+  list-style-type: disc;
+  font-size: var(--extraSmall);
+}
+
+@media (min-width: 768px) {
+  .postBody li {
+    font-size: var(--small);
+  }
+}
+
+.postBody img {
   display: block;
-  width: 50px;
-  height: 2px;
-  margin-bottom: 1.6rem;
-  background-color: var(--color-grey);
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
+  border-radius: 1%;
 }
