@@ -57,24 +57,26 @@
 }
 
 .postBody h3 {
-  margin: 1rem 0 2rem;
+  margin: 2rem 0;
   font-size: var(--medium);
   color: var(--color-white);
 }
 
 @media (min-width: 768px) {
   .postBody h3 {
+    margin: 4rem;
     font-size: var(--large);
   }
 }
 
 .postBody p {
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
   font-size: var(--extraSmall);
 }
 
 @media (min-width: 768px) {
   .postBody p {
+    margin: 1rem 0;
     font-size: var(--small);
   }
 }
@@ -91,7 +93,7 @@
 }
 
 .postBody blockquote {
-  margin: 1rem 1rem 2rem;
+  margin: 2rem 1rem;
   padding: 1rem;
   font-size: var(--small);
   color: var(--color-white);
@@ -101,6 +103,7 @@
 
 @media (min-width: 768px) {
   .postBody blockquote {
+    margin: 4rem 2rem;
     font-size: var(--medium);
   }
 }
@@ -125,9 +128,15 @@
 
 .postBody ul {
   display: inline-block;
-  margin: 1rem 0 2rem;
+  margin: 2rem 0;
   padding: 0;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .postBody ul {
+    margin: 4rem 0;
+  }
 }
 
 .postBody li {
@@ -147,4 +156,10 @@
   height: auto;
   margin: 2rem auto;
   border-radius: 1%;
+}
+
+@media (min-width: 768px) {
+  .postBody img {
+    margin: 4rem auto;
+  }
 }
