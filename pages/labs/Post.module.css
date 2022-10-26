@@ -64,7 +64,7 @@
 
 @media (min-width: 768px) {
   .postBody h3 {
-    margin: 4rem;
+    margin: 3rem;
     font-size: var(--large);
   }
 }
@@ -103,7 +103,7 @@
 
 @media (min-width: 768px) {
   .postBody blockquote {
-    margin: 4rem 2rem;
+    margin: 3rem 1.5rem;
     font-size: var(--medium);
   }
 }
@@ -135,7 +135,7 @@
 
 @media (min-width: 768px) {
   .postBody ul {
-    margin: 4rem 0;
+    margin: 3rem 0;
   }
 }
 
@@ -160,6 +160,6 @@
 
 @media (min-width: 768px) {
   .postBody img {
-    margin: 4rem auto;
+    margin: 3rem auto;
   }
 }
