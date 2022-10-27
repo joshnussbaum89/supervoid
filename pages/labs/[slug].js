@@ -1,9 +1,9 @@
 // Components, helpers
 import Image from 'next/future/image'
-import Link from 'next/link'
 import Head from 'next/head'
 import Script from 'next/script'
 import Header from '../../components/Header/Header'
+import PostNavigation from '../../components/LabsPage/PostNavigation/PostNavigation'
 import { PortableText } from '@portabletext/react'
 import { getAllPosts } from '../../lib/getAllPosts'
 import { getAllAuthors } from '../../lib/getAllAuthors'
@@ -81,13 +81,6 @@ export default function Post({
     100
   )
 
-  // Format prev button text
-  const formattedPrevButtonText =
-    previousPost && ellipsisText(previousPost.title, 10)
-
-  // Format next button text
-  const formattedNextButtonText = nextPost && ellipsisText(nextPost.title, 10)
-
   // Populate post values
   const { title, mainImage, body, slug } = post[0]
   const altText = mainImage.alt ? mainImage.alt : 'Lab header image'
@@ -126,7 +119,7 @@ export default function Post({
         setOverlayDisplayed={setOverlayDisplayed}
         urlPath={urlPath}
       />
-      <div className={styles.post}>
+      <article className={styles.post}>
         <div className={styles.postHeader}>
           <h2>{title}</h2>
           <p>
@@ -163,52 +156,8 @@ export default function Post({
             }}
           />
         </div>
-        {/* TODO: create separate navigation components */}
-        <div className={styles.postNavigation}>
-          {previousPost?.slug.current && (
-            <Link href={`${previousPost.slug.current}`}>
-              <div className={styles.previous} title={previousPost.title}>
-                <svg
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="30.725px"
-                  height="30.725px"
-                  viewBox="0 0 30.725 30.725"
-                >
-                  <g>
-                    <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
-                  </g>
-                </svg>
-                <p>{formattedPrevButtonText}</p>
-              </div>
-            </Link>
-          )}
-          {nextPost?.slug.current && (
-            <Link href={`${nextPost.slug.current}`}>
-              <div className={styles.next} title={nextPost.title}>
-                <p>{formattedNextButtonText}</p>
-                <svg
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  width="30.725px"
-                  height="30.725px"
-                  viewBox="0 0 30.725 30.725"
-                >
-                  <g>
-                    <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
-                  </g>
-                </svg>
-              </div>
-            </Link>
-          )}
-        </div>
-      </div>
+        <PostNavigation previousPost={previousPost} nextPost={nextPost} />
+      </article>
     </>
   )
 }

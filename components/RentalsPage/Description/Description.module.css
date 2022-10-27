@@ -26,7 +26,6 @@
 
 .general svg {
   fill: var(--color-white);
-  transform: rotate(-90deg);
 }
 
 .philosophy {

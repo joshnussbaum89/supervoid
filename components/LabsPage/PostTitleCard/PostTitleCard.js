@@ -28,7 +28,7 @@ export default function PostTitleCard({ post, author }) {
   const authorName = author[0].name
 
   return (
-    <div className={styles.post}>
+    <article className={styles.post}>
       <figure>
         <Link
           href={{
@@ -63,6 +63,6 @@ export default function PostTitleCard({ post, author }) {
           <p>{formattedPreviewText}</p>
         </figcaption>
       </figure>
-    </div>
+    </article>
   )
 }

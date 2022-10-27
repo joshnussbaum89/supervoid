@@ -9,6 +9,19 @@ import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPo
 import { getAllPosts } from '../lib/getAllPosts'
 import { getAllAuthors } from '../lib/getAllAuthors'
 
+// Fetch Sanity posts + authors
+export async function getStaticProps() {
+  const posts = await getAllPosts()
+  const authors = await getAllAuthors()
+
+  return {
+    props: {
+      posts,
+      authors,
+    },
+  }
+}
+
 // "Labs" (Blog) page
 export default function Labs({
   posts,
@@ -31,7 +44,7 @@ export default function Labs({
   })
 
   return (
-    <div>
+    <>
       <Head>
         <meta
           name="description"
@@ -69,19 +82,6 @@ export default function Labs({
       <main>
         <MostRecentPosts posts={posts} authors={authors} />
       </main>
-    </div>
+    </>
   )
-}
-
-// Fetch Sanity posts + authors
-export async function getStaticProps() {
-  const posts = await getAllPosts()
-  const authors = await getAllAuthors()
-
-  return {
-    props: {
-      posts,
-      authors,
-    },
-  }
 }

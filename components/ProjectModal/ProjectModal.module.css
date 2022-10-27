@@ -99,10 +99,6 @@
   fill: var(--color-white);
 }
 
-.navigateRight svg {
-  transform: rotate(180deg);
-}
-
 .image {
   display: block;
   max-width: 100%;
