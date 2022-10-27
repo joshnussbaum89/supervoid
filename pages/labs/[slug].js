@@ -22,10 +22,9 @@ export async function getStaticPaths() {
     params: {
       slug: post.slug.current,
     },
-    fallback: 'blocking',
   }))
 
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
 
 // Get post + author props
