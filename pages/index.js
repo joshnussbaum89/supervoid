@@ -4,15 +4,10 @@ import Script from 'next/script'
 
 // Components
 import Head from 'next/head'
-import Header from '../components/Global/Header/Header'
 import Work from '../components/HomePage/Work/Work'
 import About from '../components/HomePage/About/About'
 
-export default function Home({
-  overlayDisplayed,
-  setOverlayDisplayed,
-  urlPath,
-}) {
+export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
   const data = [
     {
       id: 0,
@@ -257,7 +252,6 @@ export default function Home({
 
   return (
     <>
-      {/* Head tag for this page only */}
       <Head>
         <meta
           name="description"
@@ -283,15 +277,9 @@ export default function Home({
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
-      {/* Animate on Scroll library (AOS) */}
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}
-      />
-      <Header
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
-        urlPath={urlPath}
       />
       <main>
         <Work

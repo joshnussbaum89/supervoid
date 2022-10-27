@@ -4,16 +4,11 @@ import Head from 'next/head'
 import Script from 'next/script'
 
 // Components
-import Header from '../components/Global/Header/Header'
 import RentalsDescription from '../components/RentalsPage/Description/Description'
 import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
 import Footer from '../components/RentalsPage/Footer/Footer'
 
-export default function RentalsPage({
-  overlayDisplayed,
-  setOverlayDisplayed,
-  urlPath,
-}) {
+export default function RentalsPage({ overlayDisplayed, urlPath }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const body = document.querySelector('body')
@@ -57,11 +52,6 @@ export default function RentalsPage({
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}
-      />
-      <Header
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
-        urlPath={urlPath}
       />
       <main>
         <RentalsDescription />

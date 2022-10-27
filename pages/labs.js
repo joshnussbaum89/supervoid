@@ -2,7 +2,6 @@
 import { useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
-import Header from '../components/Global/Header/Header'
 import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
 // Helpers
@@ -23,13 +22,7 @@ export async function getStaticProps() {
 }
 
 // "Labs" (Blog) page
-export default function Labs({
-  posts,
-  authors,
-  overlayDisplayed,
-  setOverlayDisplayed,
-  urlPath,
-}) {
+export default function Labs({ posts, authors, overlayDisplayed }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const body = document.querySelector('body')
@@ -73,11 +66,6 @@ export default function Labs({
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}
-      />
-      <Header
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
-        urlPath={urlPath}
       />
       <main>
         <MostRecentPosts posts={posts} authors={authors} />

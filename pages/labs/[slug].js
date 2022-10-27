@@ -2,7 +2,6 @@
 import Image from 'next/future/image'
 import Head from 'next/head'
 import Script from 'next/script'
-import Header from '../../components/Global/Header/Header'
 import PostNavigation from '../../components/LabsPage/PostNavigation/PostNavigation'
 import { PortableText } from '@portabletext/react'
 import { getAllPosts } from '../../lib/getAllPosts'
@@ -59,15 +58,7 @@ export async function getStaticProps(context) {
 }
 
 // Create post based on post clicked
-export default function Post({
-  post,
-  author,
-  previousPost,
-  nextPost,
-  overlayDisplayed,
-  setOverlayDisplayed,
-  urlPath,
-}) {
+export default function Post({ post, author, previousPost, nextPost }) {
   // Build image from Sanity data
   const builder = imageUrlBuilder(client)
   const urlFor = (source) => builder.image(source)
@@ -113,11 +104,6 @@ export default function Post({
       <Script
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}
-      />
-      <Header
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
-        urlPath={urlPath}
       />
       <article className={styles.post}>
         <div className={styles.postHeader}>

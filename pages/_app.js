@@ -1,6 +1,7 @@
 // Components, hooks
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Header from '../components/Global/Header/Header'
 
 // Styles
 import '../styles/globals.css'
@@ -12,12 +13,19 @@ function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter()
 
   return (
-    <Component
-      {...pageProps}
-      urlPath={pathname}
-      overlayDisplayed={overlayDisplayed}
-      setOverlayDisplayed={setOverlayDisplayed}
-    />
+    <>
+      <Header
+        overlayDisplayed={overlayDisplayed}
+        setOverlayDisplayed={setOverlayDisplayed}
+        urlPath={pathname}
+      />
+      <Component
+        {...pageProps}
+        urlPath={pathname}
+        overlayDisplayed={overlayDisplayed}
+        setOverlayDisplayed={setOverlayDisplayed}
+      />
+    </>
   )
 }
 
