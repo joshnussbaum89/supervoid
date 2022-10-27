@@ -18,6 +18,7 @@ export async function getStaticProps() {
       posts,
       authors,
     },
+    revalidate: 10,
   }
 }
 

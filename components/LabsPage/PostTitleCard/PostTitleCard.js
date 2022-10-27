@@ -1,7 +1,7 @@
 // Components, helpers
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
-import client from '../../../sanityClient'
+import client from '../../../lib/sanityClient'
 import { formatDate } from '../../../lib/formatDate'
 import { ellipsisText } from '../../../lib/ellipsisText'
 

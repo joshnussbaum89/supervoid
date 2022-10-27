@@ -9,7 +9,7 @@ import { getAllAuthors } from '../../lib/getAllAuthors'
 import { formatDate } from '../../lib/formatDate'
 import { ellipsisText } from '../../lib/ellipsisText'
 import imageUrlBuilder from '@sanity/image-url'
-import client from '../../sanityClient'
+import client from '../../lib/sanityClient'
 
 // Styles
 import styles from './Post.module.css'
@@ -22,6 +22,7 @@ export async function getStaticPaths() {
     params: {
       slug: post.slug.current,
     },
+    fallback: 'blocking',
   }))
 
   return { paths, fallback: false }
@@ -54,6 +55,7 @@ export async function getStaticProps(context) {
       previousPost: previousPost ? previousPost : null,
       nextPost: nextPost ? nextPost : null,
     },
+    revalidate: 60,
   }
 }
 
