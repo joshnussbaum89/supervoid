@@ -1,6 +1,6 @@
 // Components
 import Image from 'next/future/image'
-import Arrow from '../Global/Arrow/Arrow'
+import Arrow from '../../Global/Arrow/Arrow'
 
 // Styles
 import styles from './ProjectModal.module.css'

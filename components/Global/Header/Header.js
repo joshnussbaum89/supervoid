@@ -4,13 +4,13 @@ import dynamic from 'next/dynamic'
 
 // Components
 import MainNavigation from '../MainNavigation/MainNavigation'
-import HomePageHeroBackground from '../HeroBackground/HeroBackground'
-import RentalsPageHeroBackground from '../RentalsPage/HeroBackground/HeroBackround'
-import LabsPageHeroBackground from '../LabsPage/HeroBackground/HeroBackround'
-import HomePageHeroInfo from '../HomePageHeroInfo/HomePageHeroInfo'
+import HomePageHeroBackground from '../../HomePage/HeroBackground/HeroBackground'
+import RentalsPageHeroBackground from '../../RentalsPage/HeroBackground/HeroBackround'
+import LabsPageHeroBackground from '../../LabsPage/HeroBackground/HeroBackround'
+import HomePageHeroInfo from '../../HomePage/HeroInfo/HeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
-const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
+const PromoReel = dynamic(() => import('../../HomePage/PromoReel/PromoReel'), {
   // loading: () => <h2>Loading...</h2>,
   ssr: false,
 })

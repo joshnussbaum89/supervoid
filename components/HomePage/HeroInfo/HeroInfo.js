@@ -1,12 +1,12 @@
 // Components
 import Image from 'next/future/image'
-import SupervoidCTA from '../SupervoidCTA/SupervoidCTA'
+import SupervoidCTA from '../../Global/SupervoidCTA/SupervoidCTA'
 
 // Styles, images
-import styles from './HomePageHeroInfo.module.css'
-import titleImage from '../../public/images/supervoid-title-text-no-tv.webp'
+import styles from './HeroInfo.module.css'
+import titleImage from '../../../public/images/supervoid-title-text-no-tv.webp'
 
-export default function HomePageHeroInfo({ handleReelDisplay }) {
+export default function HeroInfo({ handleReelDisplay }) {
   return (
     <section className={styles.info}>
       <div className={styles.title}>

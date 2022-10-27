@@ -4,9 +4,9 @@ import Script from 'next/script'
 
 // Components
 import Head from 'next/head'
-import Header from '../components/Header/Header'
-import Work from '../components/Work/Work'
-import About from '../components/About/About'
+import Header from '../components/Global/Header/Header'
+import Work from '../components/HomePage/Work/Work'
+import About from '../components/HomePage/About/About'
 
 export default function Home({
   overlayDisplayed,

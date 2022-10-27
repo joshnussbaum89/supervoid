@@ -2,7 +2,7 @@
 import Image from 'next/future/image'
 import Head from 'next/head'
 import Script from 'next/script'
-import Header from '../../components/Header/Header'
+import Header from '../../components/Global/Header/Header'
 import PostNavigation from '../../components/LabsPage/PostNavigation/PostNavigation'
 import { PortableText } from '@portabletext/react'
 import { getAllPosts } from '../../lib/getAllPosts'

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Script from 'next/script'
 
 // Components
-import Header from '../components/Header/Header'
+import Header from '../components/Global/Header/Header'
 import RentalsDescription from '../components/RentalsPage/Description/Description'
 import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
 import Footer from '../components/RentalsPage/Footer/Footer'

@@ -14,8 +14,8 @@ import 'swiper/css/pagination'
 
 // Styles, images
 import styles from './About.module.css'
-import drewAndKepplerPast from '../../public/images/drew-keppler-2005.webp'
-import drewAndKepplerPresent from '../../public/images/drew-keppler-2022.webp'
+import drewAndKepplerPast from '../../../public/images/drew-keppler-2005.webp'
+import drewAndKepplerPresent from '../../../public/images/drew-keppler-2022.webp'
 
 export default function About() {
   return (

@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import Head from 'next/head'
 import Script from 'next/script'
-import Header from '../components/Header/Header'
+import Header from '../components/Global/Header/Header'
 import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
 // Helpers

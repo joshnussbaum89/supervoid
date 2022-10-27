@@ -1,6 +1,6 @@
 // Components
 import Image from 'next/future/image'
-import SupervoidCTA from '../../SupervoidCTA/SupervoidCTA'
+import SupervoidCTA from '../../Global/SupervoidCTA/SupervoidCTA'
 
 // import Swiper core and required modules
 import { Navigation, Pagination, A11y } from 'swiper'

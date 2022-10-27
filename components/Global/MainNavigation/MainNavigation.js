@@ -6,7 +6,7 @@ import Hamburger from '../Hamburger/Hamburger'
 
 // Styles
 import styles from './MainNavigation.module.css'
-import siteLogo from '../../public/images/supervoid-logo-voidstar-stylized.webp'
+import siteLogo from '../../../public/images/supervoid-logo-voidstar-stylized.webp'
 
 export default function MainNavigation({
   mainNavIsVisible,
