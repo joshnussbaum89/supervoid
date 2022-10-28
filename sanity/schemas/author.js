@@ -5,13 +5,21 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Name',
+      title: 'Name *',
       type: 'string',
+      validation: (Rule) =>
+        Rule.required().error(
+          'A name is required to publish an author - please add a name'
+        ),
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'Slug *',
       type: 'slug',
+      validation: (Rule) =>
+        Rule.required().error(
+          'A slug is required to publish an author - please create your own, or click "generate" to add a slug'
+        ),
       options: {
         source: 'name',
         maxLength: 96,
@@ -19,7 +27,7 @@ export default {
     },
     {
       name: 'image',
-      title: 'Image',
+      title: 'Image (optional)',
       type: 'image',
       options: {
         hotspot: true,
@@ -27,7 +35,7 @@ export default {
     },
     {
       name: 'bio',
-      title: 'Bio',
+      title: 'Bio (optional)',
       type: 'array',
       of: [
         {
