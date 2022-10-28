@@ -106,7 +106,11 @@ export default function Post({ post, author, previousPost, nextPost }) {
         src="https://unpkg.com/aos@2.3.1/dist/aos.js"
         onReady={() => AOS.init({ once: true })}
       />
-      <article className={styles.post}>
+      <article
+        className={styles.post}
+        data-aos="fade-up"
+        data-aos-duration="600"
+      >
         <div className={styles.postHeader}>
           <h2>{title}</h2>
           <p>

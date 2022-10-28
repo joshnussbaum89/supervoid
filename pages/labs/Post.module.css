@@ -126,6 +126,10 @@
   color: var(--color-white);
 }
 
+.postBody code {
+  color: var(--color-white);
+}
+
 .postBody ul {
   display: inline-block;
   margin: 2rem 0;

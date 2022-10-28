@@ -28,7 +28,7 @@ export default function PostTitleCard({ post, author }) {
   const authorName = author[0].name
 
   return (
-    <article className={styles.post}>
+    <article className={styles.post} data-aos="fade-up" data-aos-duration="600">
       <figure>
         <Link
           href={{
