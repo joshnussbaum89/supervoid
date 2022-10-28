@@ -20,10 +20,11 @@ import tomMorello from '../../../public/images/tom-morello_red.webp'
 import tateMcrae from '../../../public/images/tate-mcrae-mia_red.webp'
 
 export default function Footer({ urlPath }) {
+  console.log(urlPath)
   return (
     <footer
       className={styles.footer}
-      data-urlPath={urlPath}
+      data-urlpath={urlPath}
       data-aos="fade-up"
       data-aos-duration="600"
     >
