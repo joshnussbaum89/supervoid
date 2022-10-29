@@ -134,5 +134,31 @@ export default function Header({
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
+  ) : urlPath === '/404' ? (
+    <header>
+      <MainNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+        mainNavIsVisible={mainNavIsVisible}
+      />
+      <PageTitle title="404" body="Page Not Found" />
+      <MobileNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+      />
+    </header>
+  ) : urlPath === '/500' ? (
+    <header>
+      <MainNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+        mainNavIsVisible={mainNavIsVisible}
+      />
+      <PageTitle title="500" body="Server-side error occurred" />
+      <MobileNavigation
+        handleMobileNavDisplay={handleMobileNavDisplay}
+        mobileNavIsActive={mobileNavIsActive}
+      />
+    </header>
   ) : null
 }

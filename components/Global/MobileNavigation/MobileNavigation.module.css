@@ -5,6 +5,7 @@
   height: 100vh;
   width: 100vw;
   transition: var(--transition-normal);
+  visibility: hidden;
   opacity: 0;
 }
 
@@ -12,6 +13,7 @@
   z-index: 2;
   display: block;
   background: var(--color-black);
+  visibility: visible;
   opacity: 1;
 }
 
