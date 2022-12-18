@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/image'
+import Image from 'next/future/image'
 import Link from 'next/link'
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation'
 import Hamburger from '../Hamburger/Hamburger'
@@ -29,8 +29,8 @@ export default function MainNavigation({
           <Image
             src={siteLogo}
             title="Supervoid"
-            width={2160}
-            height={2160}
+            width={216}
+            height={216}
             sizes="(min-width: 768px) 10rem, 8rem"
             alt="Supervoid Logo Voidstar Stylized"
             priority

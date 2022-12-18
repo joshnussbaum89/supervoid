@@ -11,10 +11,16 @@
 }
 
 .navigation.show {
-  background: var(--color-black);
+  background: var(--color-faded-black);
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: saturate(180%) blur(5px);
 }
 
-.navigation .logo {
+.logo {
+  display: flex;
+}
+
+.logo img {
   width: 8rem;
   max-width: 100%;
   height: auto;
@@ -23,7 +29,7 @@
 }
 
 @media (min-width: 768px) {
-  .navigation .logo {
+  .logo img {
     width: 10rem;
   }
 }
