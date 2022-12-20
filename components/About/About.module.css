@@ -2,7 +2,7 @@
   margin: auto;
   padding: 6rem 0;
   width: 95%;
-  max-width: 80rem;
+  max-width: 60rem;
 }
 
 @media (min-width: 768px) {
@@ -23,6 +23,10 @@
   .about p {
     font-size: var(--small);
   }
+}
+
+.about p:first-of-type {
+  max-width: 48rem;
 }
 
 .about span {
@@ -69,10 +73,9 @@
 .swiper p,
 .aboutImagesContainer figcaption {
   margin-top: 0.5rem;
-  font-family: 'IBM Plex Sans KR', sans-serif;
   font-size: var(--extraSmall);
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-grey);
 }
 
 .swiper p {

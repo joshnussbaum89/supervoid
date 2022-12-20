@@ -6,7 +6,7 @@
 }
 
 .serverSpecs h2 {
-  max-width: 420px;
+  max-width: 850px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4rem;
@@ -15,7 +15,6 @@
 
 @media (min-width: 768px) {
   .serverSpecs h2 {
-    max-width: 650px;
     margin-bottom: 5rem;
   }
 }
