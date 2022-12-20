@@ -11,7 +11,7 @@
 .title {
   margin: auto;
   width: 95%;
-  max-width: 52rem;
+  max-width: 48rem;
 }
 
 .title img {
@@ -20,11 +20,14 @@
   height: auto;
 }
 
+/* TODO: should this match the lookbook body text? */
 .info p {
-  margin: 0 auto 2rem auto;
+  /* font-family: var(--font-supervoid-header); */
+  margin: auto;
   width: 95%;
-  max-width: 50rem;
+  /* text-transform: uppercase; */
   font-size: var(--small);
+  /* padding: 1rem; */
   text-shadow: 1px 1px 0 var(--color-black);
   color: var(--color-white);
 }
@@ -35,7 +38,9 @@
   }
 }
 
-.info .ctaContainer button {
+/* Temporarily hidden */
+
+/* .info .ctaContainer button {
   margin: 0.5rem auto;
   height: 5rem;
   width: 65%;
@@ -59,4 +64,4 @@
   .info .ctaContainer button:hover {
     transform: translateY(-2px);
   }
-}
+} */

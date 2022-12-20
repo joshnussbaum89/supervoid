@@ -1,6 +1,6 @@
 .desktopNav {
   display: none;
-  font-size: var(--medium);
+  font-size: var(--small);
 }
 
 @media (min-width: 768px) {

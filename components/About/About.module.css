@@ -112,6 +112,7 @@
 
 .aboutServices h3 {
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .aboutServices ul {
