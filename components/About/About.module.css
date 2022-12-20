@@ -26,7 +26,13 @@
 }
 
 .about p:first-of-type {
-  max-width: 48rem;
+  max-width: 26rem;
+}
+
+@media (min-width: 768px) {
+  .about p:first-of-type {
+    max-width: 37rem;
+  }
 }
 
 .about span {
