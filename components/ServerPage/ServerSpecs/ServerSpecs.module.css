@@ -62,8 +62,7 @@
   }
 }
 
-.colOne .card:nth-of-type(1),
-.colThree .card:nth-of-type(1) {
+.card:nth-of-type(1) {
   margin-bottom: 4rem;
 }
 

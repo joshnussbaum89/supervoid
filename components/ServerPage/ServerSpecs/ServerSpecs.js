@@ -30,6 +30,10 @@ export default function ServerSpecs() {
   const [cardFivePosition, setCardFivePosition] = useState(0)
   const [cardFiveActive, setCardFiveActive] = useState(false)
 
+  // Card Five
+  const [cardSixPosition, setCardSixPosition] = useState(0)
+  const [cardSixActive, setCardSixActive] = useState(false)
+
   // Use scroll position + window height
   const scrollY = useScrollPosition()
   const windowHeight = useWindowHeight()
@@ -70,6 +74,13 @@ export default function ServerSpecs() {
       ? setCardFiveActive(true)
       : setCardFiveActive(false)
   }
+  const trackCardSixPosition = (element) => {
+    if (!element) return
+    setCardSixPosition(element.getBoundingClientRect().top)
+    cardSixPosition <= windowHeight / 2 + 100 && cardSixPosition > 100
+      ? setCardSixActive(true)
+      : setCardSixActive(false)
+  }
 
   // Handle .active state card styles
   const cardOneStyles = cardOneActive
@@ -85,6 +96,9 @@ export default function ServerSpecs() {
     ? `${styles.card} ${styles.active}`
     : styles.card
   const cardFiveStyles = cardFiveActive
+    ? `${styles.card} ${styles.active}`
+    : styles.card
+  const cardSixStyles = cardSixActive
     ? `${styles.card} ${styles.active}`
     : styles.card
 
@@ -116,14 +130,19 @@ export default function ServerSpecs() {
               server
             </p>
           </div>
+          <div className={cardFourStyles} ref={trackCardFourPosition}>
+            <p>
+              Pixel map and control hundreds of universes of lights over artnet
+            </p>
+          </div>
         </div>
         <div className={styles.colThree}>
-          <div className={cardFourStyles} ref={trackCardFourPosition}>
+          <div className={cardFiveStyles} ref={trackCardFivePosition}>
             <p>
               control via your lighting desk with artnet or from MIDI or OSC
             </p>
           </div>
-          <div className={cardFiveStyles} ref={trackCardFivePosition}>
+          <div className={cardSixStyles} ref={trackCardSixPosition}>
             <p>remote Control over LAN/Wifi from any Windows or Mac computer</p>
           </div>
         </div>
