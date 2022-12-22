@@ -1,19 +1,19 @@
 // Hooks
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 
 // Components
 import MainNavigation from '../MainNavigation/MainNavigation'
 import HomePageHeroBackground from '../HeroBackground/HeroBackground'
-import RentalsPageHeroBackground from '../RentalsPage/HeroBackground/HeroBackround'
+import ServerPageHeroBackground from '../ServerPage/HeroBackground/HeroBackground'
 import HomePageHeroInfo from '../HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
-const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
+// const PromoReel = dynamic(() => import('../PromoReel/PromoReel'), {
   // loading: () => <h2>Loading...</h2>,
-  ssr: false,
-})
+  // ssr: false,
+// })
 
 // Styles
 import styles from './Header.module.css'
@@ -79,26 +79,26 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
       />
       <HomePageHeroInfo handleReelDisplay={handleReelDisplay} />
       <HomePageHeroBackground />
-      {reelIsActive && (
+      {/* {reelIsActive && (
         <PromoReel
           handleReelDisplay={handleReelDisplay}
           reelIsActive={reelIsActive}
         />
-      )}
+      )} */}
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/rentals' ? (
-    <header className={styles.rentalsHeader}>
+  ) : pathname === '/servers' ? (
+    <header className={styles.serverHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
         mainNavIsVisible={mainNavIsVisible}
       />
-      <RentalsPageHeroBackground />
-      <PageTitle title="Rentals" />
+      <ServerPageHeroBackground />
+      <PageTitle title="Servers" />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}

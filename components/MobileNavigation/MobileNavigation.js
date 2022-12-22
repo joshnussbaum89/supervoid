@@ -24,7 +24,7 @@ export default function MobileNavigation({
           <Link href="/#about">About</Link>
         </li>
         <li onClick={handleMobileNavDisplay}>
-          <Link href="/rentals">Rentals</Link>
+          <Link href="/servers">servers</Link>
         </li>
       </ul>
     </nav>

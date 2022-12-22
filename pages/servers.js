@@ -5,11 +5,11 @@ import Script from 'next/script'
 
 // Components
 import Header from '../components/Header/Header'
-import RentalsDescription from '../components/RentalsPage/Description/Description'
-import ServerSpecs from '../components/RentalsPage/ServerSpecs/ServerSpecs'
-import Footer from '../components/RentalsPage/Footer/Footer'
+import RentalsDescription from '../components/ServerPage/Description/Description'
+import ServerSpecs from '../components/ServerPage/ServerSpecs/ServerSpecs'
+import Footer from '../components/ServerPage/Footer/Footer'
 
-export default function RentalsPage({
+export default function ServerPage({
   pathname,
   overlayDisplayed,
   setOverlayDisplayed,

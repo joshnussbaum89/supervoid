@@ -5,7 +5,7 @@ import Image from 'next/future/image'
 import styles from './HeroBackground.module.css'
 import supernova from '../../../public/images/msg-test-pattern.webp'
 
-export default function RentalsPageHeroBackground() {
+export default function ServersPageHeroBackground() {
   return (
     <div className={styles.backgroundImage}>
       <Image

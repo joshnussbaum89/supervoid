@@ -1,5 +1,5 @@
 .homeHeader,
-.rentalsHeader {
+.serverHeader {
   position: relative;
   height: 100vh;
 }
@@ -8,6 +8,6 @@
   background: var(--color-black);
 }
 
-.rentalsHeader {
+.serverHeader {
   margin-bottom: 16rem;
 }

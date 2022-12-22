@@ -14,7 +14,7 @@ export default function DesktopNavigation() {
         <Link href="/#about">About</Link>
       </li>
       <li>
-        <Link href="/rentals">Rentals</Link>
+        <Link href="/servers">Servers</Link>
       </li>
     </ul>
   )
