@@ -1,9 +1,7 @@
 .button {
   display: block;
   margin: 0.5rem auto;
-  width: 60%;
-  max-width: 18rem;
-  height: 5rem;
+  padding: 0.2rem 1rem 0.5rem;
   font-size: var(--small);
   color: var(--color-white);
   background: var(--color-red-gradient);
