@@ -2,8 +2,7 @@
   display: block;
   margin: 0.5rem auto;
   width: 50%;
-  min-width: 13rem;
-  max-width: 18rem;
+  max-width: 20rem;
   height: 5rem;
   font-size: var(--small);
   color: var(--color-white);
