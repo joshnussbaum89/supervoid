@@ -98,10 +98,10 @@ export default function ProjectModal({
           alt={`${modalData.client} ${modalData.project}`}
         />
         <div className={styles.modalInfo}>
-          <h3>{modalData.client}</h3>
+          <h3>{modalData.project}</h3>
           <p>
-            <span className={styles.modalLabel}>Project: </span>
-            {modalData.project}
+            <span className={styles.modalLabel}>Client: </span>
+            {modalData.client}
           </p>
           <p className={styles.modalDate}>
             <span className={styles.modalLabel}>Description: </span>
