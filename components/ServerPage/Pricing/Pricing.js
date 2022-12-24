@@ -7,7 +7,7 @@ import flyRack from '../../../public/images/2ru-rack.webp'
 
 export default function Pricing() {
   return (
-    <div className={styles.pricing} data-aos="fade-up" data-aos-duration="600">
+    <div className={styles.pricing}>
       <Image
         src={flyRack}
         width={1204}

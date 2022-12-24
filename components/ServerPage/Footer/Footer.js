@@ -21,12 +21,7 @@ import tateMcrae from '../../../public/images/tate-mcrae-mia_red.webp'
 
 export default function Footer({ pathname }) {
   return (
-    <footer
-      className={styles.footer}
-      data-pathname={pathname}
-      data-aos="fade-up"
-      data-aos-duration="600"
-    >
+    <footer className={styles.footer} data-pathname={pathname}>
       <SupervoidCTA urlPath="/#about" buttonText="contact us" />
       <Swiper
         className={styles.swiper}

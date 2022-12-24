@@ -1,7 +1,6 @@
 // Hooks
 import { useEffect } from 'react'
 import Head from 'next/head'
-import Script from 'next/script'
 
 // Components
 import Header from '../components/Header/Header'
@@ -55,12 +54,6 @@ export default function ServerPage({
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Rentals</title>
       </Head>
-      {/* Animate on Scroll library (AOS) */}
-      <Script
-        src="https://unpkg.com/aos@2.3.1/dist/aos.js"
-        strategy="lazyOnload"
-        onLoad={() => AOS.init({ once: true })}
-      />
       <Header
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}

@@ -104,14 +104,8 @@ export default function ServerSpecs() {
 
   return (
     <section className={styles.serverSpecs}>
-      <h2 data-aos="fade-up" data-aos-duration="600">
-        SVX Series Servers Quick Specs
-      </h2>
-      <div
-        className={styles.cardContainer}
-        data-aos="fade-up"
-        data-aos-duration="600"
-      >
+      <h2>SVX Series Servers Quick Specs</h2>
+      <div className={styles.cardContainer}>
         <div className={styles.colOne}>
           <div className={cardOneStyles} ref={trackCardOnePosition}>
             <p>

@@ -20,7 +20,7 @@ import drewAndKepplerPresent from '../../public/images/drew-keppler-2022.webp'
 export default function About() {
   return (
     <footer id="about" className={styles.about}>
-      <div data-aos="fade-up" data-aos-duration="600">
+      <div>
         <h2>About</h2>
         <p>
           <span>SUPERVOID</span> is the Philly-based studio of Drew Mercadante +
@@ -68,8 +68,6 @@ export default function About() {
         className={styles.swiper}
         modules={[Navigation, Pagination, A11y]}
         pagination={{ clickable: true }}
-        data-aos="fade-up"
-        data-aos-duration="600"
       >
         <SwiperSlide>
           <Image
@@ -91,11 +89,7 @@ export default function About() {
         </SwiperSlide>
         <p>2005 - present</p>
       </Swiper>
-      <figure
-        className={styles.aboutImagesContainer}
-        data-aos="fade-up"
-        data-aos-duration="600"
-      >
+      <figure className={styles.aboutImagesContainer}>
         <div className={styles.aboutImages}>
           <Image
             src={drewAndKepplerPast}
@@ -114,11 +108,7 @@ export default function About() {
         </div>
         <figcaption>2005 - present</figcaption>
       </figure>
-      <div
-        className={styles.aboutServices}
-        data-aos="fade-up"
-        data-aos-duration="600"
-      >
+      <div className={styles.aboutServices}>
         <h3>Services</h3>
         <ul>
           <li>animation</li>
