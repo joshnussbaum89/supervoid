@@ -1,0 +1,40 @@
+.footer {
+  padding: 0 2rem 4rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+  }
+}
+
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: var(--extraSmall);
+  transition: var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  .footer a {
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer a:hover {
+    color: var(--color-red);
+  }
+}
+
+.footer p {
+  font-size: 0.8rem;
+  color: var(--color-grey);
+}

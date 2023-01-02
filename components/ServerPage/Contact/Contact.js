@@ -14,14 +14,14 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 // Styles, images
-import styles from './Footer.module.css'
+import styles from './Contact.module.css'
 import danAndShay from '../../../public/images/dan-shay.webp'
 import tomMorello from '../../../public/images/tom-morello_red.webp'
 import tateMcrae from '../../../public/images/tate-mcrae-mia_red.webp'
 
-export default function Footer({ pathname }) {
+export default function Contact({ pathname }) {
   return (
-    <footer className={styles.footer} data-pathname={pathname}>
+    <section className={styles.contact} data-pathname={pathname}>
       <SupervoidCTA urlPath="/#about" buttonText="contact us" />
       <Swiper
         className={styles.swiper}
@@ -79,6 +79,6 @@ export default function Footer({ pathname }) {
           alt="Tate McRae Made In America Festival 2022"
         />
       </div>
-    </footer>
+    </section>
   )
 }

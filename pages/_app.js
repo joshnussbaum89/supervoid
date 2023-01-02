@@ -1,6 +1,7 @@
 // Components, hooks
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import Footer from '../components/Footer/Footer'
 
 // Styles
 import '../styles/globals.css'
@@ -12,12 +13,15 @@ function MyApp({ Component, pageProps }) {
   const urlPath = useRouter().pathname.replace('/', '')
 
   return (
-    <Component
-      {...pageProps}
-      pathname={urlPath}
-      overlayDisplayed={overlayDisplayed}
-      setOverlayDisplayed={setOverlayDisplayed}
-    />
+    <>
+      <Component
+        {...pageProps}
+        pathname={urlPath}
+        overlayDisplayed={overlayDisplayed}
+        setOverlayDisplayed={setOverlayDisplayed}
+      />
+      <Footer />
+    </>
   )
 }
 

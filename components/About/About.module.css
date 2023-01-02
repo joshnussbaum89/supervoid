@@ -59,12 +59,14 @@
 
 .contactInfo svg {
   width: 1.5rem;
+  height: 1.5rem;
   fill: var(--color-white);
 }
 
 @media (min-width: 768px) {
   .contactInfo svg {
     width: 2rem;
+    height: 2rem;
     transition: var(--transition-normal);
   }
 }

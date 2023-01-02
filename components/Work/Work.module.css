@@ -28,6 +28,7 @@
 
 .projectContainer {
   position: relative;
+  margin: auto;
   background: linear-gradient(
     110deg,
     var(--color-faded-black) 0%,

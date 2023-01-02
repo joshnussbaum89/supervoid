@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Header from '../components/Header/Header'
 import RentalsDescription from '../components/ServerPage/Description/Description'
 import ServerSpecs from '../components/ServerPage/ServerSpecs/ServerSpecs'
-import Footer from '../components/ServerPage/Footer/Footer'
+import Contact from '../components/ServerPage/Contact/Contact'
 
 export default function ServerPage({
   pathname,
@@ -38,8 +38,8 @@ export default function ServerPage({
           name="keywords"
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
-        <meta property="og:title" content="SUPERVOID TV: Rentals" />
-        <meta property="og:url" content="https://supervoid.tv/rentals" />
+        <meta property="og:title" content="SUPERVOID TV: Servers" />
+        <meta property="og:url" content="https://supervoid.tv/servers" />
         <meta
           property="og:description"
           content="Custom media server racks built in house to meet the needs of shows large and small."
@@ -52,7 +52,7 @@ export default function ServerPage({
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
-        <title>SUPERVOID: Rentals</title>
+        <title>SUPERVOID: Servers</title>
       </Head>
       <Header
         overlayDisplayed={overlayDisplayed}
@@ -62,7 +62,7 @@ export default function ServerPage({
         <RentalsDescription />
         <ServerSpecs />
       </main>
-      <Footer pathname={pathname} />
+      <Contact pathname={pathname} />
     </>
   )
 }
