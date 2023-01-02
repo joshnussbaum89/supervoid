@@ -58,7 +58,7 @@ export default function Work({
               alt={`${project.client} - ${project.description}`}
             />
             <div className={styles.projectOverlay}>
-              <h3>{project.client}</h3>
+              <h3>{project.musicVideo ? project.project : project.client}</h3>
             </div>
           </div>
         ))}

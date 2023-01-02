@@ -9,6 +9,7 @@ import useWindowHeight from '../../../hooks/useWindowHeight'
 // Styles
 import styles from './ServerSpecs.module.css'
 
+// TODO: create Card component
 export default function ServerSpecs() {
   // Card One
   const [cardOnePosition, setCardOnePosition] = useState(0)
