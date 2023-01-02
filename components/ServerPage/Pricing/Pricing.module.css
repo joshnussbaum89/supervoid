@@ -1,56 +1,65 @@
 .pricing {
-  display: grid;
-  justify-items: center;
+  width: 100%;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 16rem;
 }
 
+.serverImages {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.25rem;
+}
+
 @media (min-width: 768px) {
-  .pricing {
+  .serverImages {
     grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
-    align-items: center;
-    gap: 8.5%;
   }
 }
 
-.pricing p {
-  width: 100%;
-}
-
-.pricing img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1.5rem;
-  border-radius: 1%;
-}
-
 @media (min-width: 768px) {
-  .pricing img {
+  .serverImages img {
     margin-bottom: 0;
   }
 }
 
 .pricing p {
+  max-width: 792px;
+  margin: auto;
+  padding: 1rem 0;
   font-size: var(--small);
   text-transform: none;
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .pricing p {
-    text-align: left;
-  }
+.pricing p::before,
+.pricing p::after {
+  content: '';
+  display: block;
+  width: 25%;
+  max-width: 400px;
+  height: 1px;
+  margin: 2rem auto;
+  background-color: var(--color-grey);
+}
+
+.pricing img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1%;
+}
+
+.pricing > img {
+  display: block;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  margin: auto;
 }
 
 @media (min-width: 768px) {
-  .pricing p::before {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 2px;
-    margin-bottom: 1rem;
-    background-color: var(--color-white);
+  .pricing > img {
+    max-width: 550px;
   }
 }

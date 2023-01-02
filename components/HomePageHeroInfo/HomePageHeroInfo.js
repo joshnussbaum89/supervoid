@@ -1,12 +1,11 @@
 // Components
 import Image from 'next/future/image'
-// import SupervoidCTA from '../SupervoidCTA/SupervoidCTA'
 
 // Styles, images
 import styles from './HomePageHeroInfo.module.css'
 import titleImage from '../../public/images/supervoid-title-text-no-tv.webp'
 
-export default function HomePageHeroInfo({ handleReelDisplay }) {
+export default function HomePageHeroInfo() {
   return (
     <section className={styles.info}>
       <div className={styles.title}>
@@ -20,8 +19,6 @@ export default function HomePageHeroInfo({ handleReelDisplay }) {
         />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
-      {/* Temporarily hidden */}
-      {/* <SupervoidCTA handleClick={handleReelDisplay} buttonText="2022 reel" /> */}
     </section>
   )
 }
