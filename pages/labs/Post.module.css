@@ -20,6 +20,7 @@
 }
 
 .postHeader h2 {
+  font-size: clamp(var(--medium), 5vw, var(--extraLarge));
   padding: 0;
 }
 
