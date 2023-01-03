@@ -27,8 +27,9 @@
 }
 
 .navigation ul li {
-  font-size: var(--large);
   margin: 2rem 0;
+  font-size: var(--large);
+  text-align: center;
 }
 
 .navigation ul a {
