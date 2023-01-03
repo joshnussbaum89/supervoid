@@ -130,7 +130,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
         mainNavIsVisible={mainNavIsVisible}
       />
-      <PageTitle title="404" body="Page Not Found" />
+      
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
@@ -143,7 +143,6 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
         mainNavIsVisible={mainNavIsVisible}
       />
-      <PageTitle title="500" body="Server-side error occurred" />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}

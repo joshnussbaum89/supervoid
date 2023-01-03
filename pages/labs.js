@@ -57,7 +57,7 @@ export default function Labs({ posts, authors, overlayDisplayed }) {
         <meta
           property="og:image"
           // TODO: Replace placeholder image
-          content="https://supervoid.tv/images/labs-placeholder.jpg"
+          content="https://supervoid.tv/images/labs-placeholder.webp"
         />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
