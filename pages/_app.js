@@ -1,7 +1,7 @@
 // Components, hooks
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-import Footer from '../components/Footer/Footer'
+import Layout from '../components/Global/Layout/Layout'
 
 // Styles
 import '../styles/globals.css'
@@ -14,13 +14,18 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Component
-        {...pageProps}
-        pathname={urlPath}
+      <Layout
         overlayDisplayed={overlayDisplayed}
         setOverlayDisplayed={setOverlayDisplayed}
-      />
-      <Footer />
+        pathname={urlPath}
+      >
+        <Component
+          {...pageProps}
+          pathname={urlPath}
+          overlayDisplayed={overlayDisplayed}
+          setOverlayDisplayed={setOverlayDisplayed}
+        />
+      </Layout>
     </>
   )
 }

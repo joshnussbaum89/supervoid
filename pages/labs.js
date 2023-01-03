@@ -1,13 +1,28 @@
-// Hooks
+// Components, hooks
 import { useEffect } from 'react'
 import Head from 'next/head'
+import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
-// Components
-import RentalsDescription from '../components/ServerPage/Description/Description'
-import ServerSpecs from '../components/ServerPage/ServerSpecs/ServerSpecs'
-import Contact from '../components/ServerPage/Contact/Contact'
+// Helpers
+import { getAllPosts } from '../lib/getAllPosts'
+import { getAllAuthors } from '../lib/getAllAuthors'
 
-export default function ServerPage({ pathname, overlayDisplayed }) {
+// Fetch Sanity posts + authors
+export async function getStaticProps() {
+  const posts = await getAllPosts()
+  const authors = await getAllAuthors()
+
+  return {
+    props: {
+      posts,
+      authors,
+    },
+    revalidate: 60,
+  }
+}
+
+// "Labs" (Blog) page
+export default function Labs({ posts, authors, overlayDisplayed }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const body = document.querySelector('body')
@@ -23,7 +38,6 @@ export default function ServerPage({ pathname, overlayDisplayed }) {
 
   return (
     <>
-      {/* Head tag for this page only */}
       <Head>
         <meta
           name="description"
@@ -33,8 +47,8 @@ export default function ServerPage({ pathname, overlayDisplayed }) {
           name="keywords"
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
-        <meta property="og:title" content="SUPERVOID TV: Servers" />
-        <meta property="og:url" content="https://supervoid.tv/servers" />
+        <meta property="og:title" content="SUPERVOID TV: Labs" />
+        <meta property="og:url" content="https://supervoid.tv/labs" />
         <meta
           property="og:description"
           content="Custom media server racks built in house to meet the needs of shows large and small."
@@ -42,18 +56,17 @@ export default function ServerPage({ pathname, overlayDisplayed }) {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://supervoid.tv/images/msg-test-pattern.webp"
+          // TODO: Replace placeholder image
+          content="https://supervoid.tv/images/labs-placeholder.jpg"
         />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
-        <title>SUPERVOID: Servers</title>
+        <title>SUPERVOID: Labs</title>
       </Head>
       <main>
-        <RentalsDescription />
-        <ServerSpecs />
+        <MostRecentPosts posts={posts} authors={authors} />
       </main>
-      <Contact pathname={pathname} />
     </>
   )
 }

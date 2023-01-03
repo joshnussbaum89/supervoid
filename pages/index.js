@@ -3,9 +3,8 @@ import { useEffect } from 'react'
 
 // Components
 import Head from 'next/head'
-import Header from '../components/Header/Header'
-import Work from '../components/Work/Work'
-import About from '../components/About/About'
+import Work from '../components/HomePage/Work/Work'
+import About from '../components/HomePage/About/About'
 
 export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
   const data = [
@@ -212,10 +211,6 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
-      <Header
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
-      />
       <main>
         <Work
           projectData={data}
