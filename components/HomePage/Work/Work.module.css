@@ -67,7 +67,14 @@
 
 @media (min-width: 768px) {
   .projectContainer .projectOverlay h3 {
+    font-size: var(--small);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projectContainer .projectOverlay h3 {
     padding: 0 0.75rem;
+    font-size: var(--medium);
   }
 }
 
