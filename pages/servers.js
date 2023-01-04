@@ -3,11 +3,16 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 
 // Components
-import RentalsDescription from '../components/ServerPage/Description/Description'
-import ServerSpecs from '../components/ServerPage/ServerSpecs/ServerSpecs'
-import Contact from '../components/ServerPage/Contact/Contact'
+import RentalsDescription from '../components/ServersPage/Description/Description'
+import ServerSpecs from '../components/ServersPage/ServerSpecs/ServerSpecs'
+import Contact from '../components/ServersPage/Contact/Contact'
 
-export default function ServerPage({ pathname, overlayDisplayed }) {
+/**
+ * Servers Page
+ * @param {string} pathname
+ * @param {boolean} overlayDisplayed
+ */
+export default function ServersPage({ pathname, overlayDisplayed }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const body = document.querySelector('body')

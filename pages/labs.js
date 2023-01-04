@@ -21,7 +21,13 @@ export async function getStaticProps() {
   }
 }
 
-// "Labs" (Blog) page
+/**
+ * Labs (Blog) Page
+ *
+ * @param {object} posts
+ * @param {object} authors
+ * @param {boolean} overlayDisplayed
+ */
 export default function Labs({ posts, authors, overlayDisplayed }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {

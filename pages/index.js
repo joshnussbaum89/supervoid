@@ -6,6 +6,11 @@ import Head from 'next/head'
 import Work from '../components/HomePage/Work/Work'
 import About from '../components/HomePage/About/About'
 
+/**
+ * Home Page
+ * @param {boolean} overlayDisplayed
+ * @param {function} setOverlayDisplayed
+ */
 export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
   const data = [
     {

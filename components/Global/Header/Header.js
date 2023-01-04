@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 // Components
 import MainNavigation from '../MainNavigation/MainNavigation'
 import HomePageHeroBackground from '../../HomePage/HeroBackground/HeroBackground'
-import ServerPageHeroBackground from '../../ServerPage/HeroBackground/HeroBackground'
+import ServersPageHeroBackground from '../../ServersPage/HeroBackground/HeroBackground'
 import LabsPageHeroBackground from '../../LabsPage/HeroBackground/HeroBackround'
 import HomePageHeroInfo from '../../HomePage/HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../../Global/PageTitle/PageTitle'
@@ -14,7 +14,13 @@ import MobileNavigation from '../MobileNavigation/MobileNavigation'
 // Styles
 import styles from './Header.module.css'
 
-// Dynamic for each page (tracking URL path)
+/**
+ * Dynamic header for each page (tracking URL path)
+ * 
+ * @param {boolean} overlayDisplayed 
+ * @param {function} setOverlayDisplayed 
+ * @returns correct header depending on page
+ */
 export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
@@ -87,7 +93,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
         mainNavIsVisible={mainNavIsVisible}
       />
-      <ServerPageHeroBackground />
+      <ServersPageHeroBackground />
       <PageTitle title="Servers" />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
