@@ -8,6 +8,7 @@ import About from '../components/HomePage/About/About'
 
 /**
  * Home Page
+ * 
  * @param {boolean} overlayDisplayed
  * @param {function} setOverlayDisplayed
  */

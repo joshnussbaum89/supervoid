@@ -16,9 +16,9 @@ export default function DesktopNavigation() {
       <li>
         <Link href="/servers">Servers</Link>
       </li>
-      <li>
+      {/* <li>
         <Link href="/labs">Labs</Link>
-      </li>
+      </li> */}
     </ul>
   )
 }

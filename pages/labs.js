@@ -1,7 +1,7 @@
 // Components, hooks
 import { useEffect } from 'react'
 import Head from 'next/head'
-import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
+// import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
 // Helpers
 import { getAllPosts } from '../lib/getAllPosts'
@@ -23,6 +23,8 @@ export async function getStaticProps() {
 
 /**
  * Labs (Blog) Page
+ *
+ * [ TEMPORARILY DISABLED ]
  *
  * @param {object} posts
  * @param {object} authors
@@ -71,7 +73,8 @@ export default function Labs({ posts, authors, overlayDisplayed }) {
         <title>SUPERVOID: Labs</title>
       </Head>
       <main>
-        <MostRecentPosts posts={posts} authors={authors} />
+        {/* <MostRecentPosts posts={posts} authors={authors} /> */}
+        <h2 style={{ marginBottom: '12rem' }}>Coming soon</h2>
       </main>
     </>
   )
