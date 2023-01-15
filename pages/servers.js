@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import Head from 'next/head'
 
 // Components
-import RentalsDescription from '../components/ServersPage/Description/Description'
+import ServerDescription from '../components/ServersPage/Description/Description'
 import ServerSpecs from '../components/ServersPage/ServerSpecs/ServerSpecs'
 import Contact from '../components/ServersPage/Contact/Contact'
 
@@ -55,7 +55,7 @@ export default function ServersPage({ pathname, overlayDisplayed }) {
         <title>SUPERVOID: Servers</title>
       </Head>
       <main>
-        <RentalsDescription />
+        <ServerDescription />
         <ServerSpecs />
       </main>
       <Contact pathname={pathname} />
