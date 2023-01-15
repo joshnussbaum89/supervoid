@@ -8,7 +8,7 @@ import About from '../components/HomePage/About/About'
 
 /**
  * Home Page
- * 
+ *
  * @param {boolean} overlayDisplayed
  * @param {function} setOverlayDisplayed
  */
@@ -215,6 +215,10 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
         <meta property="twitter:creator" content="@SUPERVOIDtv" />
+        <meta
+          name="google-site-verification"
+          content="zX9VfT0iiNgGZmfY-EzVrlc5JtJOwiTtZm3TPPBog9w"
+        />
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
       <main>
