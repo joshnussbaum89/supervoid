@@ -1,6 +1,5 @@
 // Hooks
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 
 // Components
 import MainNavigation from '../MainNavigation/MainNavigation'
@@ -19,16 +18,17 @@ import styles from './Header.module.css'
  *
  * @param {boolean} overlayDisplayed
  * @param {function} setOverlayDisplayed
+ * @param {string} pathname
  * @returns correct header depending on page
  */
-export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
+export default function Header({
+  overlayDisplayed,
+  setOverlayDisplayed,
+  pathname,
+}) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)
-  const [reelIsActive, setReelIsActive] = useState(false)
-
-  // Current user path
-  const { pathname } = useRouter()
 
   // Hide/show main navigation
   useEffect(() => {
@@ -66,28 +66,22 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
     setOverlayDisplayed(!overlayDisplayed)
   }
 
-  // Hide/show promo reel
-  const handleReelDisplay = () => {
-    setReelIsActive(!reelIsActive)
-    setOverlayDisplayed(!overlayDisplayed)
-  }
-
   // Determine header styling based on currently displayed page
-  return pathname === '/' ? (
+  return pathname === '' ? (
     <header className={styles.homeHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
         mainNavIsVisible={mainNavIsVisible}
       />
-      <HomePageHeroInfo handleReelDisplay={handleReelDisplay} />
+      <HomePageHeroInfo />
       <HomePageHeroBackground />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/servers' ? (
+  ) : pathname === 'servers' ? (
     <header className={styles.serverHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
@@ -101,7 +95,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/labs' ? (
+  ) : pathname === 'labs' ? (
     <header className={styles.labsHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
@@ -118,7 +112,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/labs/[slug]' ? (
+  ) : pathname === 'labs/[slug]' ? (
     <header className={styles.singlePostHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
@@ -130,7 +124,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/404' ? (
+  ) : pathname === '404' ? (
     <header className={styles.errorHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
@@ -142,7 +136,7 @@ export default function Header({ overlayDisplayed, setOverlayDisplayed }) {
         mobileNavIsActive={mobileNavIsActive}
       />
     </header>
-  ) : pathname === '/500' ? (
+  ) : pathname === '500' ? (
     <header className={styles.errorHeader}>
       <MainNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
