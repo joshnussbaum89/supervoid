@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'benzin-regular';
-  src: url('../public/fonts/Benzin-Regular.ttf');
+  src: url('../public/fonts/benzin_regular.ttf');
 }
 
 @font-face {
   font-family: 'benzin-extra-bold';
-  src: url('../public/fonts/Benzin-ExtraBold.ttf');
+  src: url('../public/fonts/benzin_extra-bold.ttf');
 }
 
 :root {
