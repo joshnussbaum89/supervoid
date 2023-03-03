@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 // Styles, images
 import styles from './HeroBackground.module.css'

@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 // Styles
 import styles from './ProjectModal.module.css'
@@ -90,7 +90,6 @@ export default function ProjectModal({
         </div>
         <Image
           src={modalData.gif}
-          className={styles.image}
           loader={vimeoIoImageLoader}
           width={618}
           height={347}

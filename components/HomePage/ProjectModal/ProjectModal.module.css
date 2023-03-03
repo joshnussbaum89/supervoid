@@ -38,6 +38,13 @@
   }
 }
 
+.modalContent img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+}
+
 .close {
   position: absolute;
   top: 9px;
@@ -101,13 +108,6 @@
 
 .navigateRight svg {
   transform: rotate(180deg);
-}
-
-.image {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  user-select: none;
 }
 
 .modalInfo {

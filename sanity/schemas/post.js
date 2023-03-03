@@ -1,9 +1,11 @@
-export default {
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
   name: 'post',
   title: 'Post',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'title',
       title: 'Title *',
       type: 'string',
@@ -11,8 +13,8 @@ export default {
         Rule.required().error(
           'A title is required for each post - please add a title'
         ),
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug *',
       type: 'slug',
@@ -24,8 +26,8 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'author',
       title: 'Author *',
       type: 'reference',
@@ -34,8 +36,8 @@ export default {
           'An author is required for each post - please add an author'
         ),
       to: { type: 'author' },
-    },
-    {
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image *',
       type: 'image',
@@ -57,12 +59,11 @@ export default {
             alternative text is of great help for those 
             people that can rely on it to have a good idea of 
             what's on your page.`,
-          options: { isHighlighted: true },
         },
       ],
       options: { hotspot: true },
-    },
-    {
+    }),
+    defineField({
       name: 'categories',
       title: 'Categories (optional)',
       type: 'array',
@@ -74,8 +75,8 @@ export default {
           },
         },
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at *',
       type: 'date',
@@ -87,8 +88,8 @@ export default {
         dateFormat: 'MM-DD-YYYY',
         calendarTodayLabel: 'Today',
       },
-    },
-    {
+    }),
+    defineField({
       name: 'body',
       title: 'Body *',
       type: 'blockContent',
@@ -96,8 +97,9 @@ export default {
         Rule.required().error(
           'Body text is required to post a Lab - please add some text'
         ),
-    },
+    }),
   ],
+
   preview: {
     select: {
       title: 'title',
@@ -111,4 +113,4 @@ export default {
       })
     },
   },
-}
+})

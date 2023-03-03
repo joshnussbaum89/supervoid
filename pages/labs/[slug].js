@@ -1,5 +1,5 @@
 // Components, helpers
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Head from 'next/head'
 import PostNavigation from '../../components/LabsPage/PostNavigation/PostNavigation'
 import { PortableText } from '@portabletext/react'
@@ -12,50 +12,6 @@ import client from '../../lib/sanityClient'
 
 // Styles
 import styles from './Post.module.css'
-
-// Create dynamic URLs from post slug
-export async function getStaticPaths() {
-  const posts = await getAllPosts()
-
-  const paths = posts.map((post) => ({
-    params: {
-      slug: post.slug.current,
-    },
-  }))
-
-  return { paths, fallback: 'blocking' }
-}
-
-// Get post + author props
-export async function getStaticProps(context) {
-  const allPosts = await getAllPosts()
-  const allAuthors = await getAllAuthors()
-
-  // Get current post
-  const post = allPosts.filter(
-    (post) => post.slug.current === context.params.slug
-  )
-
-  // Get post author
-  const author = allAuthors.filter(
-    (author) => author._id === post[0].author._ref
-  )
-
-  // Calculate prev and next post information
-  const currentPostIndex = allPosts.findIndex((lab) => lab._id === post[0]._id)
-  const previousPost = allPosts[currentPostIndex - 1]
-  const nextPost = allPosts[currentPostIndex + 1]
-
-  return {
-    props: {
-      post,
-      author,
-      previousPost: previousPost ? previousPost : null,
-      nextPost: nextPost ? nextPost : null,
-    },
-    revalidate: 60,
-  }
-}
 
 // Create post based on post clicked
 export default function Post({ post, author, previousPost, nextPost }) {
@@ -142,4 +98,48 @@ export default function Post({ post, author, previousPost, nextPost }) {
       </article>
     </>
   )
+}
+
+// Create dynamic URLs from post slug
+export async function getStaticPaths() {
+  const posts = await getAllPosts()
+
+  const paths = posts.map((post) => ({
+    params: {
+      slug: post.slug.current,
+    },
+  }))
+
+  return { paths, fallback: 'blocking' }
+}
+
+// Get post + author props
+export async function getStaticProps(context) {
+  const allPosts = await getAllPosts()
+  const allAuthors = await getAllAuthors()
+
+  // Get current post
+  const post = allPosts.filter(
+    (post) => post.slug.current === context.params.slug
+  )
+
+  // Get post author
+  const author = allAuthors.filter(
+    (author) => author._id === post[0].author._ref
+  )
+
+  // Calculate prev and next post information
+  const currentPostIndex = allPosts.findIndex((lab) => lab._id === post[0]._id)
+  const previousPost = allPosts[currentPostIndex - 1]
+  const nextPost = allPosts[currentPostIndex + 1]
+
+  return {
+    props: {
+      post,
+      author,
+      previousPost: previousPost ? previousPost : null,
+      nextPost: nextPost ? nextPost : null,
+    },
+    revalidate: 60,
+  }
 }

@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import DesktopNavigation from '../DesktopNavigation/DesktopNavigation'
 import Hamburger from '../Hamburger/Hamburger'

@@ -20,8 +20,9 @@
 }
 
 .postHeader h2 {
-  font-size: clamp(var(--medium), 5vw, var(--extraLarge));
+  margin-bottom: 1rem;
   padding: 0;
+  font-size: clamp(var(--medium), 5vw, var(--extraLarge));
 }
 
 .postHeader p {

@@ -1,9 +1,11 @@
-export default {
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
   name: 'author',
   title: 'Author',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'name',
       title: 'Name *',
       type: 'string',
@@ -11,8 +13,8 @@ export default {
         Rule.required().error(
           'A name is required to publish an author - please add a name'
         ),
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug *',
       type: 'slug',
@@ -24,16 +26,16 @@ export default {
         source: 'name',
         maxLength: 96,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'image',
       title: 'Image (optional)',
       type: 'image',
       options: {
         hotspot: true,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'bio',
       title: 'Bio (optional)',
       type: 'array',
@@ -45,12 +47,13 @@ export default {
           lists: [],
         },
       ],
-    },
+    }),
   ],
+
   preview: {
     select: {
       title: 'name',
       media: 'image',
     },
   },
-}
+})

@@ -1,6 +1,6 @@
 // Components, hooks
 import { useState } from 'react'
-import Image from 'next/future/image'
+import Image from 'next/image'
 import ProjectModal from '../ProjectModal/ProjectModal'
 
 // Styles
@@ -50,7 +50,6 @@ export default function Work({
           >
             <Image
               src={project.gif}
-              className={styles.image}
               loader={vimeoIoImageLoader}
               width={720}
               height={405}

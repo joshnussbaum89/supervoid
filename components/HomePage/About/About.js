@@ -1,5 +1,5 @@
 // Components
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { FaInstagram, FaFacebook, FaRegEnvelope } from 'react-icons/fa'
 
 // import Swiper core and required modules

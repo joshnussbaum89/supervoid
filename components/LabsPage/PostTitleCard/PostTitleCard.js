@@ -7,7 +7,7 @@ import { ellipsisText } from '../../../lib/ellipsisText'
 
 // Styles, images
 import styles from './PostTitleCard.module.css'
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 // "Labs" page post preview card
 export default function PostTitleCard({ post, author }) {
