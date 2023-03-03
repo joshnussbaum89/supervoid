@@ -1,6 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
-// Code that is used on all pages
 export default function Document() {
   return (
     <Html lang="en">

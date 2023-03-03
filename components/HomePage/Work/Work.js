@@ -1,19 +1,16 @@
 // Components, hooks
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import ProjectModal from '../ProjectModal/ProjectModal'
 
 // Styles
 import styles from './Work.module.css'
 
-export default function Work({
-  projectData,
-  overlayDisplayed,
-  setOverlayDisplayed,
-}) {
+export default function Work({ projectData }) {
   const [modalIsActive, setModalIsActive] = useState(false)
   const [modalData, setModalData] = useState({})
   const [currentProjectID, setCurrentProjectID] = useState(0)
+  const [projectOverlayDisplayed, setProjectOverlayDisplayed] = useState(false)
 
   const handleModalDisplay = (event) => {
     const { currentTarget } = event
@@ -27,11 +24,24 @@ export default function Work({
     setModalIsActive(!modalIsActive)
     setModalData({ id, gif, client, project, description })
     setCurrentProjectID(id)
-    setOverlayDisplayed(!overlayDisplayed)
+    setProjectOverlayDisplayed(!projectOverlayDisplayed)
   }
 
   const vimeoIoImageLoader = ({ src, width, quality }) =>
     `${src}&w=${width}&q=${quality || 75}`
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const body = document.querySelector('body')
+
+      // Remove scrolling when project overlay is shown
+      if (projectOverlayDisplayed) {
+        body.classList.add('project-overlay-active')
+      } else {
+        body.classList.remove('project-overlay-active')
+      }
+    }
+  })
 
   return (
     <section id="work" className={styles.work}>

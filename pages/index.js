@@ -1,6 +1,3 @@
-// Hooks
-import { useEffect } from 'react'
-
 // Components
 import Head from 'next/head'
 import Work from '../components/HomePage/Work/Work'
@@ -8,11 +5,8 @@ import About from '../components/HomePage/About/About'
 
 /**
  * Home Page
- *
- * @param {boolean} overlayDisplayed
- * @param {function} setOverlayDisplayed
  */
-export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
+export default function Home() {
   const data = [
     {
       id: 0,
@@ -192,19 +186,6 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
     },
   ]
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const body = document.querySelector('body')
-
-      // Remove scrolling when modal overlay is shown
-      if (overlayDisplayed) {
-        body.classList.add('overlay-active')
-      } else {
-        body.classList.remove('overlay-active')
-      }
-    }
-  })
-
   return (
     <>
       <Head>
@@ -237,11 +218,7 @@ export default function Home({ overlayDisplayed, setOverlayDisplayed }) {
         <title>SUPERVOID: Psychedelic Dreams for Stage + Screen</title>
       </Head>
       <main>
-        <Work
-          projectData={data}
-          overlayDisplayed={overlayDisplayed}
-          setOverlayDisplayed={setOverlayDisplayed}
-        />
+        <Work projectData={data} />
         <About />
       </main>
     </>

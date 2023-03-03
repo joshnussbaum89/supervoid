@@ -1,5 +1,5 @@
 // Components, hooks
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../components/Global/Layout/Layout'
 
@@ -7,7 +7,20 @@ import Layout from '../components/Global/Layout/Layout'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  const [overlayDisplayed, setOverlayDisplayed] = useState(false)
+  const [mobileNavOverlayDisplayed, setMobileNavOverlayDisplayed] =
+    useState(false)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const body = document.querySelector('body')
+
+      if (mobileNavOverlayDisplayed) {
+        body.classList.add('mobile-nav-overlay-active')
+      } else {
+        body.classList.remove('mobile-nav-overlay-active')
+      }
+    }
+  })
 
   // Track URL path
   const urlPath = useRouter().pathname.replace('/', '')
@@ -15,15 +28,15 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Layout
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
+        mobileNavOverlayDisplayed={mobileNavOverlayDisplayed}
+        setMobileNavOverlayDisplayed={setMobileNavOverlayDisplayed}
         pathname={urlPath}
       >
         <Component
           {...pageProps}
           pathname={urlPath}
-          overlayDisplayed={overlayDisplayed}
-          setOverlayDisplayed={setOverlayDisplayed}
+          mobileNavOverlayDisplayed={mobileNavOverlayDisplayed}
+          setMobileNavOverlayDisplayed={setMobileNavOverlayDisplayed}
         />
       </Layout>
     </>

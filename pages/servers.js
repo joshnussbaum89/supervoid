@@ -1,34 +1,15 @@
-// Hooks
-import { useEffect } from 'react'
-import Head from 'next/head'
-
 // Components
+import Head from 'next/head'
 import ServerDescription from '../components/ServersPage/Description/Description'
 import ServerSpecs from '../components/ServersPage/ServerSpecs/ServerSpecs'
 import Contact from '../components/ServersPage/Contact/Contact'
 
 /**
  * Servers Page
- * @param {string} pathname
- * @param {boolean} overlayDisplayed
  */
-export default function ServersPage({ pathname, overlayDisplayed }) {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const body = document.querySelector('body')
-
-      // Remove scrolling when modal overlay is shown
-      if (overlayDisplayed) {
-        body.classList.add('overlay-active')
-      } else {
-        body.classList.remove('overlay-active')
-      }
-    }
-  })
-
+export default function ServersPage({ pathname }) {
   return (
     <>
-      {/* Head tag for this page only */}
       <Head>
         <meta
           name="description"

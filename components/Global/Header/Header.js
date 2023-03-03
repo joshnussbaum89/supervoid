@@ -16,18 +16,17 @@ import styles from './Header.module.css'
 /**
  * Dynamic header for each page (tracking URL path)
  *
- * @param {boolean} overlayDisplayed
- * @param {function} setOverlayDisplayed
+ * @param {boolean} mobileNavOverlayDisplayed
+ * @param {function} setMobileNavOverlayDisplayed
  * @param {string} pathname
  * @returns correct header depending on page
  */
 export default function Header({
-  overlayDisplayed,
-  setOverlayDisplayed,
+  mobileNavOverlayDisplayed,
+  setMobileNavOverlayDisplayed,
   pathname,
 }) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
-  const [previousScrollPosition, setPreviousScrollPosition] = useState(0)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)
 
   // Hide/show main navigation
@@ -39,14 +38,13 @@ export default function Header({
       } else {
         setMainNavIsVisible(false)
       }
-      setPreviousScrollPosition(window.scrollY)
     }
 
     // On resize
     const hideShowMobileNavigation = () => {
       if (window.innerWidth > 768) {
         setMobileNavIsActive(false)
-        setOverlayDisplayed(false)
+        setMobileNavOverlayDisplayed(false)
       }
     }
 
@@ -58,12 +56,12 @@ export default function Header({
         window.addEventListener('resize', hideShowMobileNavigation)
       }
     }
-  }, [previousScrollPosition, setOverlayDisplayed])
+  }, [setMobileNavOverlayDisplayed])
 
   // Hide/show mobile navigation
   const handleMobileNavDisplay = () => {
     setMobileNavIsActive(!mobileNavIsActive)
-    setOverlayDisplayed(!overlayDisplayed)
+    setMobileNavOverlayDisplayed(!mobileNavOverlayDisplayed)
   }
 
   // Determine header styling based on currently displayed page

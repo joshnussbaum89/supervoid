@@ -1,25 +1,10 @@
-// Components, hooks
-import { useEffect } from 'react'
+// Components
 import Head from 'next/head'
 // import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
 // Helpers
 import { getAllPosts } from '../lib/getAllPosts'
 import { getAllAuthors } from '../lib/getAllAuthors'
-
-// Fetch Sanity posts + authors
-export async function getStaticProps() {
-  const posts = await getAllPosts()
-  const authors = await getAllAuthors()
-
-  return {
-    props: {
-      posts,
-      authors,
-    },
-    revalidate: 60,
-  }
-}
 
 /**
  * Labs (Blog) Page
@@ -28,22 +13,8 @@ export async function getStaticProps() {
  *
  * @param {object} posts
  * @param {object} authors
- * @param {boolean} overlayDisplayed
  */
-export default function Labs({ posts, authors, overlayDisplayed }) {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const body = document.querySelector('body')
-
-      // Remove scrolling when modal overlay is shown
-      if (overlayDisplayed) {
-        body.classList.add('overlay-active')
-      } else {
-        body.classList.remove('overlay-active')
-      }
-    }
-  })
-
+export default function Labs({ posts, authors }) {
   return (
     <>
       <Head>
@@ -78,4 +49,18 @@ export default function Labs({ posts, authors, overlayDisplayed }) {
       </main>
     </>
   )
+}
+
+// Fetch Sanity posts + authors
+export async function getStaticProps() {
+  const posts = await getAllPosts()
+  const authors = await getAllAuthors()
+
+  return {
+    props: {
+      posts,
+      authors,
+    },
+    revalidate: 10,
+  }
 }

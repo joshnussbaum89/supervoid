@@ -3,16 +3,16 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 export default function Layout({
-  overlayDisplayed,
-  setOverlayDisplayed,
+  mobileNavOverlayDisplayed,
+  setMobileNavOverlayDisplayed,
   pathname,
   children,
 }) {
   return (
     <>
       <Header
-        overlayDisplayed={overlayDisplayed}
-        setOverlayDisplayed={setOverlayDisplayed}
+        mobileNavOverlayDisplayed={mobileNavOverlayDisplayed}
+        setMobileNavOverlayDisplayed={setMobileNavOverlayDisplayed}
         pathname={pathname}
       />
       {children}

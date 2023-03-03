@@ -29,7 +29,6 @@ export default function ProjectModal({
     } else {
       setCurrentProjectID((currentProjectID += 1))
     }
-
     updateModalData()
   }
 
