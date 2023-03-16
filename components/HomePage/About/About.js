@@ -104,12 +104,16 @@ export default function About() {
       <div className={styles.aboutServices}>
         <h3>Services</h3>
         <ul>
-          <li>animation</li>
-          <li>broadcast production</li>
-          <li>lighting design & programming</li>
-          <li>media server programming</li>
-          <li>notch</li>
-          <li>touch designer</li>
+          <li>Creative Direction</li>
+          <li>Technical Direction</li>
+          <li>Stage Visuals</li>
+          <li>Music Videos</li>
+          <li>Lighting Design + Programming</li>
+          <li>Media Server Programming</li>
+          <li>Notch</li>
+          <li>Unreal Engine</li>
+          <li>Cinema 4D</li>
+          <li>After Effects</li>
         </ul>
       </div>
     </section>
