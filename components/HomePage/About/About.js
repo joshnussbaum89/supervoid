@@ -28,13 +28,12 @@ export default function About() {
           Matt Keppler.
         </p>
         <p>
-          Music videos, live performance visuals, and social media content make
-          up the majority of their projects. Veering from techno-psychedelia to
-          adult swim-esque chaotic whimsy, their work is a reflection of who
-          they are - best friends who grew up playing in punk bands together.
-          Always evolving, never taking it too seriously. If it looks like
-          something you&apos;ve already seen before, then what was the point of
-          making it?
+          live performance visuals and music videos make up the majority of
+          their projects. veering from techno-psychedelia to adult swim-esque
+          chaotic whimsy, their work is a reflection of who they are - best
+          friends who grew up playing in punk bands together. always evolving,
+          never taking it too seriously. if it looks like something you&apos;ve
+          already seen before, then what was the point of making it?
         </p>
         <p className={styles.email}>info@supervoid.tv</p>
         <div className={styles.contactInfo}>
