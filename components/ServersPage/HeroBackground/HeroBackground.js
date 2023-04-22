@@ -14,6 +14,7 @@ export default function ServersPageHeroBackground() {
         height={2667}
         sizes="100vw"
         alt="Test pattern on a big screen on the Madison Square Garden stage"
+        quality={50}
         priority
       />
       <div className={styles.shadow}></div>

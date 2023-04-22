@@ -36,7 +36,8 @@ body {
 }
 
 html {
-  scroll-behavior: smooth;
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
   line-height: normal;
 }
 
@@ -105,6 +106,13 @@ li {
 a {
   text-decoration: none;
   color: var(--color-white);
+}
+
+/* Fix light grey border on safari when images are loading */
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading='lazy'] {
+    clip-path: inset(0.6px);
+  }
 }
 
 /* Scrollbar width */

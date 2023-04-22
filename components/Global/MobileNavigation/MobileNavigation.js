@@ -17,17 +17,25 @@ export default function MobileNavigation({
       }
     >
       <ul>
-        <li onClick={handleMobileNavDisplay}>
-          <Link href="/#work">Work</Link>
+        <li>
+          <Link href="/#work" onClick={handleMobileNavDisplay}>
+            Work
+          </Link>
         </li>
-        <li onClick={handleMobileNavDisplay}>
-          <Link href="/#about">About</Link>
+        <li>
+          <Link href="/#about" onClick={handleMobileNavDisplay}>
+            About
+          </Link>
         </li>
-        <li onClick={handleMobileNavDisplay}>
-          <Link href="/servers">servers</Link>
+        <li>
+          <Link href="/servers" onClick={handleMobileNavDisplay}>
+            servers
+          </Link>
         </li>
-        {/* <li onClick={handleMobileNavDisplay}>
-          <Link href="/labs">labs</Link>
+        {/* <li>
+          <Link href="/labs" onClick={handleMobileNavDisplay}>
+            labs
+          </Link>
         </li> */}
       </ul>
     </nav>
