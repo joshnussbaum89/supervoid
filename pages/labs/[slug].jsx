@@ -23,10 +23,7 @@ export default function Post({ post, author, previousPost, nextPost }) {
   const formattedDate = formatDate(post[0].publishedAt)
 
   // Format description text
-  const formattedDescriptionText = ellipsisText(
-    post[0].body[0].children[0].text,
-    100
-  )
+  const formattedDescriptionText = ellipsisText(post[0].body[0].children[0].text, 100)
 
   // Populate post values
   const { title, mainImage, body, slug } = post[0]
@@ -36,19 +33,13 @@ export default function Post({ post, author, previousPost, nextPost }) {
   return (
     <>
       <Head>
-        <meta
-          name="description"
-          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
-        />
+        <meta name="description" content={formattedDescriptionText} />
         <meta
           name="keywords"
           content="lighting, music, video, concerts, film, design, animation, philadelphia"
         />
         <meta property="og:title" content={`SUPERVOID TV: ${title}`} />
-        <meta
-          property="og:url"
-          content={`https://supervoid.tv/labs/${slug.current}`}
-        />
+        <meta property="og:url" content={`https://supervoid.tv/labs/${slug.current}`} />
         <meta property="og:description" content={formattedDescriptionText} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={urlFor(mainImage).url()} />
@@ -119,14 +110,10 @@ export async function getStaticProps(context) {
   const allAuthors = await getAllAuthors()
 
   // Get current post
-  const post = allPosts.filter(
-    (post) => post.slug.current === context.params.slug
-  )
+  const post = allPosts.filter((post) => post.slug.current === context.params.slug)
 
   // Get post author
-  const author = allAuthors.filter(
-    (author) => author._id === post[0].author._ref
-  )
+  const author = allAuthors.filter((author) => author._id === post[0].author._ref)
 
   // Calculate prev and next post information
   const currentPostIndex = allPosts.findIndex((lab) => lab._id === post[0]._id)

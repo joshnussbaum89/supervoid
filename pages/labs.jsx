@@ -20,7 +20,7 @@ export default function Labs({ posts, authors }) {
       <Head>
         <meta
           name="description"
-          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
+          content="Philadelphia based creative team specializing in stage visuals and music videos"
         />
         <meta
           name="keywords"
@@ -30,7 +30,7 @@ export default function Labs({ posts, authors }) {
         <meta property="og:url" content="https://supervoid.tv/labs" />
         <meta
           property="og:description"
-          content="Custom media server racks built in house to meet the needs of shows large and small."
+          content="Philadelphia based creative team specializing in stage visuals and music videos"
         />
         <meta property="og:type" content="website" />
         <meta

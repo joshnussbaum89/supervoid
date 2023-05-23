@@ -9,7 +9,7 @@ export default function Home() {
       <Head>
         <meta
           name="description"
-          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more"
+          content="Philadelphia based creative team specializing in stage visuals and music videos"
         />
         <meta
           name="keywords"
@@ -19,7 +19,7 @@ export default function Home() {
         <meta property="og:url" content="https://supervoid.tv" />
         <meta
           property="og:description"
-          content="Philadelphia creative team specializing in music videos, stage visuals, documentaries and more."
+          content="Philadelphia based creative team specializing in stage visuals and music videos"
         />
         <meta property="og:type" content="website" />
         <meta
