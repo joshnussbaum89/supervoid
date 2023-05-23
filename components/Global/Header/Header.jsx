@@ -7,7 +7,7 @@ import HomePageHeroBackground from '../../HomePage/HeroBackground/HeroBackground
 import ServersPageHeroBackground from '../../ServersPage/HeroBackground/HeroBackground'
 import LabsPageHeroBackground from '../../LabsPage/HeroBackground/HeroBackround'
 import HomePageHeroInfo from '../../HomePage/HomePageHeroInfo/HomePageHeroInfo'
-import PageTitle from '../../Global/PageTitle/PageTitle'
+import PageTitle from '../PageTitle/PageTitle'
 import MobileNavigation from '../MobileNavigation/MobileNavigation'
 
 // Styles
@@ -101,10 +101,7 @@ export default function Header({
         mainNavIsVisible={mainNavIsVisible}
       />
       <LabsPageHeroBackground />
-      <PageTitle
-        title="Labs"
-        body="Insights into our creative process for our current projects"
-      />
+      <PageTitle title="Labs" body="Insights into our creative process for our current projects" />
       <MobileNavigation
         handleMobileNavDisplay={handleMobileNavDisplay}
         mobileNavIsActive={mobileNavIsActive}

@@ -26,10 +26,7 @@ export default function ServersPage({ pathname }) {
           content="Custom media server racks built in house to meet the needs of shows large and small."
         />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://supervoid.tv/images/msg-test-pattern.webp"
-        />
+        <meta property="og:image" content="https://supervoid.tv/images/msg-test-pattern.webp" />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:site" content="@SUPERVOIDtv" />
         <meta property="twitter:creator" content="@SUPERVOIDtv" />

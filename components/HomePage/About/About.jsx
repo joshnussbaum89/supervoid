@@ -24,31 +24,21 @@ export default function About() {
       <div>
         <h2>About</h2>
         <p>
-          <span>SUPERVOID</span> is the Philly-based studio of Drew Mercadante +
-          Matt Keppler.
+          <span>SUPERVOID</span> is the Philly-based studio of Drew Mercadante + Matt Keppler.
         </p>
         <p>
-          live performance visuals and music videos make up the majority of
-          their projects. veering from techno-psychedelia to adult swim-esque
-          chaotic whimsy, their work is a reflection of who they are - best
-          friends who grew up playing in punk bands together. always evolving,
-          never taking it too seriously. if it looks like something you&apos;ve
-          already seen before, then what was the point of making it?
+          live performance visuals and music videos make up the majority of their projects. veering
+          from techno-psychedelia to adult swim-esque chaotic whimsy, their work is a reflection of
+          who they are - best friends who grew up playing in punk bands together. always evolving,
+          never taking it too seriously. if it looks like something you&apos;ve already seen before,
+          then what was the point of making it?
         </p>
         <p className={styles.email}>info@supervoid.tv</p>
         <div className={styles.contactInfo}>
-          <a
-            href="https://www.instagram.com/supervoidtv/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://www.instagram.com/supervoidtv/" target="_blank" rel="noreferrer">
             <FaInstagram />
           </a>
-          <a
-            href="https://www.facebook.com/supervoidtv"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://www.facebook.com/supervoidtv" target="_blank" rel="noreferrer">
             <FaFacebook />
           </a>
           <a href="mailto:info@supervoid.tv" target="_blank" rel="noreferrer">

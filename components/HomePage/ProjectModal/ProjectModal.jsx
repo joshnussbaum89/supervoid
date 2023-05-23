@@ -16,8 +16,7 @@ export default function ProjectModal({
 }) {
   // Update currently active modal state
   const updateModalData = () => {
-    const { id, gif, client, project, description } =
-      projectData[currentProjectID]
+    const { id, gif, client, project, description } = projectData[currentProjectID]
 
     setModalData({ id, gif, client, project, description })
   }
@@ -42,9 +41,7 @@ export default function ProjectModal({
         <div className={styles.projectNavigation}>
           <div
             className={
-              currentProjectID === 0
-                ? `${styles.navigateLeft} ${styles.hide}`
-                : styles.navigateLeft
+              currentProjectID === 0 ? `${styles.navigateLeft} ${styles.hide}` : styles.navigateLeft
             }
             onClick={() => handleNavigationClick('previous')}
           >

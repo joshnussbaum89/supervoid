@@ -2,18 +2,18 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import localFont from 'next/font/local'
-import Layout from '../components/Global/Layout/Layout'
 
 // Styles
 import '../styles/globals.css'
+import Header from '../components/Global/Header/Header'
+import Footer from '../components/Global/Footer/Footer'
 
 // Fonts
 const benzin_regular = localFont({ src: '../public/fonts/benzin_regular.ttf' })
 const benzin_bold = localFont({ src: '../public/fonts/benzin_bold.ttf' })
 
 function MyApp({ Component, pageProps }) {
-  const [mobileNavOverlayDisplayed, setMobileNavOverlayDisplayed] =
-    useState(false)
+  const [mobileNavOverlayDisplayed, setMobileNavOverlayDisplayed] = useState(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -50,18 +50,18 @@ function MyApp({ Component, pageProps }) {
           font-family: var(--font-supervoid-header);
         }
       `}</style>
-      <Layout
+      <Header
         mobileNavOverlayDisplayed={mobileNavOverlayDisplayed}
         setMobileNavOverlayDisplayed={setMobileNavOverlayDisplayed}
         pathname={urlPath}
-      >
-        <Component
-          {...pageProps}
-          pathname={urlPath}
-          mobileNavOverlayDisplayed={mobileNavOverlayDisplayed}
-          setMobileNavOverlayDisplayed={setMobileNavOverlayDisplayed}
-        />
-      </Layout>
+      />
+      <Component
+        {...pageProps}
+        pathname={urlPath}
+        mobileNavOverlayDisplayed={mobileNavOverlayDisplayed}
+        setMobileNavOverlayDisplayed={setMobileNavOverlayDisplayed}
+      />
+      <Footer />
     </>
   )
 }

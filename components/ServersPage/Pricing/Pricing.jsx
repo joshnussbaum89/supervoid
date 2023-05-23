@@ -26,9 +26,9 @@ export default function Pricing() {
         />
       </div>
       <p>
-        our 2RU Fly Rack Kits contain everything you need to run your show.
-        rentals start as low as $500/week, with 24/7 tech support and SUPERVOID
-        exclusive VJ loops and visual content included in every rental.
+        our 2RU Fly Rack Kits contain everything you need to run your show. rentals start as low as
+        $500/week, with 24/7 tech support and SUPERVOID exclusive VJ loops and visual content
+        included in every rental.
       </p>
     </div>
   )

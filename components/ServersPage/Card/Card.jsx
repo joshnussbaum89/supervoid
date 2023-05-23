@@ -31,9 +31,7 @@ export default function Card({ text, column }) {
   }
 
   // Card styles -> handles 'active' styles
-  const cardStyles = cardActive
-    ? `${styles.card} ${styles.active}`
-    : styles.card
+  const cardStyles = cardActive ? `${styles.card} ${styles.active}` : styles.card
 
   return (
     <div className={cardStyles} data-column={column && column} ref={trackCardPosition}>

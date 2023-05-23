@@ -10,9 +10,8 @@ export default function RentalsDescription() {
     <section className={styles.description}>
       <div className={styles.general}>
         <p>
-          we design and build custom media server racks in house to meet the
-          needs of shows large and small. our SVX series media servers pack a
-          big punch in a small footprint.
+          we design and build custom media server racks in house to meet the needs of shows large
+          and small. our SVX series media servers pack a big punch in a small footprint.
         </p>
         <svg
           version="1.1"
@@ -39,10 +38,9 @@ export default function RentalsDescription() {
           <figcaption>Tate McRae at MIA festival</figcaption>
         </figure>
         <p>
-          after spending years programming top tier media servers like Disguise
-          and Hippo, which can be prohibitively expensive to rent, we wanted to
-          create a solution for our clients that could still be powerful enough
-          to run big shows without breaking the bank.
+          after spending years programming top tier media servers like Disguise and Hippo, which can
+          be prohibitively expensive to rent, we wanted to create a solution for our clients that
+          could still be powerful enough to run big shows without breaking the bank.
         </p>
       </div>
     </section>

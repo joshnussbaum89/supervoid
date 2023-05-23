@@ -14,16 +14,10 @@ export default function MainNavigation({
   handleMobileNavDisplay,
 }) {
   return (
-    <nav
-      className={
-        mainNavIsVisible
-          ? `${styles.navigation} ${styles.show}`
-          : styles.navigation
-      }
-    >
+    <nav className={mainNavIsVisible ? `${styles.navigation} ${styles.show}` : styles.navigation}>
       <Link href="/">
         <div
-          onClick={mobileNavIsActive ? handleMobileNavDisplay : null}
+          onClick={mobileNavIsActive ? handleMobileNavDisplay : undefined}
           className={styles.logo}
         >
           <Image

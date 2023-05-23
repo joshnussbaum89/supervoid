@@ -16,9 +16,7 @@ export default function PromoReel({ reelIsActive, handleReelDisplay }) {
   })
 
   // Promo reel container styles
-  const containerStyles = reelIsActive
-    ? `${styles.container} ${styles.active}`
-    : styles.container
+  const containerStyles = reelIsActive ? `${styles.container} ${styles.active}` : styles.container
 
   return (
     <div className={containerStyles}>
