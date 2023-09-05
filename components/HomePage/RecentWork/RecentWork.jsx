@@ -1,6 +1,6 @@
 // Components, hooks
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
+import Project from '../Project/Project'
 import ProjectModal from '../ProjectModal/ProjectModal'
 
 // Styles
@@ -238,7 +238,7 @@ export default function Work() {
     setProjectOverlayDisplayed(!projectOverlayDisplayed)
   }
 
-  const vimeoIoImageLoader = ({ src, width, quality }) => `${src}&w=${width}&q=${quality || 75}`
+  const vimeoLoader = ({ src, width, quality }) => `${src}&w=${width}&q=${quality || 75}`
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -258,32 +258,16 @@ export default function Work() {
       <h2>work</h2>
       <div className={styles.projects}>
         {projectData.map((project) => (
-          <div
-            className={styles.projectContainer}
+          <Project
             key={project.id}
-            data-id={project.id}
-            data-gif={project.gif}
-            data-client={project.client}
-            data-project={project.project}
-            data-description={project.description}
-            onClick={handleModalDisplay}
-          >
-            <Image
-              src={project.gif}
-              loader={vimeoIoImageLoader}
-              width={720}
-              height={405}
-              sizes="(min-width: 768px) 50vw, 100vw"
-              alt={`${project.client} - ${project.description}`}
-            />
-            <div className={styles.projectOverlay}>
-              <h3>{project.musicVideo ? project.project : project.client}</h3>
-            </div>
-          </div>
+            project={project}
+            handleModalDisplay={handleModalDisplay}
+            vimeoLoader={vimeoLoader}
+          />
         ))}
       </div>
       <ProjectModal
-        vimeoIoImageLoader={vimeoIoImageLoader}
+        vimeoLoader={vimeoLoader}
         projectData={projectData}
         modalIsActive={modalIsActive}
         modalData={modalData}

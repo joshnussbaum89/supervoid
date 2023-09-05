@@ -1,11 +1,12 @@
 // Components
+import { motion } from 'framer-motion'
 import Pricing from '../Pricing/Pricing'
 import Card from '../Card/Card'
 
 // Styles
-import styles from './ServerSpecs.module.css'
+import styles from './Specs.module.css'
 
-export default function ServerSpecs() {
+export default function Specs() {
   const cardData = [
     [
       {
@@ -41,8 +42,21 @@ export default function ServerSpecs() {
 
   return (
     <section className={styles.serverSpecs}>
-      <h2>SVX Series Servers Quick Specs</h2>
-      <div className={styles.cardContainer}>
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        SVX Series Servers Quick Specs
+      </motion.h2>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className={styles.cardContainer}
+      >
         <div>
           {cardData[0].map((card) => (
             <Card key={card.id} text={card.text} column="1" />
@@ -58,7 +72,7 @@ export default function ServerSpecs() {
             <Card key={card.id} text={card.text} column="3" />
           ))}
         </div>
-      </div>
+      </motion.div>
       <Pricing />
     </section>
   )

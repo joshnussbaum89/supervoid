@@ -1,5 +1,6 @@
 // Components
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import SupervoidCTA from '../../Global/SupervoidCTA/SupervoidCTA'
 
 // import Swiper core and required modules
@@ -21,7 +22,14 @@ import tateMcrae from '../../../public/images/tate-mcrae-mia_red.webp'
 
 export default function Contact({ pathname }) {
   return (
-    <section className={styles.contact} data-pathname={pathname}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className={styles.contact}
+      data-pathname={pathname}
+    >
       <SupervoidCTA urlPath="/#about" buttonText="contact us" />
       <Swiper
         className={styles.swiper}
@@ -79,6 +87,6 @@ export default function Contact({ pathname }) {
           alt="Tate McRae Made In America Festival 2022"
         />
       </div>
-    </section>
+    </motion.section>
   )
 }

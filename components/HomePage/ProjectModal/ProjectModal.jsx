@@ -5,7 +5,7 @@ import Image from 'next/image'
 import styles from './ProjectModal.module.css'
 
 export default function ProjectModal({
-  vimeoIoImageLoader,
+  vimeoLoader,
   projectData,
   modalIsActive,
   modalData,
@@ -86,7 +86,7 @@ export default function ProjectModal({
         </div>
         <Image
           src={modalData.gif}
-          loader={vimeoIoImageLoader}
+          loader={vimeoLoader}
           width={618}
           height={347}
           sizes="(min-width: 768px) 50vw, 100vw"

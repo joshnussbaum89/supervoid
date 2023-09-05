@@ -1,5 +1,6 @@
 // Hooks
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 // Components
 import MainNavigation from '../MainNavigation/MainNavigation'
@@ -65,83 +66,90 @@ export default function Header({
   }
 
   // Determine header styling based on currently displayed page
-  return pathname === '' ? (
-    <header className={styles.homeHeader}>
-      <MainNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-        mainNavIsVisible={mainNavIsVisible}
-      />
-      <HomePageHeroInfo />
-      <HomePageHeroBackground />
-      <MobileNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-      />
-    </header>
-  ) : pathname === 'servers' ? (
-    <header className={styles.serverHeader}>
-      <MainNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-        mainNavIsVisible={mainNavIsVisible}
-      />
-      <ServersPageHeroBackground />
-      <PageTitle title="Servers" />
-      <MobileNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-      />
-    </header>
-  ) : pathname === 'labs' ? (
-    <header className={styles.labsHeader}>
-      <MainNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-        mainNavIsVisible={mainNavIsVisible}
-      />
-      <LabsPageHeroBackground />
-      <PageTitle title="Labs" body="Insights into our creative process for our current projects" />
-      <MobileNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-      />
-    </header>
-  ) : pathname === 'labs/[slug]' ? (
-    <header className={styles.singlePostHeader}>
-      <MainNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-        mainNavIsVisible={mainNavIsVisible}
-      />
-      <MobileNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-      />
-    </header>
-  ) : pathname === '404' ? (
-    <header className={styles.errorHeader}>
-      <MainNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-        mainNavIsVisible={mainNavIsVisible}
-      />
-      <MobileNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-      />
-    </header>
-  ) : pathname === '500' ? (
-    <header className={styles.errorHeader}>
-      <MainNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-        mainNavIsVisible={mainNavIsVisible}
-      />
-      <MobileNavigation
-        handleMobileNavDisplay={handleMobileNavDisplay}
-        mobileNavIsActive={mobileNavIsActive}
-      />
-    </header>
-  ) : null
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+      {pathname === '' ? (
+        <header className={styles.homeHeader}>
+          <MainNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+            mainNavIsVisible={mainNavIsVisible}
+          />
+          <HomePageHeroInfo />
+          <HomePageHeroBackground />
+          <MobileNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+          />
+        </header>
+      ) : pathname === 'servers' ? (
+        <header className={styles.serverHeader}>
+          <MainNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+            mainNavIsVisible={mainNavIsVisible}
+          />
+          <ServersPageHeroBackground />
+          <PageTitle title="Servers" />
+          <MobileNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+          />
+        </header>
+      ) : pathname === 'labs' ? (
+        <header className={styles.labsHeader}>
+          <MainNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+            mainNavIsVisible={mainNavIsVisible}
+          />
+          <LabsPageHeroBackground />
+          <PageTitle
+            title="Labs"
+            body="Insights into our creative process for our current projects"
+          />
+          <MobileNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+          />
+        </header>
+      ) : pathname === 'labs/[slug]' ? (
+        <header className={styles.singlePostHeader}>
+          <MainNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+            mainNavIsVisible={mainNavIsVisible}
+          />
+          <MobileNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+          />
+        </header>
+      ) : pathname === '404' ? (
+        <header className={styles.errorHeader}>
+          <MainNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+            mainNavIsVisible={mainNavIsVisible}
+          />
+          <MobileNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+          />
+        </header>
+      ) : pathname === '500' ? (
+        <header className={styles.errorHeader}>
+          <MainNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+            mainNavIsVisible={mainNavIsVisible}
+          />
+          <MobileNavigation
+            handleMobileNavDisplay={handleMobileNavDisplay}
+            mobileNavIsActive={mobileNavIsActive}
+          />
+        </header>
+      ) : null}
+    </motion.div>
+  )
 }

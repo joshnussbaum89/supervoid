@@ -22,6 +22,7 @@
   --titleLarge: 5.5rem;
 
   --transition-normal: all 0.25s ease-in-out;
+  --transition-long: all 0.5s ease-in-out;
 }
 
 * {
@@ -49,6 +50,9 @@ body {
   color: var(--color-white);
   overflow-x: auto;
   overflow-y: auto;
+
+  /* Experimental, but fallback is default styling */
+  text-wrap: balance;
 }
 
 body.mobile-nav-overlay-active,

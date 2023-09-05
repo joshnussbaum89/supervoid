@@ -1,0 +1,38 @@
+.projectContainer {
+  position: relative;
+  margin: auto;
+  background-color: var(--color-faded-purple);
+  cursor: pointer;
+}
+
+.projectContainer img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.projectContainer .projectOverlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: var(--color-white);
+  background-color: var(--color-faded-black);
+}
+
+.projectContainer .projectOverlay h3 {
+  text-align: end;
+  padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .projectContainer .projectOverlay h3 {
+    font-size: var(--small);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projectContainer .projectOverlay h3 {
+    padding: 0 0.75rem;
+    font-size: var(--medium);
+  }
+}

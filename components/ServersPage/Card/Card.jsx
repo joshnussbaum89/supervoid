@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
-// Hooks
-import useScrollPosition from '../../../hooks/useScrollPosition'
-import useWindowHeight from '../../../hooks/useWindowHeight'
+import { useRef, useState, useEffect } from 'react'
 
 // Styles
 import styles from './Card.module.css'
@@ -13,28 +9,36 @@ import styles from './Card.module.css'
  * @returns Card component with 'active' styling handled via :hover and :scroll
  */
 export default function Card({ text, column }) {
-  // Track card position and 'active' state
-  const [cardPosition, setCardPosition] = useState(0)
+  const containerRef = useRef(null)
   const [cardActive, setCardActive] = useState(false)
 
-  // Use scroll position + window height
-  const scrollY = useScrollPosition()
-  const windowHeight = useWindowHeight()
-
-  // Track card position
-  const trackCardPosition = (element) => {
-    if (!element) return
-    setCardPosition(element.getBoundingClientRect().top)
-    cardPosition <= windowHeight / 2 + 100 && cardPosition > 100
-      ? setCardActive(true)
-      : setCardActive(false)
+  const callbackFunction = (entries) => {
+    const [entry] = entries
+    setCardActive(entry.isIntersecting)
   }
+
+  useEffect(() => {
+    if (!window.IntersectionObserver) return
+
+    const { current } = containerRef
+    const observer = new IntersectionObserver(callbackFunction, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    })
+
+    if (current) observer.observe(current)
+
+    return () => {
+      if (current) observer.unobserve(current)
+    }
+  }, [containerRef])
 
   // Card styles -> handles 'active' styles
   const cardStyles = cardActive ? `${styles.card} ${styles.active}` : styles.card
 
   return (
-    <div className={cardStyles} data-column={column && column} ref={trackCardPosition}>
+    <div className={cardStyles} data-column={column && column} ref={containerRef}>
       <p>{text}</p>
     </div>
   )

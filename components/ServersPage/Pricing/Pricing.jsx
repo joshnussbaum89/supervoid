@@ -1,5 +1,6 @@
 // Components
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 // Styles, images
 import styles from './Pricing.module.css'
@@ -8,7 +9,13 @@ import serverFront from '../../../public/images/server-front.webp'
 
 export default function Pricing() {
   return (
-    <div className={styles.pricing}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className={styles.pricing}
+    >
       <div className={styles.serverImages}>
         <Image
           src={serverBack}
@@ -30,6 +37,6 @@ export default function Pricing() {
         $500/week, with 24/7 tech support and SUPERVOID exclusive VJ loops and visual content
         included in every rental.
       </p>
-    </div>
+    </motion.div>
   )
 }

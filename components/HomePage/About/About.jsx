@@ -1,6 +1,7 @@
 // Components
 import Image from 'next/image'
 import { FaInstagram, FaFacebook, FaRegEnvelope } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 // import Swiper core and required modules
 import { Navigation, Pagination, A11y } from 'swiper'
@@ -20,7 +21,14 @@ import drewAndKepplerPresent from '../../../public/images/drew-keppler-2022.webp
 
 export default function About() {
   return (
-    <section id="about" className={styles.about}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      id="about"
+      className={styles.about}
+    >
       <div>
         <h2>About</h2>
         <p>
@@ -105,6 +113,6 @@ export default function About() {
           <li>After Effects</li>
         </ul>
       </div>
-    </section>
+    </motion.section>
   )
 }
