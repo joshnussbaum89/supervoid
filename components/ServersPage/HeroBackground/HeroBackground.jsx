@@ -10,8 +10,6 @@ export default function ServersPageHeroBackground() {
     <div className={styles.backgroundImage}>
       <Image
         src={supernova}
-        width={4000}
-        height={2667}
         sizes="100vw"
         alt="Test pattern on a big screen on the Madison Square Garden stage"
         quality={50}

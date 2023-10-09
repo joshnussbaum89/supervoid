@@ -11,8 +11,6 @@ export default function HomePageHeroInfo() {
       <div className={styles.title}>
         <Image
           src={titleImage}
-          width={1728}
-          height={250}
           sizes="(min-width: 768px) 48rem, 100vw"
           alt="Supervoid title image text"
           priority

@@ -10,8 +10,6 @@ export default function HomePageHeroBackground() {
     <div className={styles.backgroundImage}>
       <Image
         src={supernova}
-        width={1664}
-        height={1664}
         sizes="(min-width: 768px) 40rem, 100vw"
         alt="Exploding supernova with black and white clouds"
         priority

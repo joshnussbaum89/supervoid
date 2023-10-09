@@ -23,8 +23,6 @@ export default function MainNavigation({
           <Image
             src={siteLogo}
             title="Supervoid"
-            width={216}
-            height={216}
             sizes="(min-width: 768px) 10rem, 8rem"
             alt="Supervoid Logo Voidstar Stylized"
             priority

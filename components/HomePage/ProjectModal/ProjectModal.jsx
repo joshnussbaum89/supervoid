@@ -87,8 +87,8 @@ export default function ProjectModal({
         <Image
           src={modalData.gif}
           loader={vimeoLoader}
-          width={618}
-          height={347}
+          width={740}
+          height={360}
           sizes="(min-width: 768px) 50vw, 100vw"
           alt={`${modalData.client} ${modalData.project}`}
         />

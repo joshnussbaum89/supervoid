@@ -21,8 +21,8 @@ export default function Project({ project, handleModalDisplay, vimeoLoader }) {
       <Image
         src={project.gif}
         loader={vimeoLoader}
-        width={720}
-        height={405}
+        width={740}
+        height={360}
         sizes="(min-width: 768px) 50vw, 100vw"
         alt={`${project.client} - ${project.description}`}
       />
