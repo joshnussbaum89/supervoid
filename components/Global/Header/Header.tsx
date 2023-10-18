@@ -26,6 +26,10 @@ export default function Header({
   mobileNavOverlayDisplayed,
   setMobileNavOverlayDisplayed,
   pathname,
+}: {
+  mobileNavOverlayDisplayed: boolean
+  setMobileNavOverlayDisplayed: React.Dispatch<React.SetStateAction<boolean>>
+  pathname: string
 }) {
   const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)

@@ -8,11 +8,11 @@ import styles from './Card.module.css'
  * @param {string} column
  * @returns Card component with 'active' styling handled via :hover and :scroll
  */
-export default function Card({ text, column }) {
+export default function Card({ text, column }: { text: string; column?: string }) {
   const containerRef = useRef(null)
   const [cardActive, setCardActive] = useState(false)
 
-  const callbackFunction = (entries) => {
+  const callbackFunction: IntersectionObserverCallback = (entries) => {
     const [entry] = entries
     setCardActive(entry.isIntersecting)
   }

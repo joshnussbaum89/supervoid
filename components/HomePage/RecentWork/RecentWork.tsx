@@ -6,9 +6,19 @@ import ProjectModal from '../ProjectModal/ProjectModal'
 // Styles
 import styles from './RecentWork.module.css'
 
+// Types
+import { ImageLoader } from 'next/image'
+import { ModalProps } from '../../../types'
+
 export default function Work() {
   const [modalIsActive, setModalIsActive] = useState(false)
-  const [modalData, setModalData] = useState({})
+  const [modalData, setModalData] = useState<ModalProps>({
+    id: 0,
+    gif: '',
+    client: '',
+    project: '',
+    description: '',
+  })
   const [currentProjectID, setCurrentProjectID] = useState(0)
   const [projectOverlayDisplayed, setProjectOverlayDisplayed] = useState(false)
 
@@ -223,10 +233,10 @@ export default function Work() {
     },
   ]
 
-  const handleModalDisplay = (event) => {
+  const handleModalDisplay = (event: React.MouseEvent<HTMLDivElement>) => {
     const { currentTarget } = event
 
-    const id = +currentTarget.getAttribute('data-id')
+    const id = +currentTarget.getAttribute('data-id')!
     const gif = currentTarget.getAttribute('data-gif')
     const client = currentTarget.getAttribute('data-client')
     const project = currentTarget.getAttribute('data-project')
@@ -238,7 +248,9 @@ export default function Work() {
     setProjectOverlayDisplayed(!projectOverlayDisplayed)
   }
 
-  const vimeoLoader = ({ src, width, quality }) => `${src}&w=${width}&q=${quality || 75}`
+  const vimeoLoader: ImageLoader = ({ src, width, quality }) => {
+    return `${src}&w=${width}&q=${quality || 75}`
+  }
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -246,9 +258,9 @@ export default function Work() {
 
       // Remove scrolling when project overlay is shown
       if (projectOverlayDisplayed) {
-        body.classList.add('project-overlay-active')
+        body?.classList.add('project-overlay-active')
       } else {
-        body.classList.remove('project-overlay-active')
+        body?.classList.remove('project-overlay-active')
       }
     }
   })

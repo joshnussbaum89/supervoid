@@ -1,8 +1,19 @@
-import Image from 'next/image'
+import Image, { ImageLoader } from 'next/image'
 import { motion } from 'framer-motion'
 import styles from './Project.module.css'
 
-export default function Project({ project, handleModalDisplay, vimeoLoader }) {
+// Types
+import { ProjectProps } from '../../../types'
+
+export default function Project({
+  project,
+  handleModalDisplay,
+  vimeoLoader,
+}: {
+  project: ProjectProps
+  handleModalDisplay: (e: React.MouseEvent<HTMLDivElement>) => void
+  vimeoLoader: ImageLoader
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

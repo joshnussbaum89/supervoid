@@ -6,6 +6,8 @@ import Head from 'next/head'
 import { getAllPosts } from '../lib/getAllPosts'
 import { getAllAuthors } from '../lib/getAllAuthors'
 
+// TODO: add TypeScript Types when page is re-enabled
+
 /**
  * Labs (Blog) Page
  *
@@ -14,7 +16,7 @@ import { getAllAuthors } from '../lib/getAllAuthors'
  * @param {object} posts
  * @param {object} authors
  */
-export default function Labs({ posts, authors }) {
+export default function Labs({ posts, authors }: { posts: any[]; authors: any[] }) {
   return (
     <>
       <Head>

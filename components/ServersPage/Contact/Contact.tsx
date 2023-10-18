@@ -20,7 +20,7 @@ import danAndShay from '../../../public/images/dan-shay.webp'
 import tomMorello from '../../../public/images/tom-morello_red.webp'
 import tateMcrae from '../../../public/images/tate-mcrae-mia_red.webp'
 
-export default function Contact({ pathname }) {
+export default function Contact({ pathname }: { pathname: string }) {
   return (
     <motion.section
       initial={{ opacity: 0 }}

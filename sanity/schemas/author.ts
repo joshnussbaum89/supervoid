@@ -10,9 +10,7 @@ export default defineType({
       title: 'Name *',
       type: 'string',
       validation: (Rule) =>
-        Rule.required().error(
-          'A name is required to publish an author - please add a name'
-        ),
+        Rule.required().error('A name is required to publish an author - please add a name'),
     }),
     defineField({
       name: 'slug',

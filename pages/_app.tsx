@@ -2,17 +2,19 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import localFont from 'next/font/local'
+import Header from '../components/Global/Header/Header'
+import Footer from '../components/Global/Footer/Footer'
 
 // Styles
 import '../styles/globals.css'
-import Header from '../components/Global/Header/Header'
-import Footer from '../components/Global/Footer/Footer'
+
+import type { AppProps } from 'next/app'
 
 // Fonts
 const benzin_regular = localFont({ src: '../public/fonts/benzin_regular.ttf' })
 const benzin_bold = localFont({ src: '../public/fonts/benzin_bold.ttf' })
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   const [mobileNavOverlayDisplayed, setMobileNavOverlayDisplayed] = useState(false)
 
   useEffect(() => {
@@ -20,9 +22,9 @@ function MyApp({ Component, pageProps }) {
       const body = document.querySelector('body')
 
       if (mobileNavOverlayDisplayed) {
-        body.classList.add('mobile-nav-overlay-active')
+        body?.classList.add('mobile-nav-overlay-active')
       } else {
-        body.classList.remove('mobile-nav-overlay-active')
+        body?.classList.remove('mobile-nav-overlay-active')
       }
     }
   }, [mobileNavOverlayDisplayed])
@@ -65,5 +67,3 @@ function MyApp({ Component, pageProps }) {
     </>
   )
 }
-
-export default MyApp

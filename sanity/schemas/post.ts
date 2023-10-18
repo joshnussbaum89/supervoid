@@ -10,9 +10,7 @@ export default defineType({
       title: 'Title *',
       type: 'string',
       validation: (Rule) =>
-        Rule.required().error(
-          'A title is required for each post - please add a title'
-        ),
+        Rule.required().error('A title is required for each post - please add a title'),
     }),
     defineField({
       name: 'slug',
@@ -32,9 +30,7 @@ export default defineType({
       title: 'Author *',
       type: 'reference',
       validation: (Rule) =>
-        Rule.required().error(
-          'An author is required for each post - please add an author'
-        ),
+        Rule.required().error('An author is required for each post - please add an author'),
       to: { type: 'author' },
     }),
     defineField({
@@ -42,9 +38,7 @@ export default defineType({
       title: 'Main image *',
       type: 'image',
       validation: (Rule) =>
-        Rule.required().error(
-          'A main image is required for each post - please add an image'
-        ),
+        Rule.required().error('A main image is required for each post - please add an image'),
       fields: [
         {
           name: 'alt',
@@ -81,12 +75,9 @@ export default defineType({
       title: 'Published at *',
       type: 'date',
       validation: (Rule) =>
-        Rule.required().error(
-          'A date is required for each post - please add a date'
-        ),
+        Rule.required().error('A date is required for each post - please add a date'),
       options: {
         dateFormat: 'MM-DD-YYYY',
-        calendarTodayLabel: 'Today',
       },
     }),
     defineField({
@@ -94,9 +85,7 @@ export default defineType({
       title: 'Body *',
       type: 'blockContent',
       validation: (Rule) =>
-        Rule.required().error(
-          'Body text is required to post a Lab - please add some text'
-        ),
+        Rule.required().error('Body text is required to post a Lab - please add some text'),
     }),
   ],
 

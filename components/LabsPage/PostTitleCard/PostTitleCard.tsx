@@ -1,19 +1,24 @@
 // Components, helpers
 import Link from 'next/link'
+import Image from 'next/image'
 import imageUrlBuilder from '@sanity/image-url'
 import client from '../../../lib/sanityClient'
 import { formatDate } from '../../../lib/formatDate'
 import { ellipsisText } from '../../../lib/ellipsisText'
 
-// Styles, images
+// Styles
 import styles from './PostTitleCard.module.css'
-import Image from 'next/image'
+
+// Types
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+
+// TODO: add TypeScript Types when page is re-enabled - replace all examples of 'any' with correct types
 
 // "Labs" page post preview card
-export default function PostTitleCard({ post, author }) {
+export default function PostTitleCard({ post, author }: any) {
   // Build image from Sanity data
   const builder = imageUrlBuilder(client)
-  const urlFor = (source) => builder.image(source)
+  const urlFor = (source: SanityImageSource) => builder.image(source)
 
   // Format 'published at' date
   const formattedDate = formatDate(post.publishedAt)

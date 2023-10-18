@@ -12,6 +12,10 @@ export default function MainNavigation({
   mainNavIsVisible,
   mobileNavIsActive,
   handleMobileNavDisplay,
+}: {
+  mainNavIsVisible: boolean
+  mobileNavIsActive: boolean
+  handleMobileNavDisplay: () => void
 }) {
   return (
     <nav className={mainNavIsVisible ? `${styles.navigation} ${styles.show}` : styles.navigation}>

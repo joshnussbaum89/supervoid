@@ -3,11 +3,12 @@ import styles from './Arrow.module.css'
 
 /**
  * Arrow SVG
+ *
  * @param {string} direction Determines which direction the arrow will face. Accepts "top", "bottom", "left" or "right" values.
  * @param {string} size Determines arrow size. Accepts string or number value ex/ 15 or "34.5". DO NOT ADD UNIT ex/ 10px "2rem"
  * @returns An arrow SVG displayed with given "direction" and "size" values
  */
-export default function Arrow({ direction, size }) {
+export default function Arrow({ direction, size }: { direction: string; size: string }) {
   return (
     <svg
       className={styles.svg}

@@ -1,8 +1,22 @@
 // Components
-import Image from 'next/image'
+import Image, { ImageLoader } from 'next/image'
 
 // Styles
 import styles from './ProjectModal.module.css'
+
+// Types
+import { ProjectProps, ModalProps } from '../../../types'
+
+interface ProjectModalProps {
+  vimeoLoader: ImageLoader
+  projectData: ProjectProps[]
+  modalIsActive: boolean
+  modalData?: ModalProps
+  setModalData: React.Dispatch<React.SetStateAction<ModalProps>>
+  currentProjectID: number
+  setCurrentProjectID: React.Dispatch<React.SetStateAction<number>>
+  handleModalDisplay: (event: React.MouseEvent<HTMLDivElement>) => void
+}
 
 export default function ProjectModal({
   vimeoLoader,
@@ -13,7 +27,7 @@ export default function ProjectModal({
   currentProjectID,
   setCurrentProjectID,
   handleModalDisplay,
-}) {
+}: ProjectModalProps) {
   // Update currently active modal state
   const updateModalData = () => {
     const { id, gif, client, project, description } = projectData[currentProjectID]
@@ -22,7 +36,7 @@ export default function ProjectModal({
   }
 
   // User clicks modal arrow >> navigate left or right
-  const handleNavigationClick = (direction) => {
+  const handleNavigationClick = (direction: string) => {
     if (direction === 'previous') {
       setCurrentProjectID((currentProjectID -= 1))
     } else {
@@ -85,22 +99,22 @@ export default function ProjectModal({
           </div>
         </div>
         <Image
-          src={modalData.gif}
+          src={modalData?.gif || ''}
           loader={vimeoLoader}
           width={740}
           height={360}
           sizes="(min-width: 768px) 50vw, 100vw"
-          alt={`${modalData.client} ${modalData.project}`}
+          alt={`${modalData?.client} ${modalData?.project}`}
         />
         <div className={styles.modalInfo}>
-          <h3>{modalData.project}</h3>
+          <h3>{modalData?.project}</h3>
           <p>
             <span className={styles.modalLabel}>Client: </span>
-            {modalData.client}
+            {modalData?.client}
           </p>
           <p className={styles.modalDate}>
             <span className={styles.modalLabel}>Description: </span>
-            {modalData.description}
+            {modalData?.description}
           </p>
         </div>
       </div>

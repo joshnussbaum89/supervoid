@@ -5,7 +5,9 @@ import Arrow from '../../Global/Arrow/Arrow'
 // Styles
 import styles from './PostNavigation.module.css'
 
-export default function PostNavigation({ previousPost, nextPost }) {
+// TODO: add TypeScript Types when page is re-enabled - replace all examples of 'any' with correct types
+
+export default function PostNavigation({ previousPost, nextPost }: any) {
   return (
     <div className={styles.postNavigation}>
       {previousPost?.slug.current && (

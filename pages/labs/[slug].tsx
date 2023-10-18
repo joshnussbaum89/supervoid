@@ -13,11 +13,17 @@ import client from '../../lib/sanityClient'
 // Styles
 import styles from './Post.module.css'
 
+// TODO: add TypeScript Types when page is re-enabled - replace all examples of 'any' with correct types
+
+// Types
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { GetStaticProps } from 'next'
+
 // Create post based on post clicked
-export default function Post({ post, author, previousPost, nextPost }) {
+export default function Post({ post, author, previousPost, nextPost }: any) {
   // Build image from Sanity data
   const builder = imageUrlBuilder(client)
-  const urlFor = (source) => builder.image(source)
+  const urlFor = (source: SanityImageSource) => builder.image(source)
 
   // Format 'published at' date
   const formattedDate = formatDate(post[0].publishedAt)
@@ -95,7 +101,7 @@ export default function Post({ post, author, previousPost, nextPost }) {
 export async function getStaticPaths() {
   const posts = await getAllPosts()
 
-  const paths = posts.map((post) => ({
+  const paths = posts.map((post: any) => ({
     params: {
       slug: post.slug.current,
     },
@@ -105,18 +111,18 @@ export async function getStaticPaths() {
 }
 
 // Get post + author props
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const allPosts = await getAllPosts()
   const allAuthors = await getAllAuthors()
 
   // Get current post
-  const post = allPosts.filter((post) => post.slug.current === context.params.slug)
+  const post = allPosts.filter((post: any) => post.slug.current === params?.slug)
 
   // Get post author
-  const author = allAuthors.filter((author) => author._id === post[0].author._ref)
+  const author = allAuthors.filter((author: any) => author._id === post[0].author._ref)
 
   // Calculate prev and next post information
-  const currentPostIndex = allPosts.findIndex((lab) => lab._id === post[0]._id)
+  const currentPostIndex = allPosts.findIndex((lab: any) => lab._id === post[0]._id)
   const previousPost = allPosts[currentPostIndex - 1]
   const nextPost = allPosts[currentPostIndex + 1]
 

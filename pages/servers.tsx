@@ -7,7 +7,7 @@ import Contact from '../components/ServersPage/Contact/Contact'
 /**
  * Servers Page
  */
-export default function ServersPage({ pathname }) {
+export default function ServersPage({ pathname }: { pathname: string }) {
   return (
     <>
       <SEO

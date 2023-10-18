@@ -4,7 +4,13 @@ import Link from 'next/link'
 // Styles
 import styles from './MobileNavigation.module.css'
 
-export default function MobileNavigation({ handleMobileNavDisplay, mobileNavIsActive }) {
+export default function MobileNavigation({
+  handleMobileNavDisplay,
+  mobileNavIsActive,
+}: {
+  handleMobileNavDisplay: () => void
+  mobileNavIsActive: boolean
+}) {
   return (
     <nav
       className={
