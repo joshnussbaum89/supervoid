@@ -13,12 +13,6 @@ export default function Home() {
         image="https://supervoid.tv/images/supernova-site-background.webp"
         description="Philadelphia based creative team specializing in stage visuals and music videos"
       />
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="zX9VfT0iiNgGZmfY-EzVrlc5JtJOwiTtZm3TPPBog9w"
-        />
-      </Head>
       <main>
         <RecentWork />
         <About />
