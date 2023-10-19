@@ -64,7 +64,7 @@ export default function ProjectModal({
         ProjectModalRef.current?.close()
       }
     }
-  })
+  }, [modalIsActive])
 
   return (
     <dialog className={styles.ProjectModal} ref={ProjectModalRef}>
