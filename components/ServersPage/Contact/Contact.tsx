@@ -37,52 +37,32 @@ export default function Contact({ pathname }: { pathname: string }) {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
-          <Image
-            src={danAndShay}
-            width={2000}
-            height={3000}
-            sizes="100vw"
-            alt="Dan + Shay Stadium Tour 2022"
-          />
+          <Image src={danAndShay} sizes="100vw" alt="Dan + Shay Stadium Tour 2022" />
         </SwiperSlide>
         <SwiperSlide>
           <Image
             src={tomMorello}
-            width={2000}
-            height={3000}
             sizes="100vw"
             alt="Tom Morello Rage Against the Machine Tour 2022"
           />
         </SwiperSlide>
         <SwiperSlide>
-          <Image
-            src={tateMcrae}
-            width={1450}
-            height={2175}
-            sizes="100vw"
-            alt="Tate McRae Made In America Festival 2022"
-          />
+          <Image src={tateMcrae} sizes="100vw" alt="Tate McRae Made In America Festival 2022" />
         </SwiperSlide>
       </Swiper>
       <div className={styles.gallery}>
         <Image
           src={danAndShay}
-          width={2000}
-          height={3000}
           sizes="(min-width: 768px) 33vw, 100vw"
           alt="Dan + Shay Stadium Tour 2022"
         />
         <Image
           src={tomMorello}
-          width={2000}
-          height={3000}
           sizes="(min-width: 768px) 33vw, 100vw"
           alt="Tom Morello Rage Against the Machine Tour 2022"
         />
         <Image
           src={tateMcrae}
-          width={1450}
-          height={2175}
           sizes="(min-width: 768px) 33vw, 100vw"
           alt="Tate McRae Made In America Festival 2022"
         />

@@ -19,15 +19,11 @@ export default function Pricing() {
       <div className={styles.serverImages}>
         <Image
           src={serverBack}
-          width={3840}
-          height={2160}
           sizes="(min-width: 768px) 50vw, 100vw"
           alt="Back display of the Supervoid 2RU Fly Rack Kit"
         />
         <Image
           src={serverFront}
-          width={3840}
-          height={2160}
           sizes="(min-width: 768px) 50vw, 100vw"
           alt="Front display of the Supervoid 2RU Fly Rack Kit"
         />

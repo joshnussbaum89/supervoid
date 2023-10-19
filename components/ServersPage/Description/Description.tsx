@@ -43,8 +43,6 @@ export default function Description() {
         <figure>
           <Image
             src={tateMcrae}
-            width={2048}
-            height={1338}
             sizes="(min-width: 768px) 50vw, 100vw"
             alt="Tate McRae performing at Made In America festival in Philadelphia, PA"
           />
