@@ -12,7 +12,6 @@
 
 .navigation.show {
   background: var(--color-faded-black);
-  -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(180%) blur(5px);
 }
 

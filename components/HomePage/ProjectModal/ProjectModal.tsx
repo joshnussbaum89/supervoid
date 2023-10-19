@@ -1,4 +1,5 @@
 // Components
+import { useEffect, useRef } from 'react'
 import Image, { ImageLoader } from 'next/image'
 
 // Styles
@@ -12,9 +13,10 @@ interface ProjectModalProps {
   projectData: ProjectProps[]
   modalIsActive: boolean
   modalData?: ModalProps
-  setModalData: React.Dispatch<React.SetStateAction<ModalProps>>
   currentProjectID: number
-  setCurrentProjectID: React.Dispatch<React.SetStateAction<number>>
+
+  setModalData: (value: React.SetStateAction<ModalProps>) => void
+  setCurrentProjectID: (value: React.SetStateAction<number>) => void
   handleModalDisplay: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
@@ -22,12 +24,15 @@ export default function ProjectModal({
   vimeoLoader,
   projectData,
   modalIsActive,
-  modalData,
   setModalData,
   currentProjectID,
+  modalData,
   setCurrentProjectID,
   handleModalDisplay,
 }: ProjectModalProps) {
+  // Ref for dialog modal
+  const ProjectModalRef = useRef<HTMLDialogElement>(null)
+
   // Update currently active modal state
   const updateModalData = () => {
     const { id, gif, client, project, description } = projectData[currentProjectID]
@@ -45,81 +50,94 @@ export default function ProjectModal({
     updateModalData()
   }
 
-  return modalIsActive ? (
-    <div className={`${styles.projectModal} ${styles.active}`}>
-      <div className={styles.modalContent}>
-        <div className={styles.close} onClick={handleModalDisplay}>
-          <div className={styles.top}></div>
-          <div className={styles.bottom}></div>
-        </div>
-        <div className={styles.projectNavigation}>
-          <div
-            className={
-              currentProjectID === 0 ? `${styles.navigateLeft} ${styles.hide}` : styles.navigateLeft
-            }
-            onClick={() => handleNavigationClick('previous')}
-          >
-            <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="30.725px"
-              height="30.725px"
-              viewBox="0 0 30.725 30.725"
-            >
-              <g>
-                <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
-              </g>
-            </svg>
-          </div>
-          <div
-            className={
-              currentProjectID === projectData.length - 1
-                ? `${styles.navigateRight} ${styles.hide}`
-                : styles.navigateRight
-            }
-            onClick={() => handleNavigationClick('next')}
-          >
-            <svg
-              version="1.1"
-              id="Capa_1"
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="30.725px"
-              height="30.725px"
-              viewBox="0 0 30.725 30.725"
-            >
-              <g>
-                <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
-              </g>
-            </svg>
-          </div>
-        </div>
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const body = document.querySelector('body')
+
+      // Remove scrolling when project overlay is shown
+      // Handle modal display
+      if (modalIsActive) {
+        body?.classList.add('project-overlay-active')
+        ProjectModalRef.current?.showModal()
+      } else {
+        body?.classList.remove('project-overlay-active')
+        ProjectModalRef.current?.close()
+      }
+    }
+  })
+
+  return (
+    <dialog className={styles.ProjectModal} ref={ProjectModalRef}>
+      <div className={styles.close} onClick={handleModalDisplay}>
+        <div className={styles.top}></div>
+        <div className={styles.bottom}></div>
+      </div>
+      <div
+        className={
+          currentProjectID === 0 ? `${styles.navigateLeft} ${styles.hide}` : styles.navigateLeft
+        }
+        onClick={() => handleNavigationClick('previous')}
+      >
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="30.725px"
+          height="30.725px"
+          viewBox="0 0 30.725 30.725"
+        >
+          <g>
+            <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
+          </g>
+        </svg>
+      </div>
+      <div
+        className={
+          currentProjectID === projectData.length - 1
+            ? `${styles.navigateRight} ${styles.hide}`
+            : styles.navigateRight
+        }
+        onClick={() => handleNavigationClick('next')}
+      >
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="30.725px"
+          height="30.725px"
+          viewBox="0 0 30.725 30.725"
+        >
+          <g>
+            <path d="M24.078,26.457c0.977,0.978,0.977,2.559,0,3.536c-0.488,0.488-1.128,0.731-1.77,0.731c-0.639,0-1.278-0.243-1.768-0.731 L5.914,15.362l14.629-14.63c0.977-0.977,2.559-0.976,3.535,0c0.977,0.977,0.977,2.56,0,3.536L12.984,15.362L24.078,26.457z" />
+          </g>
+        </svg>
+      </div>
+
+      {modalIsActive && (
         <Image
           src={modalData?.gif || ''}
           loader={vimeoLoader}
           width={740}
-          height={360}
+          height={416}
           sizes="(min-width: 768px) 50vw, 100vw"
           alt={`${modalData?.client} ${modalData?.project}`}
         />
-        <div className={styles.modalInfo}>
-          <h3>{modalData?.project}</h3>
-          <p>
-            <span className={styles.modalLabel}>Client: </span>
-            {modalData?.client}
-          </p>
-          <p className={styles.modalDate}>
-            <span className={styles.modalLabel}>Description: </span>
-            {modalData?.description}
-          </p>
-        </div>
+      )}
+      <div className={styles.modalInfo}>
+        <h3>{modalData?.project}</h3>
+        <p>
+          <span className={styles.modalLabel}>Client: </span>
+          {modalData?.client}
+        </p>
+        <p className={styles.modalDate}>
+          <span className={styles.modalLabel}>Description: </span>
+          {modalData?.description}
+        </p>
       </div>
-    </div>
-  ) : (
-    <div className={styles.projectModal}></div>
+    </dialog>
   )
 }

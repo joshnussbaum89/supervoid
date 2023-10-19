@@ -1,5 +1,6 @@
 // Components, hooks
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { ImageLoader } from 'next/image'
 import Project from '../Project/Project'
 import ProjectModal from '../ProjectModal/ProjectModal'
 
@@ -7,11 +8,11 @@ import ProjectModal from '../ProjectModal/ProjectModal'
 import styles from './RecentWork.module.css'
 
 // Types
-import { ImageLoader } from 'next/image'
 import { ModalProps } from '../../../types'
 
 export default function Work() {
   const [modalIsActive, setModalIsActive] = useState(false)
+  const [currentProjectID, setCurrentProjectID] = useState(0)
   const [modalData, setModalData] = useState<ModalProps>({
     id: 0,
     gif: '',
@@ -19,8 +20,6 @@ export default function Work() {
     project: '',
     description: '',
   })
-  const [currentProjectID, setCurrentProjectID] = useState(0)
-  const [projectOverlayDisplayed, setProjectOverlayDisplayed] = useState(false)
 
   const projectData = [
     {
@@ -233,6 +232,10 @@ export default function Work() {
     },
   ]
 
+  const vimeoLoader: ImageLoader = ({ src, width, quality }) => {
+    return `${src}&w=${width}&q=${quality || 75}`
+  }
+
   const handleModalDisplay = (event: React.MouseEvent<HTMLDivElement>) => {
     const { currentTarget } = event
 
@@ -245,25 +248,7 @@ export default function Work() {
     setModalIsActive(!modalIsActive)
     setModalData({ id, gif, client, project, description })
     setCurrentProjectID(id)
-    setProjectOverlayDisplayed(!projectOverlayDisplayed)
   }
-
-  const vimeoLoader: ImageLoader = ({ src, width, quality }) => {
-    return `${src}&w=${width}&q=${quality || 75}`
-  }
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const body = document.querySelector('body')
-
-      // Remove scrolling when project overlay is shown
-      if (projectOverlayDisplayed) {
-        body?.classList.add('project-overlay-active')
-      } else {
-        body?.classList.remove('project-overlay-active')
-      }
-    }
-  })
 
   return (
     <section id="work" className={styles.work}>
@@ -283,8 +268,8 @@ export default function Work() {
         projectData={projectData}
         modalIsActive={modalIsActive}
         modalData={modalData}
-        setModalData={setModalData}
         currentProjectID={currentProjectID}
+        setModalData={setModalData}
         setCurrentProjectID={setCurrentProjectID}
         handleModalDisplay={handleModalDisplay}
       />

@@ -33,7 +33,7 @@ export default function Project({
         src={project.gif}
         loader={vimeoLoader}
         width={740}
-        height={360}
+        height={416}
         sizes="(min-width: 768px) 50vw, 100vw"
         alt={`${project.client} - ${project.description}`}
       />

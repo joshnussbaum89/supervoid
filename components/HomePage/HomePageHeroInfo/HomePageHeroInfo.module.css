@@ -20,14 +20,10 @@
   height: auto;
 }
 
-/* TODO: should this match the lookbook body text? */
 .info p {
-  /* font-family: var(--font-supervoid-header); */
   margin: auto;
   width: 95%;
-  /* text-transform: uppercase; */
   font-size: var(--small);
-  /* padding: 1rem; */
   text-shadow: 1px 1px 0 var(--color-black);
   color: var(--color-white);
 }
@@ -37,31 +33,3 @@
     font-size: var(--medium);
   }
 }
-
-/* Temporarily hidden */
-
-/* .info .ctaContainer button {
-  margin: 0.5rem auto;
-  height: 5rem;
-  width: 65%;
-  max-width: 18rem;
-  font-size: var(--small);
-  text-shadow: 1px 1px 0 var(--color-black);
-  color: var(--color-white);
-  background: var(--color-red-gradient);
-  border: none;
-  border-radius: 3rem;
-  cursor: pointer;
-}
-
-@media (min-width: 768px) {
-  .info .ctaContainer button {
-    height: 5.25rem;
-    font-size: var(--medium);
-    transition: var(--transition-normal);
-  }
-
-  .info .ctaContainer button:hover {
-    transform: translateY(-2px);
-  }
-} */
