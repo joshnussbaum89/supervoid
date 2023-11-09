@@ -71,7 +71,9 @@ export default function Header({
 
   // Determine header styling based on currently displayed page
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+    // TEMPORARILY REMOVING >> to test LCP
+    // <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+    <>
       {pathname === '' ? (
         <header className={styles.homeHeader}>
           <MainNavigation
@@ -154,6 +156,7 @@ export default function Header({
           />
         </header>
       ) : null}
-    </motion.div>
+      {/* </motion.div> */}
+    </>
   )
 }

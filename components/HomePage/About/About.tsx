@@ -43,13 +43,23 @@ export default function About() {
         </p>
         <p className={styles.email}>info@supervoid.tv</p>
         <div className={styles.contactInfo}>
-          <a href="https://www.instagram.com/supervoidtv/" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/supervoidtv/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
             <FaInstagram />
           </a>
-          <a href="https://www.facebook.com/supervoidtv" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.facebook.com/supervoidtv"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+          >
             <FaFacebook />
           </a>
-          <a href="mailto:info@supervoid.tv" target="_blank" rel="noreferrer">
+          <a href="mailto:info@supervoid.tv" target="_blank" rel="noreferrer" aria-label="Email">
             <FaRegEnvelope />
           </a>
         </div>
