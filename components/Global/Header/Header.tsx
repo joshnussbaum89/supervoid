@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 // Components
-import MainNavigation from '../MainNavigation/MainNavigation'
+import Navigation from '../Navigation/Navigation'
 import HomePageHeroBackground from '../../HomePage/HeroBackground/HeroBackground'
 import ServersPageHeroBackground from '../../ServersPage/HeroBackground/HeroBackground'
 import LabsPageHeroBackground from '../../LabsPage/HeroBackground/HeroBackround'
 import HomePageHeroInfo from '../../HomePage/HomePageHeroInfo/HomePageHeroInfo'
 import PageTitle from '../PageTitle/PageTitle'
-import MobileNavigation from '../MobileNavigation/MobileNavigation'
+import MobileNavigation from '../Navigation/Mobile/Mobile'
 
 // Styles
 import styles from './Header.module.css'
@@ -31,17 +31,17 @@ export default function Header({
   setMobileNavOverlayDisplayed: React.Dispatch<React.SetStateAction<boolean>>
   pathname: string
 }) {
-  const [mainNavIsVisible, setMainNavIsVisible] = useState(false)
+  const [navIsVisible, setNavIsVisible] = useState(false)
   const [mobileNavIsActive, setMobileNavIsActive] = useState(false)
 
   // Hide/show main navigation
   useEffect(() => {
     // On scroll
-    const hideShowMainNavigation = () => {
+    const hideShowNavigation = () => {
       if (window.scrollY > 0) {
-        setMainNavIsVisible(true)
+        setNavIsVisible(true)
       } else {
-        setMainNavIsVisible(false)
+        setNavIsVisible(false)
       }
     }
 
@@ -54,10 +54,10 @@ export default function Header({
     }
 
     if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', hideShowMainNavigation)
+      window.addEventListener('scroll', hideShowNavigation)
       window.addEventListener('resize', hideShowMobileNavigation)
       return () => {
-        window.removeEventListener('scroll', hideShowMainNavigation)
+        window.removeEventListener('scroll', hideShowNavigation)
         window.addEventListener('resize', hideShowMobileNavigation)
       }
     }
@@ -74,10 +74,10 @@ export default function Header({
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
       {pathname === '' ? (
         <header className={styles.homeHeader}>
-          <MainNavigation
+          <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
             mobileNavIsActive={mobileNavIsActive}
-            mainNavIsVisible={mainNavIsVisible}
+            navIsVisible={navIsVisible}
           />
           <HomePageHeroInfo />
           <HomePageHeroBackground />
@@ -88,10 +88,10 @@ export default function Header({
         </header>
       ) : pathname === 'servers' ? (
         <header className={styles.serverHeader}>
-          <MainNavigation
+          <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
             mobileNavIsActive={mobileNavIsActive}
-            mainNavIsVisible={mainNavIsVisible}
+            navIsVisible={navIsVisible}
           />
           <ServersPageHeroBackground />
           <PageTitle title="Servers" />
@@ -102,10 +102,10 @@ export default function Header({
         </header>
       ) : pathname === 'labs' ? (
         <header className={styles.labsHeader}>
-          <MainNavigation
+          <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
             mobileNavIsActive={mobileNavIsActive}
-            mainNavIsVisible={mainNavIsVisible}
+            navIsVisible={navIsVisible}
           />
           <LabsPageHeroBackground />
           <PageTitle
@@ -119,10 +119,10 @@ export default function Header({
         </header>
       ) : pathname === 'labs/[slug]' ? (
         <header className={styles.singlePostHeader}>
-          <MainNavigation
+          <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
             mobileNavIsActive={mobileNavIsActive}
-            mainNavIsVisible={mainNavIsVisible}
+            navIsVisible={navIsVisible}
           />
           <MobileNavigation
             handleMobileNavDisplay={handleMobileNavDisplay}
@@ -131,10 +131,10 @@ export default function Header({
         </header>
       ) : pathname === '404' ? (
         <header className={styles.errorHeader}>
-          <MainNavigation
+          <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
             mobileNavIsActive={mobileNavIsActive}
-            mainNavIsVisible={mainNavIsVisible}
+            navIsVisible={navIsVisible}
           />
           <MobileNavigation
             handleMobileNavDisplay={handleMobileNavDisplay}
@@ -143,10 +143,10 @@ export default function Header({
         </header>
       ) : pathname === '500' ? (
         <header className={styles.errorHeader}>
-          <MainNavigation
+          <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
             mobileNavIsActive={mobileNavIsActive}
-            mainNavIsVisible={mainNavIsVisible}
+            navIsVisible={navIsVisible}
           />
           <MobileNavigation
             handleMobileNavDisplay={handleMobileNavDisplay}

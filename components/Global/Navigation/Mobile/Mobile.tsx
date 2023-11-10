@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 // Styles
-import styles from './MobileNavigation.module.css'
+import styles from './Mobile.module.css'
 
 export default function MobileNavigation({
   handleMobileNavDisplay,
@@ -33,11 +33,6 @@ export default function MobileNavigation({
             servers
           </Link>
         </li>
-        {/* <li>
-          <Link href="/labs" onClick={handleMobileNavDisplay}>
-            labs
-          </Link>
-        </li> */}
       </ul>
     </nav>
   )

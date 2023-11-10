@@ -1,24 +1,24 @@
 // Components
 import Image from 'next/image'
 import Link from 'next/link'
-import DesktopNavigation from '../DesktopNavigation/DesktopNavigation'
-import Hamburger from '../Hamburger/Hamburger'
+import DesktopNavigation from './Desktop/Desktop'
+import Hamburger from './Hamburger/Hamburger'
 
 // Styles
-import styles from './MainNavigation.module.css'
+import styles from './Navigation.module.css'
 import siteLogo from '../../../public/images/supervoid-logo-voidstar-stylized.webp'
 
 export default function MainNavigation({
-  mainNavIsVisible,
+  navIsVisible,
   mobileNavIsActive,
   handleMobileNavDisplay,
 }: {
-  mainNavIsVisible: boolean
+  navIsVisible: boolean
   mobileNavIsActive: boolean
   handleMobileNavDisplay: () => void
 }) {
   return (
-    <nav className={mainNavIsVisible ? `${styles.navigation} ${styles.show}` : styles.navigation}>
+    <nav className={navIsVisible ? `${styles.navigation} ${styles.show}` : styles.navigation}>
       <Link href="/">
         <div
           onClick={mobileNavIsActive ? handleMobileNavDisplay : undefined}

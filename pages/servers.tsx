@@ -11,7 +11,7 @@ export default function Servers({ pathname }: { pathname: string }) {
         title="SUPERVOID | Servers"
         url="https://supervoid.tv/servers"
         image="https://supervoid.tv/images/msg-test-pattern.webp"
-        description="Philadelphia based creative team specializing in stage visuals and music videos"
+        description="We design and build custom media server racks in house to meet the needs of shows large and small. our SVX series media servers pack a big punch in a small footprint."
       />
       <main>
         <Description />

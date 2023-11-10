@@ -1,4 +1,4 @@
-import { HiDownload } from 'react-icons/hi'
+import { HiDownload, HiArrowSmRight } from 'react-icons/hi'
 
 import styles from './Footer.module.css'
 
@@ -9,7 +9,15 @@ export default function Footer() {
         <span>SUPERVOID 2023 Lookbook</span>
         <HiDownload />
       </a>
-      <p>Supervoid © {new Date().getFullYear()}</p>
+      <div className={styles.footerInfo}>
+        <p>Supervoid © {new Date().getFullYear()}</p>
+        <p>
+          Website by{' '}
+          <a href="http://wavelandweb.com" target="_blank" rel="noopener noreferrer">
+            Wave Land Web <HiArrowSmRight />
+          </a>
+        </p>
+      </div>
     </footer>
   )
 }

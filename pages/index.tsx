@@ -10,7 +10,7 @@ export default function Home() {
         title="SUPERVOID | Psychedelic Dreams for Stage + Screen"
         url="https://supervoid.tv"
         image="https://supervoid.tv/images/supernova-site-background.webp"
-        description="Philadelphia based creative team specializing in stage visuals and music videos"
+        description="Philadelphia based creative team specializing in live performance stage visuals and music videos"
       />
       <main>
         <RecentWork />

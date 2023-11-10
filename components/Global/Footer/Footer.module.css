@@ -28,13 +28,28 @@
   }
 }
 
-@media (min-width: 768px) {
-  .footer a:hover {
-    color: var(--color-red);
-  }
+.footer a:hover {
+  color: var(--color-red);
 }
 
-.footer p {
+.footerInfo,
+.footerInfo a {
   font-size: 0.8rem;
   color: var(--color-grey);
+}
+
+.footerInfo p {
+  margin-bottom: 0.5rem;
+}
+
+.footerInfo svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--color-grey);
+  transform: rotate(-45deg);
+  transition: var(--transition-normal);
+}
+
+.footerInfo a:hover svg {
+  fill: var(--color-red);
 }

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 // Styles
-import styles from './DesktopNavigation.module.css'
+import styles from './Desktop.module.css'
 
 export default function DesktopNavigation() {
   return (
@@ -16,9 +16,6 @@ export default function DesktopNavigation() {
       <li>
         <Link href="/servers">Servers</Link>
       </li>
-      {/* <li>
-        <Link href="/labs">Labs</Link>
-      </li> */}
     </ul>
   )
 }

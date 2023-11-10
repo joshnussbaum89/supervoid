@@ -9,7 +9,7 @@
 }
 
 .navigation.active {
-  z-index: 2;
+  z-index: 100;
   display: block;
   background: var(--color-black);
   opacity: 1;
@@ -30,8 +30,4 @@
   margin: 2rem 0;
   font-size: var(--large);
   text-align: center;
-}
-
-.navigation ul a {
-  font-weight: 400;
 }

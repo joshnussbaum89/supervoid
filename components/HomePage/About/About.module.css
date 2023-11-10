@@ -61,21 +61,19 @@
   width: 1.5rem;
   height: 1.5rem;
   fill: var(--color-white);
+  transition: var(--transition-normal);
 }
 
 @media (min-width: 768px) {
   .contactInfo svg {
     width: 2rem;
     height: 2rem;
-    transition: var(--transition-normal);
   }
 }
 
-@media (min-width: 768px) {
-  .contactInfo svg:hover {
-    fill: var(--color-red);
-    transform: translateY(-2px);
-  }
+.contactInfo svg:hover {
+  fill: var(--color-red);
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
