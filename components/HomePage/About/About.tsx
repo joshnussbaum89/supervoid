@@ -4,7 +4,7 @@ import { FaInstagram, FaFacebook, FaRegEnvelope } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
 // import Swiper core and required modules
-import { Navigation, Pagination, A11y } from 'swiper'
+import { Navigation, Pagination, A11y } from 'swiper/modules'
 
 // Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'

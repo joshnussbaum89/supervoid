@@ -145,12 +145,6 @@ a {
   border-radius: 1%;
 }
 
-@media (min-width: 768px) {
-  .swiper {
-    display: none;
-  }
-}
-
 [data-pathname='servers'] .swiper-wrapper {
   margin-bottom: 3rem;
 }
@@ -158,7 +152,7 @@ a {
 .swiper-slide img {
   display: block;
   margin: auto;
-  width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 1%;
   cursor: grab;

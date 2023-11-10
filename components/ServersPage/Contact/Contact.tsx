@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import SupervoidCTA from '../../Global/SupervoidCTA/SupervoidCTA'
 
 // import Swiper core and required modules
-import { Navigation, Pagination, A11y } from 'swiper'
+import { Navigation, Pagination, A11y } from 'swiper/modules'
 
 // Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
