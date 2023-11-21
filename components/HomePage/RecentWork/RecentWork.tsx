@@ -76,7 +76,7 @@ export default function Work() {
       musicVideo: false,
       client: 'Cuco',
       description: 'media server programming',
-      gif: 'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/808f08b0-692b-4af4-9dc0-bff74ba2d7f9.gif?ClientID=vimeo-core-prod&Date=1699965755&Signature=997f73d7c9c7100bb51c2fd9570d0ff7f96e3e39',
+      gif: 'https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/2c9ccdab-a8f7-4830-a3d7-1650ca32fcc8.gif?ClientID=vimeo-core-prod&Date=1700572114&Signature=ef4c9c2ceb0dbde576c9778fe04f822eebc939c9',
     },
     {
       id: 7,
