@@ -32,7 +32,7 @@ export default function Work() {
     },
     {
       id: 1,
-      project: 'The Ghost Inside tour 2023',
+      project: 'Underoath/The Ghost Inside Tour 2023',
       musicVideo: false,
       client: 'Underoath',
       description: 'stage visuals, media server programming',
