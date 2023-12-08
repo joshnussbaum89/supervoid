@@ -22,6 +22,16 @@
   }
 }
 
+/* 
+  Styling is broken on Firefox
+  Padding is set visually to match Chrome and Safari
+*/
+@-moz-document url-prefix() {
+  .button {
+    padding: 0.5rem 1rem;
+  }
+}
+
 .button a {
   display: block;
   padding: 1rem;
