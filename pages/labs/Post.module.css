@@ -19,9 +19,8 @@
   margin-bottom: 2rem;
 }
 
-.postHeader h2 {
+.postHeader h1 {
   margin-bottom: 1rem;
-  padding: 0;
   font-size: clamp(var(--medium), 5vw, var(--extraLarge));
 }
 
@@ -58,40 +57,34 @@
   background-color: var(--color-grey);
 }
 
+.postBody h2,
 .postBody h3 {
-  margin: 2rem 0;
-  font-size: var(--medium);
   color: var(--color-white);
 }
 
+.postBody h2 {
+  margin: 2rem 0;
+  padding: 0;
+  font-size: clamp(var(--medium), 5vw, var(--large));
+}
+
 @media (min-width: 768px) {
-  .postBody h3 {
+  .postBody h2 {
     margin: 3rem;
-    font-size: var(--large);
   }
+}
+
+.postBody p,
+.postBody li {
+  font-size: clamp(var(--extraSmall), 2vw, var(--small));
 }
 
 .postBody p {
   margin: 0.5rem 0;
-  font-size: var(--extraSmall);
-}
-
-@media (min-width: 768px) {
-  .postBody p {
-    margin: 1rem 0;
-    font-size: var(--small);
-  }
 }
 
 .postBody a {
   text-decoration: underline;
-  transition: var(--transition-normal);
-}
-
-@media (min-width: 768px) {
-  .postBody a:hover {
-    color: var(--color-red);
-  }
 }
 
 .postBody blockquote {
@@ -147,13 +140,6 @@
 
 .postBody li {
   list-style-type: disc;
-  font-size: var(--extraSmall);
-}
-
-@media (min-width: 768px) {
-  .postBody li {
-    font-size: var(--small);
-  }
 }
 
 .postBody img {

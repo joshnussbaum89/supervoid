@@ -42,14 +42,23 @@ html {
   line-height: normal;
 }
 
+/* 
+  Benzin font renders differently on Firefox browser 
+  Line height is set visually to match Chrome and Safari
+*/
+@-moz-document url-prefix() {
+  html {
+    line-height: 1.46;
+  }
+}
+
 body {
   font-family: var(--font-supervoid-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--color-black);
   color: var(--color-white);
-  overflow-x: auto;
-  overflow-y: auto;
+  background: var(--color-black);
+  overflow: auto;
 
   /* Experimental, but fallback is default styling */
   text-wrap: balance;
@@ -110,17 +119,26 @@ li {
 a {
   text-decoration: none;
   color: var(--color-white);
+  transition: var(--transition-normal);
 }
 
-img {
+a:hover {
+  color: var(--color-red);
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
   max-width: 100%;
   height: auto;
 }
 
 /**
-  * Fix light grey border on Safari when images are loading
-  * see https://nextjs.org/docs/pages/api-reference/components/image#known-browser-bugs 
-  */
+  Fix light grey border on Safari when images are loading
+  See https://nextjs.org/docs/pages/api-reference/components/image#known-browser-bugs 
+*/
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading='lazy'] {
     clip-path: inset(0.6px);

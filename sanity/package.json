@@ -16,13 +16,13 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^3.19.2",
+    "@sanity/vision": "^3.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sanity": "^3.19.2",
-    "styled-components": "^5.2.0"
+    "sanity": "^3.21.1",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "eslint": "^8.53.0"
+    "eslint": "^8.55.0"
   }
 }

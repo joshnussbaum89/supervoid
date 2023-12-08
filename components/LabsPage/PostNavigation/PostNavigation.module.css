@@ -1,7 +1,7 @@
 .postNavigation {
-  display: flex;
-  justify-content: space-between;
   margin: 2rem auto;
+  position: relative;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -12,10 +12,12 @@
 
 .previous,
 .next {
+  position: absolute;
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 45%;
   max-width: 250px;
+  height: auto;
   padding: 0.75rem;
   border: 2px solid var(--color-grey);
   border-radius: 5px;
@@ -30,19 +32,22 @@
   }
 }
 
-@media (min-width: 768px) {
-  .previous:hover,
-  .next:hover {
-    border: 2px solid var(--color-white);
-  }
+.previous:hover,
+.next:hover {
+  border: 2px solid var(--color-white);
 }
 
+/* 
+  TODO: Could this be done with margin-left/right: auto?
+  .postNavigation was not "width: 100%" before
+  It's possibile that is why the styling was broken.
+*/
 .previous {
-  margin-right: auto;
+  left: 0;
 }
 
 .next {
-  margin-left: auto;
+  right: 0;
 }
 
 .previous svg,
@@ -53,18 +58,11 @@
 .previous p,
 .next p {
   width: 100%;
-  font-size: var(--extraSmall);
+  font-size: clamp(var(--extraSmall), 2vw, var(--small));
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   transition: var(--transition-normal);
-}
-
-@media (min-width: 768px) {
-  .previous p,
-  .next p {
-    font-size: var(--small);
-  }
 }
 
 .previous p {
@@ -75,12 +73,10 @@
   padding-right: 0.5rem;
 }
 
-@media (min-width: 768px) {
-  .previous:hover svg,
-  .previous:hover p,
-  .next:hover svg,
-  .next:hover p {
-    color: var(--color-white);
-    fill: var(--color-white);
-  }
+.previous:hover svg,
+.previous:hover p,
+.next:hover svg,
+.next:hover p {
+  color: var(--color-white);
+  fill: var(--color-white);
 }

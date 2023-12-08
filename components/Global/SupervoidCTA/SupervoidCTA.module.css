@@ -25,6 +25,7 @@
 .button a {
   display: block;
   padding: 1rem;
+  color: var(--color-white);
   border: none;
   border-radius: 3rem;
 }

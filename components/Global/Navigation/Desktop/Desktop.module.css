@@ -12,13 +12,3 @@
     gap: 3rem;
   }
 }
-
-.desktopNav a {
-  transition: var(--transition-normal);
-}
-
-@media (min-width: 768px) {
-  .desktopNav a:hover {
-    color: var(--color-red);
-  }
-}
