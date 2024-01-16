@@ -34,12 +34,17 @@
   user-select: none;
 }
 
+.ProjectModal button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .close {
   position: absolute;
   top: 9px;
   right: 0;
   padding: 1rem;
-  cursor: pointer;
 }
 
 .close .top,

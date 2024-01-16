@@ -8,12 +8,12 @@ export default function Hamburger({
   mobileNavIsActive: boolean
 }) {
   return (
-    <div
+    <button
       onClick={handleMobileNavDisplay}
       className={mobileNavIsActive ? `${styles.hamburger} ${styles.active}` : `${styles.hamburger}`}
     >
       <div className={styles.top}></div>
       <div className={styles.bottom}></div>
-    </div>
+    </button>
   )
 }

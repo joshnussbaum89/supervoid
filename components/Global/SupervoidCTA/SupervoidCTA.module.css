@@ -1,7 +1,8 @@
-.button {
-  display: block;
+.cta {
+  display: flex;
+  width: fit-content;
   margin: 0.5rem auto 2rem;
-  padding: 0.2rem 1rem 0.5rem;
+  padding: 1rem 2rem 1.4rem;
   font-size: var(--small);
   color: var(--color-white);
   background: var(--color-red-gradient);
@@ -10,32 +11,23 @@
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
-  .button {
-    height: 5.25rem;
-    font-size: var(--medium);
-    transition: var(--transition-normal);
-  }
+.cta:hover {
+  transform: translateY(-2px);
+  color: var(--color-white);
+}
 
-  .button:hover {
-    transform: translateY(-2px);
+@media (min-width: 768px) {
+  .cta {
+    font-size: var(--medium);
   }
 }
 
 /* 
-  Styling is broken on Firefox
+  Line-height is different on Firefox
   Padding is set visually to match Chrome and Safari
 */
 @-moz-document url-prefix() {
-  .button {
-    padding: 0.5rem 1rem;
+  .cta {
+    padding: 1rem 2rem;
   }
-}
-
-.button a {
-  display: block;
-  padding: 1rem;
-  color: var(--color-white);
-  border: none;
-  border-radius: 3rem;
 }

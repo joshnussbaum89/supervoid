@@ -3,9 +3,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 2rem;
   height: 2rem;
   margin: 1rem;
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
 

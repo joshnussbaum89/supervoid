@@ -11,11 +11,11 @@ export default function Project({
   vimeoLoader,
 }: {
   project: ProjectProps
-  handleModalDisplay: (e: React.MouseEvent<HTMLDivElement>) => void
+  handleModalDisplay: (e: React.MouseEvent<HTMLElement>) => void
   vimeoLoader: ImageLoader
 }) {
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -28,6 +28,7 @@ export default function Project({
       data-project={project.project}
       data-description={project.description}
       onClick={handleModalDisplay}
+      tabIndex={0}
     >
       <Image
         src={project.gif}
@@ -40,6 +41,6 @@ export default function Project({
       <div className={styles.projectOverlay}>
         <h3>{project.musicVideo ? project.project : project.client}</h3>
       </div>
-    </motion.div>
+    </motion.article>
   )
 }

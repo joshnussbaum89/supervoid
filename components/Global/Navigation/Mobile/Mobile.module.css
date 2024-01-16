@@ -6,6 +6,7 @@
   width: 100vw;
   transition: var(--transition-normal);
   opacity: 0;
+  visibility: hidden;
 }
 
 .navigation.active {
@@ -13,6 +14,7 @@
   display: block;
   background: var(--color-black);
   opacity: 1;
+  visibility: visible;
 }
 
 .navigation ul {

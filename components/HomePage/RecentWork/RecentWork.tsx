@@ -1,5 +1,5 @@
 // Components, hooks
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ImageLoader } from 'next/image'
 import Project from '../Project/Project'
 import ProjectModal from '../ProjectModal/ProjectModal'
@@ -296,7 +296,7 @@ export default function Work() {
     return `${src}&w=${width}&q=${quality || 75}`
   }
 
-  const handleModalDisplay = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleModalDisplay = (event: React.MouseEvent<HTMLElement>) => {
     const { currentTarget } = event
 
     const id = +currentTarget.getAttribute('data-id')!
@@ -309,6 +309,21 @@ export default function Work() {
     setModalData({ id, gif, client, project, description })
     setCurrentProjectID(id)
   }
+
+  // if user presses ESC key, handle scroll lock by setting modal state
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setModalIsActive(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
+    }
+  }, [])
 
   return (
     <section id="work" className={styles.work}>

@@ -9,13 +9,13 @@ export default function SupervoidCTA({
   handleClick,
   buttonText,
 }: {
-  urlPath?: string
+  urlPath: string
   handleClick?: () => void
   buttonText: string
 }) {
   return (
-    <button className={styles.button} onClick={handleClick}>
-      {urlPath ? <Link href={urlPath}>{buttonText}</Link> : buttonText}
-    </button>
+    <Link className={styles.cta} href={urlPath} onClick={handleClick}>
+      {buttonText}
+    </Link>
   )
 }
