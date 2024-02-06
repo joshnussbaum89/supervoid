@@ -12,7 +12,6 @@
 }
 
 .about p {
-  margin: auto;
   margin-bottom: 1rem;
   font-size: var(--extraSmall);
   text-align: center;
@@ -25,22 +24,11 @@
   }
 }
 
-.about p:first-of-type {
-  max-width: 26rem;
-}
-
-@media (min-width: 768px) {
-  .about p:first-of-type {
-    max-width: 37rem;
-  }
-}
-
 .about span {
   text-transform: uppercase;
 }
 
 .about .email {
-  margin: 0;
   color: var(--color-white);
 }
 
@@ -74,65 +62,4 @@
 .contactInfo svg:hover {
   fill: var(--color-red);
   transform: translateY(-2px);
-}
-
-@media (min-width: 768px) {
-  .swiper {
-    display: none;
-  }
-}
-
-.swiper p,
-.aboutImagesContainer figcaption {
-  margin-top: 0.5rem;
-  font-size: var(--extraSmall);
-  text-align: center;
-  color: var(--color-grey);
-}
-
-.swiper p {
-  margin-bottom: 2rem;
-}
-
-.aboutImagesContainer {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .aboutImagesContainer {
-    display: block;
-    margin: 0 auto 4rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .aboutImages {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-.aboutImages img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 1%;
-}
-
-.aboutServices {
-  text-align: center;
-}
-
-.aboutServices h3 {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.aboutServices ul {
-  padding: 0;
-}
-
-.aboutServices li {
-  font-size: var(--extraSmall);
-  color: var(--color-grey);
 }

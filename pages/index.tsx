@@ -7,10 +7,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="SUPERVOID | Psychedelic Dreams for Stage + Screen"
+        title="SUPERVOID | Animation, VFX, and Technical Design Studio"
         url="https://supervoid.tv"
         image="https://supervoid.tv/images/supernova-site-background.webp"
-        description="Philadelphia based creative team specializing in live performance stage visuals and music videos"
+        description="SUPERVOID is an animation, vfx and technical design studio based in philadelphia. our primary output is creating dynamic and interactive media packages for artists, agencies and brands."
       />
       <main>
         <RecentWork />

@@ -1,5 +1,5 @@
 // Components
-import Head from 'next/head'
+import SEO from '../components/Global/SEO/SEO'
 // import MostRecentPosts from '../components/LabsPage/MostRecentPosts/MostRecentPosts'
 
 // Helpers
@@ -19,32 +19,12 @@ import { getAllAuthors } from '../lib/getAllAuthors'
 export default function Labs({ posts, authors }: { posts: any[]; authors: any[] }) {
   return (
     <>
-      <Head>
-        <meta
-          name="description"
-          content="Philadelphia based creative team specializing in stage visuals and music videos"
-        />
-        <meta
-          name="keywords"
-          content="lighting, music, video, concerts, film, design, animation, philadelphia"
-        />
-        <meta property="og:title" content="SUPERVOID TV: Labs" />
-        <meta property="og:url" content="https://supervoid.tv/labs" />
-        <meta
-          property="og:description"
-          content="Philadelphia based creative team specializing in stage visuals and music videos"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          // TODO: Replace placeholder image
-          content="https://supervoid.tv/images/labs-placeholder.webp"
-        />
-        <meta property="twitter:card" content="summary" />
-        <meta property="twitter:site" content="@SUPERVOIDtv" />
-        <meta property="twitter:creator" content="@SUPERVOIDtv" />
-        <title>SUPERVOID: Labs</title>
-      </Head>
+      <SEO
+        title="SUPERVOID | Labs"
+        url="https://supervoid.tv/labs"
+        image="https://supervoid.tv/images/labs-placeholder.webp"
+        description="Insights into our creative process for our current projects"
+      />
       <main>
         {/* <MostRecentPosts posts={posts} authors={authors} /> */}
         <h2 style={{ marginBottom: '12rem' }}>Coming soon</h2>
