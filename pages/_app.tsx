@@ -22,9 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
       const body = document.querySelector('body')
 
       if (mobileNavOverlayDisplayed) {
-        body?.classList.add('mobile-nav-overlay-active')
+        body?.classList.add('overlay-active')
       } else {
-        body?.classList.remove('mobile-nav-overlay-active')
+        body?.classList.remove('overlay-active')
       }
     }
   }, [mobileNavOverlayDisplayed])

@@ -29,4 +29,7 @@ Sentry.init({
       blockAllMedia: true,
     }),
   ],
+
+  // See: https://forum.sentry.io/t/unhandledrejection-non-error-promise-rejection-captured-with-value/14062/17
+  ignoreErrors: ['Non-Error promise rejection captured'],
 })

@@ -64,10 +64,8 @@ body {
   text-wrap: balance;
 }
 
-body.mobile-nav-overlay-active,
-body.project-overlay-active {
-  overflow-x: hidden;
-  overflow-y: hidden;
+body.overlay-active {
+  overflow: hidden;
 }
 
 h1,

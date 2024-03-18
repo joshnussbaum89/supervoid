@@ -75,10 +75,10 @@ export default function ProjectModal({
       const body = document.querySelector('body')
 
       if (modalIsActive) {
-        body?.classList.add('project-overlay-active')
+        body?.classList.add('overlay-active')
         ProjectModalRef.current?.showModal()
       } else {
-        body?.classList.remove('project-overlay-active')
+        body?.classList.remove('overlay-active')
         ProjectModalRef.current?.close()
       }
     }
