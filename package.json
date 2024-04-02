@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "supervoid",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.5.14",
     "@astrojs/check": "^0.5.10",
+    "@astrojs/sitemap": "^3.1.2",
+    "astro": "^4.5.14",
+    "astro-icon": "^1.1.0",
     "typescript": "^5.4.3"
   }
 }
