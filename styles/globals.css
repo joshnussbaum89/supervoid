@@ -40,6 +40,10 @@ html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
   line-height: normal;
+
+  /* Scrollbar */
+  scrollbar-color: var(--color-white) var(--color-black);
+  scrollbar-width: thin;
 }
 
 /* 
@@ -141,26 +145,6 @@ video {
   img[loading='lazy'] {
     clip-path: inset(0.6px);
   }
-}
-
-/* Scrollbar width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: var(--color-black);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: var(--color-white);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-white);
 }
 
 .swiper {

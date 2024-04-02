@@ -1,15 +1,14 @@
 // Hooks
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 // Components
-import Navigation from '../Navigation/Navigation'
 import HomePageHeroBackground from '../../HomePage/HeroBackground/HeroBackground'
-import ServersPageHeroBackground from '../../ServersPage/HeroBackground/HeroBackground'
-import LabsPageHeroBackground from '../../LabsPage/HeroBackground/HeroBackround'
 import HomePageHeroInfo from '../../HomePage/HomePageHeroInfo/HomePageHeroInfo'
-import PageTitle from '../PageTitle/PageTitle'
+import LabsPageHeroBackground from '../../LabsPage/HeroBackground/HeroBackround'
+import ServersPageHeroBackground from '../../ServersPage/HeroBackground/HeroBackground'
 import MobileNavigation from '../Navigation/Mobile/Mobile'
+import Navigation from '../Navigation/Navigation'
+import PageTitle from '../PageTitle/PageTitle'
 
 // Styles
 import styles from './Header.module.css'
@@ -71,7 +70,7 @@ export default function Header({
 
   // Determine header styling based on currently displayed page
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+    <>
       {pathname === '' ? (
         <header className={styles.homeHeader}>
           <Navigation
@@ -129,19 +128,7 @@ export default function Header({
             mobileNavIsActive={mobileNavIsActive}
           />
         </header>
-      ) : pathname === '404' ? (
-        <header className={styles.errorHeader}>
-          <Navigation
-            handleMobileNavDisplay={handleMobileNavDisplay}
-            mobileNavIsActive={mobileNavIsActive}
-            navIsVisible={navIsVisible}
-          />
-          <MobileNavigation
-            handleMobileNavDisplay={handleMobileNavDisplay}
-            mobileNavIsActive={mobileNavIsActive}
-          />
-        </header>
-      ) : pathname === '500' ? (
+      ) : pathname === '404' || pathname === '500' ? (
         <header className={styles.errorHeader}>
           <Navigation
             handleMobileNavDisplay={handleMobileNavDisplay}
@@ -154,6 +141,6 @@ export default function Header({
           />
         </header>
       ) : null}
-    </motion.div>
+    </>
   )
 }

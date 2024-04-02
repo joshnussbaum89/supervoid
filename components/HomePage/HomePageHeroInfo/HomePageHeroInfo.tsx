@@ -1,13 +1,19 @@
 // Components
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 // Styles, images
-import styles from './HomePageHeroInfo.module.css'
 import titleImage from '../../../public/images/supervoid-title-text-no-tv.webp'
+import styles from './HomePageHeroInfo.module.css'
 
 export default function HomePageHeroInfo() {
   return (
-    <section className={styles.info}>
+    <motion.section
+      className={styles.info}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className={styles.title}>
         <Image
           src={titleImage}
@@ -17,6 +23,6 @@ export default function HomePageHeroInfo() {
         />
       </div>
       <p>Psychedelic Dreams for Stage + Screen</p>
-    </section>
+    </motion.section>
   )
 }

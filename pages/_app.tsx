@@ -1,9 +1,9 @@
 // Components, hooks
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import localFont from 'next/font/local'
-import Header from '../components/Global/Header/Header'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import Footer from '../components/Global/Footer/Footer'
+import Header from '../components/Global/Header/Header'
 
 // Styles
 import '../styles/globals.css'
@@ -11,8 +11,8 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
 // Fonts
-const benzin_regular = localFont({ src: '../public/fonts/benzin_regular.ttf' })
-const benzin_bold = localFont({ src: '../public/fonts/benzin_bold.ttf' })
+const benzin_regular = localFont({ src: '../public/fonts/Benzin-Regular.woff2' })
+const benzin_bold = localFont({ src: '../public/fonts/Benzin-ExtraBold.woff2' })
 
 export default function App({ Component, pageProps }: AppProps) {
   const [mobileNavOverlayDisplayed, setMobileNavOverlayDisplayed] = useState(false)
