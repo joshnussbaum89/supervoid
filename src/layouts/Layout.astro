@@ -1,5 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
+import Footer from '../components/Footer.astro'
+import Navigation from '../components/Navigation.astro'
 import '../styles/global.css'
 
 export interface Props {
@@ -15,8 +17,7 @@ const {
 } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-// TODO: https://supervoid.tv/images/supernova-site-background.webp
-const socialImageURL = new URL(socialImage || '/headshot.jpg', canonicalURL)
+const socialImageURL = new URL(socialImage || 'images/home-page-hero.webp', canonicalURL)
 ---
 
 <!doctype html>
@@ -27,8 +28,8 @@ const socialImageURL = new URL(socialImage || '/headshot.jpg', canonicalURL)
     <meta name="viewport" content="width=device-width" />
 
     <!-- SEO -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
+    <title>SUPERVOID | {title}</title>
+    <meta name="title" content={`SUPERVOID | ${title}`} />
     <meta name="description" content={description} />
     <meta
       name="keywords"
@@ -40,7 +41,7 @@ const socialImageURL = new URL(socialImage || '/headshot.jpg', canonicalURL)
     <!-- Facebook -->
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={`SUPERVOID | ${title}`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
 
@@ -48,18 +49,23 @@ const socialImageURL = new URL(socialImage || '/headshot.jpg', canonicalURL)
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:domain" content="supervoid.tv" />
     <meta name="twitter:url" content={canonicalURL} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={`SUPERVOID | ${title}`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Fonts -->
 
     <!-- Scripts -->
     <ViewTransitions />
 
-    <title>{title}</title>
+    <title>SUPERVOID | {title}</title>
   </head>
   <body>
+    <Navigation />
     <slot />
+    <Footer />
   </body>
 </html>

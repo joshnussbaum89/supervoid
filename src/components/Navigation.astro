@@ -1,0 +1,266 @@
+---
+import { Picture } from 'astro:assets'
+import siteLogo from '../assets/logo.webp'
+
+const currentPath = Astro.url.pathname
+---
+
+<nav class="navigation">
+  <a class="logo" href="/" aria-label="Supervoid TV" title="Supervoid TV">
+    <Picture src={siteLogo} formats={['avif', 'webp']} alt="Supervoid TV" loading="eager" />
+  </a>
+
+  <!-- Desktop Navigation -->
+  <div class="desktop-nav">
+    <ul>
+      <li>
+        <a href="/#work" aria-label="Work" title="Work" aria-current={currentPath.includes('#work')}
+          >Work</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#about"
+          aria-label="About"
+          title="About"
+          aria-current={currentPath.includes('#about')}>About</a
+        >
+      </li>
+      <li>
+        <a
+          href="/servers"
+          aria-label="Servers"
+          title="Servers"
+          aria-current={currentPath.includes('/servers')}>Servers</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Navigation -->
+
+  <div class="mobile-nav">
+    <button id="hamburger" class="hamburger">
+      <div class="top"></div>
+      <div class="bottom"></div>
+    </button>
+
+    <div class="mobile-nav-overlay">
+      <ul>
+        <li>
+          <a
+            href="/#work"
+            aria-label="Work"
+            title="Work"
+            aria-current={currentPath.includes('#work')}>Work</a
+          >
+        </li>
+        <li>
+          <a
+            href="/#about"
+            aria-label="About"
+            title="About"
+            aria-current={currentPath.includes('#about')}>About</a
+          >
+        </li>
+        <li>
+          <a
+            href="/servers"
+            aria-label="Servers"
+            title="Servers"
+            aria-current={currentPath.includes('/servers')}>Servers</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Main Navigation */
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: var(--transition-normal);
+
+    &.show {
+      background: var(--color-faded-black);
+      backdrop-filter: saturate(180%) blur(5px);
+    }
+
+    & .logo {
+      position: relative;
+      display: flex;
+      z-index: 1000;
+    }
+
+    & .logo img {
+      width: 8rem;
+      padding: 0 1rem;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      & .logo img {
+        width: 9rem;
+      }
+    }
+  }
+
+  /* Mobile Navigation */
+
+  .mobile-nav {
+    display: block;
+
+    @media (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  }
+
+  .hamburger {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 2rem;
+    margin: 1rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+
+    & .top {
+      transform: translateY(-2.5px);
+    }
+
+    & .bottom {
+      transform: translateY(2.5px);
+    }
+
+    & .top,
+    & .bottom {
+      height: 5px;
+      width: 1.8rem;
+      background: var(--color-white);
+      border-radius: 1px;
+      transition: var(--transition-normal);
+    }
+
+    /* Active Styles */
+
+    &.active .top {
+      transform: translateY(2.5px) rotate(45deg);
+    }
+
+    &.active .bottom {
+      transform: translateY(-2.5px) rotate(-45deg);
+    }
+
+    &.active + .mobile-nav-overlay {
+      z-index: 100;
+      background: var(--color-black);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.active + .mobile-nav-overlay ul {
+      transform: translateY(0px);
+    }
+  }
+
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    transition: var(--transition-normal);
+    opacity: 0;
+    visibility: hidden;
+
+    & ul {
+      margin: 6rem 0;
+      padding: 1rem;
+      transform: translateY(40px);
+      transition: var(--transition-normal);
+
+      & li {
+        margin: 2rem 0;
+        font-size: var(--size-lg);
+        text-align: center;
+      }
+    }
+  }
+
+  /* Desktop Navigation */
+
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: block;
+      padding: 1rem 2rem;
+      font-size: var(--size-sm);
+
+      & ul {
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const body = document.querySelector('body')
+    const hamburger = document.getElementById('hamburger')
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-overlay li')
+    let overlayDisplayed = false
+
+    function handleMobileNavigationOnClick() {
+      overlayDisplayed = !overlayDisplayed
+      body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+      hamburger?.classList.toggle('active')
+      hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
+    }
+
+    function handleMobileNavigationOnResize() {
+      if (window.innerWidth >= 768) {
+        overlayDisplayed = false
+        body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+        hamburger?.classList.remove('active')
+        hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
+      }
+    }
+
+    // Accessibility
+    body?.addEventListener('keyup', (event) => {
+      if (event.code === 'Escape' && overlayDisplayed) {
+        handleMobileNavigationOnClick()
+      }
+    })
+
+    hamburger?.addEventListener('click', handleMobileNavigationOnClick)
+    window.addEventListener('resize', handleMobileNavigationOnResize)
+    mobileNavItems.forEach((item) => item.addEventListener('click', handleMobileNavigationOnClick))
+  })
+</script>

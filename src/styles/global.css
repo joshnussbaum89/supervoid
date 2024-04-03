@@ -1,4 +1,29 @@
+@font-face {
+  font-family: 'Benzin Regular';
+  src: url('/fonts/Benzin-Regular.woff2') format('woff2'),
+    url('/fonts/Benzin-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Benzin Bold';
+  src: url('/fonts/Benzin-ExtraBold.woff2') format('woff2'),
+    url('/fonts/Benzin-ExtraBold.woff2') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  /* Fonts */
+
+  --font-supervoid-body: 'Benzin Regular', sans-serif;
+  --font-supervoid-header: 'Benzin Bold', sans-serif;
+
+  /* Colors */
+
   --color-black: #000100;
   --color-white: #f2f2f2;
   --color-grey: #9b9b9b;
@@ -14,12 +39,17 @@
     var(--color-dark-purple) 100%
   );
 
-  --extraSmall: 1rem;
-  --small: 1.4rem;
-  --medium: 1.8rem;
-  --large: 2.25rem;
-  --extraLarge: 3.5rem;
-  --titleLarge: 5.5rem;
+  /* Sizes */
+
+  --size-xxs: 0.8rem;
+  --size-xs: 1rem;
+  --size-sm: 1.4rem;
+  --size-md: 1.8rem;
+  --size-lg: 2.25rem;
+  --size-xl: 3.5rem;
+  --size-xxl: 5.5rem;
+
+  /* Transitions */
 
   --transition-normal: all 0.25s ease-in-out;
   --transition-long: all 0.5s ease-in-out;
@@ -32,13 +62,12 @@
 
 html,
 body {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
-  --scroll-behavior: smooth !important;
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
   line-height: normal;
 
   /* Scrollbar */
@@ -57,15 +86,13 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: var(--font-supervoid-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-white);
   background: var(--color-black);
   overflow: auto;
-
-  /* Experimental, but fallback is default styling */
-  text-wrap: balance;
 }
 
 body.overlay-active {
@@ -75,29 +102,34 @@ body.overlay-active {
 h1,
 h2,
 h3,
-h4 {
-  text-transform: uppercase;
+h4,
+h5 {
   margin: 0;
+  font-family: var(--font-supervoid-header);
+  text-transform: uppercase;
+
+  /* Experimental, but fallback is default styling */
+  text-wrap: balance;
 }
 
 h2 {
-  font-size: var(--large);
-  text-align: center;
   padding: 2rem;
+  font-size: var(--size-lg);
+  text-align: center;
 }
 
 h3 {
-  font-size: var(--small);
+  font-size: var(--size-sm);
   text-align: center;
 }
 
 @media (min-width: 768px) {
   h2 {
-    font-size: var(--extraLarge);
+    font-size: var(--size-xl);
   }
 
   h3 {
-    font-size: var(--medium);
+    font-size: var(--size-md);
   }
 }
 
@@ -108,14 +140,13 @@ button,
 figcaption {
   font-family: inherit;
   text-transform: lowercase;
+
+  /* Experimental, but fallback is default styling */
+  text-wrap: pretty;
 }
 
 p {
   margin: 0;
-}
-
-li {
-  list-style-type: none;
 }
 
 a {
@@ -128,6 +159,10 @@ a:hover {
   color: var(--color-red);
 }
 
+li {
+  list-style-type: none;
+}
+
 img,
 picture,
 svg,
@@ -137,15 +172,7 @@ video {
   height: auto;
 }
 
-/**
-  Fix light grey border on Safari when images are loading
-  See https://nextjs.org/docs/pages/api-reference/components/image#known-browser-bugs 
-*/
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading='lazy'] {
-    clip-path: inset(0.6px);
-  }
-}
+/* Swiper Styles */
 
 .swiper {
   width: 100%;

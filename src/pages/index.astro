@@ -1,7 +1,45 @@
 ---
+import { Picture } from 'astro:assets'
+import titleImage from '../assets/supervoid-title.webp'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="SUPERVOID | Animation, VFX, and Technical Design Studio">
+<Layout title="Animation, VFX, and Technical Design Studio">
+  <header>
+    <div class="header-info">
+      <Picture src={titleImage} formats={['avif', 'webp']} alt="Supervoid" loading="eager" />
+      <p>Psychedelic Dreams for Stage + Screen</p>
+    </div>
+  </header>
   <main></main>
 </Layout>
+
+<style>
+  header {
+    position: relative;
+    height: 100vh;
+    background: var(--color-black);
+
+    .header-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 95%;
+      max-width: 48rem;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      p {
+        margin: auto;
+        width: 95%;
+        font-size: var(--size-sm);
+        text-shadow: 1px 1px 0 var(--color-black);
+        color: var(--color-white);
+
+        @media (min-width: 768px) {
+          font-size: var(--size-md);
+        }
+      }
+    }
+  }
+</style>
