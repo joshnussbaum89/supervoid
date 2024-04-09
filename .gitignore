@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # VS Code files
 .vscode/
+
+# misc
+TODO.md
+.DS_Store

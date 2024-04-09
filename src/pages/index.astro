@@ -1,6 +1,8 @@
 ---
 import { Picture } from 'astro:assets'
+import homePageHeroImage from '../assets/home-page-hero.webp'
 import titleImage from '../assets/supervoid-title.webp'
+import Work from '../components/Work.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
@@ -10,8 +12,11 @@ import Layout from '../layouts/Layout.astro'
       <Picture src={titleImage} formats={['avif', 'webp']} alt="Supervoid" loading="eager" />
       <p>Psychedelic Dreams for Stage + Screen</p>
     </div>
+    <Picture class="hero-image" src={homePageHeroImage} loading="eager" alt="Supervoid explosion" />
   </header>
-  <main></main>
+  <main>
+    <Work />
+  </main>
 </Layout>
 
 <style>
@@ -24,9 +29,10 @@ import Layout from '../layouts/Layout.astro'
       position: absolute;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
       width: 95%;
       max-width: 48rem;
-      transform: translate(-50%, -50%);
       text-align: center;
 
       p {
@@ -40,6 +46,17 @@ import Layout from '../layouts/Layout.astro'
           font-size: var(--size-md);
         }
       }
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 40rem;
+      filter: brightness(0.5);
+      border-radius: 20%;
     }
   }
 </style>
