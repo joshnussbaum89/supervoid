@@ -1,7 +1,8 @@
 ---
 import { Picture } from 'astro:assets'
 
-const projectData = [
+// "Work" section project data -- Project, Music Video, Client, Description, Gif
+export const projectData = [
   {
     id: 0,
     project: 'HVN ON EARTH TOUR 2024',
@@ -283,18 +284,18 @@ const projectData = [
     {
       projectData.map((project) => {
         return (
-          <article class="project-container" 
-          data-id={project.id}
-              data-gif={project.gif}
-              data-client={project.client}
-              data-project={project.project}
-              data-description={project.description}>
+          <article 
+            class="project-container" 
+            data-id={project.id}
+            data-gif={project.gif}
+            data-client={project.client}
+            data-project={project.project}
+            data-description={project.description}
+          >
             <Picture
-              
               src={project.gif}
               width={740}
               height={416}
-              sizes="(min-width: 768px) 50vw, 100vw"
               alt={`${project.client} - ${project.description}`}
             />
             <div class="project-overlay">
@@ -396,49 +397,38 @@ const projectData = [
     margin: auto;
     background-color: var(--color-faded-purple);
     cursor: pointer;
-  }
 
-  .project-container img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+    & .project-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: var(--color-white);
+      background-color: var(--color-faded-black);
 
-  .project-container .project-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: var(--color-white);
-    background-color: var(--color-faded-black);
-  }
-
-  .project-container .project-overlay h3 {
-    padding: 0 0.5rem;
-    text-align: end;
-  }
-
-  /* 
-  Styling is broken on Firefox
-  Padding is set visually to match Chrome and Safari
-*/
-  @-moz-document url-prefix() {
-    .project-container .project-overlay h3 {
-      padding: 0.4rem 0.5rem 0;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .project-container .project-overlay h3 {
-      font-size: var(--size-sm);
+      & h3 {
+        padding: 0 0.5rem;
+        text-align: end;
+      }
     }
   }
 
   @media (min-width: 1024px) {
     .project-container .project-overlay h3 {
       padding: 0 0.75rem;
-      font-size: var(--size-md);
     }
+  }
 
+  /* 
+    Styling is broken on Firefox
+    Padding is set visually to match Chrome and Safari
+  */
+  @-moz-document url-prefix() {
+    .project-container .project-overlay h3 {
+      padding: 0.4rem 0.5rem 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
     /* Firefox */
     @-moz-document url-prefix() {
       .project-container .project-overlay h3 {
@@ -451,28 +441,28 @@ const projectData = [
 <style is:inline>
   .project-modal[open] {
     position: fixed;
+    width: 100%;
+    max-width: 750px;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    color: var(--color-white);
-    background-color: var(--color-black);
     margin: auto;
     padding: 5rem 3rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
     border: 2px solid var(--color-white);
-    width: 100%;
-    max-width: 750px;
     overflow: auto;
     outline: none;
-  }
 
-  @media (min-width: 768px) {
-    .project-modal[open] {
-      padding: 6rem 4rem;
+    @media (min-width: 768px) {
+      & {
+        padding: 6rem 4rem;
+      }
     }
   }
 
   .project-modal::backdrop {
-    background-color: #000000cc;
+    background-color: var(--color-faded-black);
     backdrop-filter: saturate(180%) blur(5px);
   }
 
@@ -494,22 +484,22 @@ const projectData = [
     top: 9px;
     right: 0;
     padding: 1rem;
-  }
 
-  .close .top,
-  .close .bottom {
-    background: var(--color-white);
-    height: 5px;
-    width: 1.8rem;
-    border-radius: 1px;
-  }
+    & .top,
+    & .bottom {
+      height: 5px;
+      width: 1.8rem;
+      background: var(--color-white);
+      border-radius: 1px;
+    }
 
-  .close .top {
-    transform: translateY(2.5px) rotate(45deg);
-  }
+    & .top {
+      transform: translateY(2.5px) rotate(45deg);
+    }
 
-  .close .bottom {
-    transform: translateY(-2.5px) rotate(-45deg);
+    & .bottom {
+      transform: translateY(-2.5px) rotate(-45deg);
+    }
   }
 
   .navigate-left,
@@ -517,70 +507,63 @@ const projectData = [
     position: absolute;
     top: 50%;
     cursor: pointer;
+
+    &.hide,
+    &.hide {
+      display: none;
+    }
+
+    & svg,
+    & svg {
+      fill: var(--color-white);
+    }
+
+    & svg {
+      transform: rotate(180deg);
+    }
   }
 
   .navigate-left {
     left: 1%;
-  }
 
-  @media (min-width: 768px) {
-    .navigate-left {
-      left: 2%;
+    @media (min-width: 768px) {
+      & {
+        left: 2%;
+      }
     }
   }
 
   .navigate-right {
     right: 1%;
-  }
 
-  @media (min-width: 768px) {
-    .navigate-right {
-      right: 2%;
+    @media (min-width: 768px) {
+      & {
+        right: 2%;
+      }
     }
-  }
-
-  .navigate-left.hide,
-  .navigate-right.hide {
-    display: none;
-  }
-
-  .navigate-left svg,
-  .navigate-right svg {
-    fill: var(--color-white);
-  }
-
-  .navigate-right svg {
-    transform: rotate(180deg);
   }
 
   .modal-info {
     height: 8rem;
-  }
 
-  .modal-info h3 {
-    text-align: left;
-    margin-bottom: 1rem;
-    padding: 0;
-  }
-
-  .modal-info p {
-    font-size: var(--size-xs);
-    color: var(--color-grey);
-    margin-bottom: 0.75rem;
-  }
-
-  @media (min-width: 768px) {
-    .modal-info p {
-      font-size: var(--size-sm);
+    & h3 {
+      text-align: left;
+      margin-bottom: 1rem;
+      padding: 0;
     }
-  }
 
-  .modal-info .modal-label {
-    color: var(--color-white);
-  }
+    & p {
+      color: var(--color-grey);
+      margin-bottom: 0.75rem;
+    }
 
-  .description {
-    padding-bottom: 3rem;
+    & .modal-label {
+      color: var(--color-white);
+    }
+
+    & .description {
+      padding-bottom: 3rem;
+    }
   }
 </style>
 
@@ -593,7 +576,7 @@ const projectData = [
     const navigateLeft = document.querySelector('.navigate-left')
     const navigateRight = document.querySelector('.navigate-right')
     const modalGif = document.querySelector('.modal-gif') 
-    const modalInfo = document.querySelector('.modal-info') 
+    const modalInfo = document.querySelector('.modal-info')
 
     // Track current project data
     let currentProjectId = 0

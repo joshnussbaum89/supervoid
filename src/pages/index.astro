@@ -38,13 +38,9 @@ import Layout from '../layouts/Layout.astro'
       p {
         margin: auto;
         width: 95%;
-        font-size: var(--size-sm);
+        font-size: clamp(var(--size-sm), 3.5vw, var(--size-md));
         text-shadow: 1px 1px 0 var(--color-black);
         color: var(--color-white);
-
-        @media (min-width: 768px) {
-          font-size: var(--size-md);
-        }
       }
     }
 

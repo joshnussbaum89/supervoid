@@ -107,6 +107,7 @@ h5 {
   margin: 0;
   font-family: var(--font-supervoid-header);
   text-transform: uppercase;
+  text-align: center;
 
   /* Experimental, but fallback is default styling */
   text-wrap: balance;
@@ -114,23 +115,11 @@ h5 {
 
 h2 {
   padding: 2rem;
-  font-size: var(--size-lg);
-  text-align: center;
+  font-size: clamp(var(--size-lg), 4vw, var(--size-xl));
 }
 
 h3 {
-  font-size: var(--size-sm);
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: var(--size-xl);
-  }
-
-  h3 {
-    font-size: var(--size-md);
-  }
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
 }
 
 p,
@@ -147,6 +136,7 @@ figcaption {
 
 p {
   margin: 0;
+  font-size: clamp(var(--size-xs), 1.5vw, var(--size-sm));
 }
 
 a {
