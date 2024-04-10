@@ -310,7 +310,7 @@ const projectData = [
       <div class="top"></div>
       <div class="bottom"></div>
     </button>
-    <!-- TODO: hide/show logic with pagination -->
+    <!-- Navigate Left -->
     <button class="navigate-left">
       <svg
         version="1.1"
@@ -329,7 +329,7 @@ const projectData = [
         </g>
       </svg>
     </button>
-    <!-- TODO: hide/show logic with pagination -->
+    <!-- Navigate Right -->
     <button class="navigate-right">
       <svg
         version="1.1"
@@ -351,10 +351,9 @@ const projectData = [
 
     <img
       class="modal-gif"
-      src={projectData[0].gif}
-      width={740}
-      height={416}
-      sizes="(min-width: 768px) 50vw, 100vw"
+      src=""
+      width="740"
+      height="416"
       alt=""
     />
     <div class="modal-info"></div>
@@ -585,7 +584,7 @@ const projectData = [
   }
 </style>
 
-<script define:vars={{projectData}}>
+<script define:vars={{ projectData }}>
   document.addEventListener('astro:page-load', () => {
     // Grab DOM elements
     const projects = document.querySelectorAll('.project-container') 
@@ -602,9 +601,12 @@ const projectData = [
 
     // Handle modal display
     function handleShowProject(e) {
-      const {id, gif, client, project, description} = e.target.closest('.project-container')?.dataset
+      const { id, gif, client, project, description } = e.target.closest('.project-container')?.dataset
 
+      // Update current project id
       currentProjectId = parseInt(id)
+
+      // Update modal data
       modalGif.src = gif
       modalGif.alt = `${client} - ${description}`
       modalInfo.innerHTML = `
@@ -616,16 +618,27 @@ const projectData = [
           <span class="modal-label">Description: </span> ${description}
           </p>
         `
-          
-        modal?.showModal()
+        
+      // Show modal
+      modal?.showModal()
 
-        handleUpdateCurrentProject()    
+      // Update current project
+      handleUpdateCurrentProject()    
     }
 
+    // Update current project data and handle navigation visibility
     function handleUpdateCurrentProject() {
       currentProject = projectData[currentProjectId]
 
-      if (currentProjectId > 0 && currentProjectId < projectData.length - 1) {
+      // Track navigation location
+      const userIsOnFirstProject = currentProjectId === 0
+      const userIsOnLastProject = currentProjectId === projectData.length - 1
+
+      if (userIsOnFirstProject) {
+        navigateLeft.classList.add('hide')
+      } else if (userIsOnLastProject) {
+        navigateRight.classList.add('hide')
+      } else {
         navigateLeft.classList.remove('hide')
         navigateRight.classList.remove('hide')
       }
@@ -638,6 +651,8 @@ const projectData = [
         currentProjectId--
       } else if (direction === 'right' && currentProjectId < projectData.length - 1) {
         currentProjectId++
+      } else {
+        return
       }
 
       // Update current project
@@ -645,6 +660,7 @@ const projectData = [
 
       // Update modal data
       modalGif.src = currentProject.gif
+      modalGif.alt = `${currentProject.client} - ${currentProject.description}`
       modalInfo.innerHTML = `
         <h3>${currentProject.project}</h3>
         <p>
