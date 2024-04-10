@@ -17,6 +17,11 @@
 }
 
 :root {
+  /* Containers */
+  --max-width: 1440px;
+  --section-padding-y: clamp(6rem, 10vw, 9rem);
+  --section-padding-x: 1rem;
+
   /* Fonts */
 
   --font-supervoid-body: 'Benzin Regular', sans-serif;
@@ -160,6 +165,14 @@ video {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.site-section {
+  width: 100%;
+  max-width: var(--max-width);
+  height: auto;
+  margin: 0 auto;
+  padding: var(--section-padding-y) var(--section-padding-x);
 }
 
 /* Swiper Styles */

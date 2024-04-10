@@ -363,13 +363,7 @@ export const projectData = [
 
 <style>
   .work {
-    padding-top: 6rem;
-
-    @media (min-width: 768px) {
-      & {
-        padding-top: 9rem;
-      }
-    }
+    padding-top: var(--section-padding-y);
   }
 
   .projects {
@@ -385,7 +379,7 @@ export const projectData = [
     @media (min-width: 1440px) {
       & {
         margin: auto;
-        max-width: 1440px;
+        max-width: var(--max-width);
       }
     }
   }
@@ -531,11 +525,11 @@ export const projectData = [
 
   .navigate-right {
     right: 1%;
+    transform: rotate(180deg);
 
     @media (min-width: 768px) {
       & {
         right: 2%;
-        transform: rotate(180deg);
       }
     }
   }
