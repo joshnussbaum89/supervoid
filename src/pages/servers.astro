@@ -1,11 +1,29 @@
 ---
+import { getImage } from 'astro:assets'
+import backgroundImage from '../assets/servers-page-hero.webp'
+import PageTitle from '../components/text/PageTitle.astro'
 import Layout from '../layouts/Layout.astro'
+
+const { src: backgroundImageWebp } = await getImage({ src: backgroundImage, format: 'webp' })
 ---
 
 <Layout title="Servers">
-  <header>
-    <!-- hero info -->
-    <!-- background image-->
+  <header style={`background-image: url('${backgroundImageWebp}');`}>
+    <PageTitle title="Servers" />
   </header>
-  <main></main>
 </Layout>
+
+<style>
+  header {
+    /* Background image styles */
+    height: 100vh;
+    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+
+    /* Center page title */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
