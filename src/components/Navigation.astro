@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname
 ---
 
 <nav class="navigation">
-  <a class="logo" href="/" aria-label="Supervoid TV" title="Supervoid TV">
+  <a class="logo" href="/" title="Supervoid TV" aria-label="Supervoid TV">
     <Picture src={siteLogo} formats={['avif', 'webp']} alt="Supervoid TV" loading="eager" />
   </a>
 
@@ -14,23 +14,23 @@ const currentPath = Astro.url.pathname
   <div class="desktop-nav">
     <ul>
       <li>
-        <a href="/#work" aria-label="Work" title="Work" aria-current={currentPath.includes('#work')}
+        <a href="/#work" title="Work" aria-label="Work" aria-current={currentPath.includes('#work')}
           >Work</a
         >
       </li>
       <li>
         <a
           href="/#about"
-          aria-label="About"
           title="About"
+          aria-label="About"
           aria-current={currentPath.includes('#about')}>About</a
         >
       </li>
       <li>
         <a
           href="/servers"
-          aria-label="Servers"
           title="Servers"
+          aria-label="Servers"
           aria-current={currentPath.includes('/servers')}>Servers</a
         >
       </li>

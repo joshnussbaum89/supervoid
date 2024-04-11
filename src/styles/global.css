@@ -21,6 +21,7 @@
   --max-width: 1440px;
   --section-padding-y: clamp(6rem, 10vw, 9rem);
   --section-padding-x: 1rem;
+  --section-padding-y-lg: 16rem;
 
   /* Fonts */
 
