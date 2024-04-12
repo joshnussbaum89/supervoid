@@ -3,11 +3,47 @@ import { getImage } from 'astro:assets'
 import image from '../assets/servers-page-hero.webp'
 import tateMcraeImage from '../assets/tate-mcrae-1.webp'
 import ImageAndText from '../components/ImageAndText.astro'
+import InfoCard from '../components/InfoCard.astro'
 import PageTitle from '../components/text/PageTitle.astro'
 import TextBlock from '../components/text/TextBlock.astro'
 import Layout from '../layouts/Layout.astro'
 
+// Hero background image
 const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp' })
+
+// Spec card data
+export const cardData = [
+  [
+    {
+      id: 0,
+      text: 'run up to 12 HD screens, 3 4K screens, or even a single 8K screen, with a dedicated GUI for controlling the software',
+    },
+    {
+      id: 1,
+      text: 'capture up to 4 HD inputs or one 4K input over SDI or HDMI',
+    },
+  ],
+  [
+    {
+      id: 0,
+      text: 'real-time low latency visual effects with Notch built into each server',
+    },
+    {
+      id: 1,
+      text: 'Pixel map and control hundreds of universes of lights over artnet',
+    },
+  ],
+  [
+    {
+      id: 0,
+      text: 'control via your lighting desk with artnet or from MIDI or OSC',
+    },
+    {
+      id: 1,
+      text: 'remote Control over LAN/Wifi from any Windows or Mac computer',
+    },
+  ],
+]
 ---
 
 <Layout title="Servers">
@@ -15,18 +51,33 @@ const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp'
     <PageTitle title="Servers" />
   </header>
   <main>
-    <section id="description" class="description site-section">
+    <section id="description" class="description site-section aos-fade">
       <TextBlock
         text="we design and build custom media server racks in house to meet the needs of shows large and small. our SVX series media servers pack a big punch in a small footprint."
       />
     </section>
-    <section id="philosophy" class="philosophy site-section">
+    <section id="philosophy" class="philosophy site-section aos-fade">
       <ImageAndText
         text="after spending years programming top tier media servers like Disguise and Hippo, which can be prohibitively expensive to rent, we wanted to create a solution for our clients that could still be powerful enough to run big shows without breaking the bank."
         imageSrc={tateMcraeImage}
         imageCaption="Tate McRae at MIA festival"
         imageAlt="Tate McRae performing at Made In America festival in Philadelphia, PA"
       />
+    </section>
+    <section id="specs" class="specs site-section aos-fade">
+      <h2>SVX Series Servers Quick Specs</h2>
+      <div class="card-container">
+        <div>
+          {cardData[0].map((card) => <InfoCard text={card.text} column={1} />)}
+        </div>
+        <div>
+          {cardData[1].map((card) => <InfoCard text={card.text} column={2} />)}
+        </div>
+        <div>
+          {cardData[2].map((card) => <InfoCard text={card.text} column={3} />)}
+        </div>
+      </div>
+      <!-- Pricing -->
     </section>
   </main>
 </Layout>
@@ -56,13 +107,26 @@ const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp'
     }
   }
 
-  .description {
-    padding-top: var(--section-padding-y-lg);
-  }
-
   .philosophy {
     max-width: 900px;
-    padding-top: var(--section-padding-y-lg);
-    padding-bottom: var(--section-padding-y-lg);
+  }
+
+  .specs h2 {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      & {
+        margin: 0 auto 5rem;
+      }
+    }
+  }
+
+  .card-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 324px));
+    gap: 4rem;
   }
 </style>

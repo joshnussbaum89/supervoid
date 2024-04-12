@@ -285,8 +285,8 @@ export const projectData = [
     {
       projectData.map((project) => {
         return (
-          <article 
-            class="project-container" 
+          <article
+            class="project-container aos-fade"
             data-id={project.id}
             data-gif={project.gif}
             data-client={project.client}
@@ -321,13 +321,7 @@ export const projectData = [
     </button>
 
     <!-- Content -->
-    <img
-      class="modal-gif"
-      src=""
-      width="740"
-      height="416"
-      alt=""
-    />
+    <img class="modal-gif" src="" width="740" height="416" alt="" />
     <div class="modal-info"></div>
   </dialog>
 </section>
@@ -358,7 +352,7 @@ export const projectData = [
   .project-container {
     position: relative;
     width: 100%;
-    height: 100%:
+    height: 100%;
     margin: auto;
     background-color: var(--color-faded-purple);
     cursor: pointer;
@@ -533,12 +527,13 @@ export const projectData = [
 <script define:vars={{ projectData }}>
   document.addEventListener('astro:page-load', () => {
     // Grab DOM elements
-    const projects = document.querySelectorAll('.project-container') 
+    const body = document.querySelector('body')
+    const projects = document.querySelectorAll('.project-container')
     const modal = document.querySelector('.project-modal')
     const close = document.querySelector('.close')
     const navigateLeft = document.querySelector('.navigate-left')
     const navigateRight = document.querySelector('.navigate-right')
-    const modalGif = document.querySelector('.modal-gif') 
+    const modalGif = document.querySelector('.modal-gif')
     const modalInfo = document.querySelector('.modal-info')
 
     // Track current project data
@@ -547,7 +542,8 @@ export const projectData = [
 
     // Handle modal display
     function handleShowProject(e) {
-      const { id, gif, client, project, description } = e.target.closest('.project-container')?.dataset
+      const { id, gif, client, project, description } =
+        e.target.closest('.project-container')?.dataset
 
       // Update current project id
       currentProjectId = parseInt(id)
@@ -555,21 +551,23 @@ export const projectData = [
       // Update modal data
       modalGif.src = gif
       modalGif.alt = `${client} - ${description}`
-      modalInfo.innerHTML = `
-          <h3>${project}</h3>
-          <p>
-          <span class="modal-label">Client: </span> ${client}
-          </p>
-          <p class="description">
-          <span class="modal-label">Description: </span> ${description}
-          </p>
-        `
-        
+      modalInfo.innerHTML = /* HTML */ `
+        <h3>${project}</h3>
+        <p><span class="modal-label">Client: </span> ${client}</p>
+        <p class="description"><span class="modal-label">Description: </span> ${description}</p>
+      `
+
       // Show modal
       modal?.showModal()
+      body.setAttribute('data-overlay-displayed', true)
 
       // Update current project
-      handleUpdateCurrentProject()    
+      handleUpdateCurrentProject()
+    }
+
+    function handleCloseModal() {
+      modal?.close()
+      body.setAttribute('data-overlay-displayed', false)
     }
 
     // Update current project data and handle navigation visibility
@@ -607,13 +605,11 @@ export const projectData = [
       // Update modal data
       modalGif.src = currentProject.gif
       modalGif.alt = `${currentProject.client} - ${currentProject.description}`
-      modalInfo.innerHTML = `
+      modalInfo.innerHTML = /* HTML */ `
         <h3>${currentProject.project}</h3>
-        <p>
-        <span class="modal-label">Client: </span> ${currentProject.client}
-        </p>
+        <p><span class="modal-label">Client: </span> ${currentProject.client}</p>
         <p class="description">
-        <span class="modal-label">Description: </span> ${currentProject.description}
+          <span class="modal-label">Description: </span> ${currentProject.description}
         </p>
       `
     }
@@ -626,13 +622,12 @@ export const projectData = [
         handleProjectNavigation('right')
       }
     }
-        
+
     // Event Listeners
     document.addEventListener('keydown', handleArrowPress)
     projects.forEach((project) => project.addEventListener('click', handleShowProject))
-    close?.addEventListener('click', () => modal?.close())
+    close?.addEventListener('click', handleCloseModal)
     navigateLeft?.addEventListener('click', () => handleProjectNavigation('left'))
     navigateRight?.addEventListener('click', () => handleProjectNavigation('right'))
   })
 </script>
-      
