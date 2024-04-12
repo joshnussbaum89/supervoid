@@ -1,8 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components'
 import { getImage } from 'astro:assets'
 import image from '../assets/servers-page-hero.webp'
+import tateMcraeImage from '../assets/tate-mcrae-1.webp'
+import ImageAndText from '../components/ImageAndText.astro'
 import PageTitle from '../components/text/PageTitle.astro'
+import TextBlock from '../components/text/TextBlock.astro'
 import Layout from '../layouts/Layout.astro'
 
 const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp' })
@@ -14,110 +16,53 @@ const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp'
   </header>
   <main>
     <!-- Description -->
-    <section class="description">
-      <div class="general">
-        <p>
-          we design and build custom media server racks in house to meet the needs of shows large
-          and small. our SVX series media servers pack a big punch in a small footprint.
-        </p>
-        <Icon name="arrow-down" />
-        <div class="philosophy">
-          <figure>
-            <!-- <Image
-            src={tateMcrae}
-            sizes="(min-width: 768px) 50vw, 100vw"
-            alt="Tate McRae performing at Made In America festival in Philadelphia, PA"
-          /> -->
-            <figcaption>Tate McRae at MIA festival</figcaption>
-          </figure>
-          <p>
-            after spending years programming top tier media servers like Disguise and Hippo, which
-            can be prohibitively expensive to rent, we wanted to create a solution for our clients
-            that could still be powerful enough to run big shows without breaking the bank.
-          </p>
-        </div>
-      </div>
-
-      <!-- <Specs /> -->
-      <!-- <ContactUs /> -->
+    <section id="description" class="description site-section">
+      <TextBlock
+        text="we design and build custom media server racks in house to meet the needs of shows large and small. our SVX series media servers pack a big punch in a small footprint."
+      />
+    </section>
+    <section id="philosophy" class="philosophy site-section">
+      <ImageAndText
+        text="after spending years programming top tier media servers like Disguise and Hippo, which can be prohibitively expensive to rent, we wanted to create a solution for our clients that could still be powerful enough to run big shows without breaking the bank."
+        imageSrc={tateMcraeImage}
+        imageCaption="Tate McRae at MIA festival"
+        imageAlt="Tate McRae performing at Made In America festival in Philadelphia, PA"
+      />
     </section>
   </main>
-
-  <style>
-    header {
-      /* Background image styles */
-      height: 100vh;
-      padding: 1rem;
-      background-size: cover;
-      background-position: center;
-
-      /* Center page title */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .general,
-    .philosophy {
-      margin-left: auto;
-      margin-right: auto;
-      width: 95%;
-      padding: var(--section-padding-y-lg) 0;
-    }
-
-    .general {
-      max-width: 700px;
-      text-align: center;
-    }
-
-    .general > p {
-      margin-bottom: 1rem;
-      font-size: clamp(var(--size-sm), 4vw, var(--size-md));
-      text-transform: none;
-    }
-
-    .general [data-icon] {
-      margin: auto;
-      fill: var(--color-white);
-      transform: rotate(-90deg);
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .philosophy {
-      max-width: 900px;
-    }
-
-    .philosophy figure {
-      margin: 0;
-    }
-
-    .philosophy img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 1%;
-    }
-
-    .philosophy figcaption {
-      margin-bottom: 1.5rem;
-      font-size: var(--size-xs);
-      text-align: center;
-      color: var(--color-grey);
-    }
-
-    @media (min-width: 768px) {
-      .philosophy figcaption {
-        margin-bottom: 2rem;
-      }
-    }
-
-    .philosophy p {
-      max-width: 792px;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: var(--size-sm);
-      text-transform: none;
-      text-align: center;
-    }
-  </style>
 </Layout>
+
+<style>
+  header {
+    /* Background image styles */
+    height: 100vh;
+    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+
+    /* Center page title */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 25%;
+      background: linear-gradient(transparent, var(--color-black));
+    }
+  }
+
+  .description {
+    padding-top: var(--section-padding-y-lg);
+  }
+
+  .philosophy {
+    max-width: 900px;
+    padding-top: var(--section-padding-y-lg);
+    padding-bottom: var(--section-padding-y-lg);
+  }
+</style>

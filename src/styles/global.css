@@ -18,6 +18,7 @@
 
 :root {
   /* Containers */
+  --max-width-sm: 700px;
   --max-width: 1440px;
   --section-padding-y: clamp(6rem, 10vw, 9rem);
   --section-padding-x: 1rem;
