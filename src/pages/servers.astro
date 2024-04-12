@@ -15,7 +15,6 @@ const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp'
     <PageTitle title="Servers" />
   </header>
   <main>
-    <!-- Description -->
     <section id="description" class="description site-section">
       <TextBlock
         text="we design and build custom media server racks in house to meet the needs of shows large and small. our SVX series media servers pack a big punch in a small footprint."
@@ -45,6 +44,7 @@ const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp'
     justify-content: center;
     align-items: center;
 
+    /* Scrim */
     &::after {
       content: '';
       position: absolute;
