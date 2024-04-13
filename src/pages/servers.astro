@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro'
 const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp' })
 
 // Spec card data
-export const cardData = [
+export const specData = [
   [
     {
       id: 0,
@@ -66,16 +66,18 @@ export const cardData = [
     </section>
     <section id="specs" class="specs site-section aos-fade">
       <h2>SVX Series Servers Quick Specs</h2>
-      <div class="card-container">
-        <div>
-          {cardData[0].map((card) => <InfoCard text={card.text} column={1} />)}
-        </div>
-        <div>
-          {cardData[1].map((card) => <InfoCard text={card.text} column={2} />)}
-        </div>
-        <div>
-          {cardData[2].map((card) => <InfoCard text={card.text} column={3} />)}
-        </div>
+      <div class="spec-container">
+        {
+          specData.map((spec) => {
+            return (
+              <div>
+                {spec.map((s) => (
+                  <InfoCard text={s.text} column={specData.indexOf(spec) + 1} />
+                ))}
+              </div>
+            )
+          })
+        }
       </div>
       <!-- Pricing -->
     </section>
@@ -123,7 +125,7 @@ export const cardData = [
     }
   }
 
-  .card-container {
+  .spec-container {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(auto, 324px));
