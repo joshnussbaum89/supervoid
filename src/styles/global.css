@@ -230,22 +230,7 @@ video {
 
 /* Swiper Styles */
 
-.swiper {
-  width: 100%;
-  margin: 0 auto 4rem;
-  border-radius: var(--border-radius-img);
-}
-
-[data-pathname='servers'] .swiper-wrapper {
-  margin-bottom: 3rem;
-}
-
 .swiper-slide img {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius-img);
   cursor: grab;
 }
 

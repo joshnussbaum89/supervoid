@@ -5,17 +5,16 @@ import image from '../assets/servers-page-hero.webp'
 import tateMcraeImage from '../assets/tate-mcrae-1.webp'
 import tateMcrae from '../assets/tate-mcrae-2.webp'
 import tomMorello from '../assets/tom-morello.webp'
-import ImageAndText from '../components/ImageAndText.astro'
-import Pricing from '../components/Pricing.astro'
-import SpecCards from '../components/SpecCards.astro'
-import PageTitle from '../components/text/PageTitle.astro'
-import TextBlock from '../components/text/TextBlock.astro'
+import ImageAndText from '../components/content/ImageAndText.astro'
+import PageTitle from '../components/content/PageTitle.astro'
+import SpecCards from '../components/content/SpecCards.astro'
+import TextBlock from '../components/content/TextBlock.astro'
+import Pricing from '../components/widgets/Pricing.astro'
+import Swiper from '../components/widgets/Swiper.astro'
 import Layout from '../layouts/Layout.astro'
 
 // Hero background image
 const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp' })
-
-const { pathname } = Astro.url
 
 // Specs card data
 export const specData = [
@@ -75,28 +74,16 @@ export const specData = [
       <SpecCards class="spec-cards-custom" specData={specData} />
       <Pricing />
     </section>
-    <section class="contact site-section" data-pathname={pathname}>
+    <section id="contact" class="contact site-section">
       <a class="site-cta" href="/#about">Contact Us</a>
-      <!-- <Swiper
-        class="swiper"
-        modules={[Navigation, Pagination, A11y]}
-        pagination={{ clickable: true }}
-      >
-        <SwiperSlide>
-          <Image src={danAndShay} sizes="100vw" alt="Dan + Shay Stadium Tour 2022" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            src={tomMorello}
-            sizes="100vw"
-            alt="Tom Morello Rage Against the Machine Tour 2022"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={tateMcrae} sizes="100vw" alt="Tate McRae Made In America Festival 2022" />
-        </SwiperSlide>
-      </Swiper> -->
-      <div class="gallery">
+      <Swiper
+        images={[
+          { src: danAndShay, alt: 'Dan + Shay Stadium Tour 2022' },
+          { src: tomMorello, alt: 'Tom Morello Rage Against the Machine Tour 2022' },
+          { src: tateMcrae, alt: 'Tate McRae Made In America Festival 2022' },
+        ]}
+      />
+      <div class="desktop-gallery">
         <Picture src={danAndShay} alt="Dan + Shay Stadium Tour 2022" />
         <Picture src={tomMorello} alt="Tom Morello Rage Against the Machine Tour 2022" />
         <Picture src={tateMcrae} alt="Tate McRae Made In America Festival 2022" />
@@ -150,25 +137,24 @@ export const specData = [
     margin-bottom: 12rem;
   }
 
-  /* -------------------------------------------------------------------- */
-
   .contact {
     max-width: var(--max-width-md);
-  }
+    display: block;
 
-  .gallery {
-    display: none;
-  }
+    & .desktop-gallery {
+      display: none;
 
-  @media (min-width: 768px) {
-    .gallery {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
+      @media (min-width: 768px) {
+        & {
+          display: flex;
+          justify-content: space-between;
+          gap: 3vw;
+        }
+      }
+
+      & img {
+        border-radius: var(--border-radius-img);
+      }
     }
-  }
-
-  .gallery img {
-    border-radius: var(--border-radius-img);
   }
 </style>

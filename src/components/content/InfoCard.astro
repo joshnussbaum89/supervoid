@@ -147,9 +147,6 @@ const { text, column } = Astro.props
     // Check if IntersectionObserver is supported
     if (!window.IntersectionObserver) return console.log('IntersectionObserver not supported')
 
-    // Disable IntersectionObserver on desktop
-    if (window.innerWidth > 768) return
-
     // Fade in cards on scroll
     document.addEventListener('scroll', handleCardFadeOnScroll)
   })
