@@ -19,6 +19,7 @@
 :root {
   /* Containers */
   --max-width-sm: 700px;
+  --max-width-md: 1100px;
   --max-width: 1440px;
   --section-padding-y: clamp(6rem, 10vw, 9rem);
   --section-padding-x: 1rem;
@@ -63,6 +64,9 @@
 
   /* Shadows */
   --shadow-text: 1px 1px 0 var(--color-black);
+
+  /* Border Radius */
+  --border-radius-img: 1%;
 }
 
 * {
@@ -184,6 +188,34 @@ video {
   padding: var(--section-padding-y) var(--section-padding-x);
 }
 
+.site-cta {
+  display: flex;
+  width: fit-content;
+  margin: 0.5rem auto 2rem;
+  padding: 1rem 2rem 1.4rem;
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+  color: var(--color-white);
+  background: var(--color-red-gradient);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.site-cta:hover {
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* 
+  Line-height is different on Firefox
+  Padding is set visually to match Chrome and Safari
+*/
+@-moz-document url-prefix() {
+  .site-cta {
+    padding: 1rem 2rem;
+  }
+}
+
 /* Animations */
 
 .aos-fade,
@@ -201,7 +233,7 @@ video {
 .swiper {
   width: 100%;
   margin: 0 auto 4rem;
-  border-radius: 1%;
+  border-radius: var(--border-radius-img);
 }
 
 [data-pathname='servers'] .swiper-wrapper {
@@ -213,7 +245,7 @@ video {
   margin: auto;
   max-width: 100%;
   height: auto;
-  border-radius: 1%;
+  border-radius: var(--border-radius-img);
   cursor: grab;
 }
 

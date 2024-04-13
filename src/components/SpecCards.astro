@@ -1,0 +1,36 @@
+---
+import InfoCard from './InfoCard.astro'
+
+export interface Props {
+  class?: string
+  specData: {
+    id: number
+    text: string
+  }[][]
+}
+
+const { class: className, specData } = Astro.props
+---
+
+<div class:list={[className, 'spec-container']}>
+  {
+    specData.map((spec) => {
+      return (
+        <div>
+          {spec.map((s) => (
+            <InfoCard text={s.text} column={specData.indexOf(spec) + 1} />
+          ))}
+        </div>
+      )
+    })
+  }
+</div>
+
+<style>
+  .spec-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 324px));
+    gap: 4rem;
+  }
+</style>

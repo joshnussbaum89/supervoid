@@ -1,9 +1,13 @@
 ---
-import { getImage } from 'astro:assets'
+import { Picture, getImage } from 'astro:assets'
+import danAndShay from '../assets/dan-shay.webp'
 import image from '../assets/servers-page-hero.webp'
 import tateMcraeImage from '../assets/tate-mcrae-1.webp'
+import tateMcrae from '../assets/tate-mcrae-2.webp'
+import tomMorello from '../assets/tom-morello.webp'
 import ImageAndText from '../components/ImageAndText.astro'
-import InfoCard from '../components/InfoCard.astro'
+import Pricing from '../components/Pricing.astro'
+import SpecCards from '../components/SpecCards.astro'
 import PageTitle from '../components/text/PageTitle.astro'
 import TextBlock from '../components/text/TextBlock.astro'
 import Layout from '../layouts/Layout.astro'
@@ -11,7 +15,9 @@ import Layout from '../layouts/Layout.astro'
 // Hero background image
 const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp' })
 
-// Spec card data
+const { pathname } = Astro.url
+
+// Specs card data
 export const specData = [
   [
     {
@@ -66,20 +72,35 @@ export const specData = [
     </section>
     <section id="specs" class="specs site-section aos-fade">
       <h2>SVX Series Servers Quick Specs</h2>
-      <div class="spec-container">
-        {
-          specData.map((spec) => {
-            return (
-              <div>
-                {spec.map((s) => (
-                  <InfoCard text={s.text} column={specData.indexOf(spec) + 1} />
-                ))}
-              </div>
-            )
-          })
-        }
+      <SpecCards class="spec-cards-custom" specData={specData} />
+      <Pricing />
+    </section>
+    <section class="contact site-section" data-pathname={pathname}>
+      <a class="site-cta" href="/#about">Contact Us</a>
+      <!-- <Swiper
+        class="swiper"
+        modules={[Navigation, Pagination, A11y]}
+        pagination={{ clickable: true }}
+      >
+        <SwiperSlide>
+          <Image src={danAndShay} sizes="100vw" alt="Dan + Shay Stadium Tour 2022" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image
+            src={tomMorello}
+            sizes="100vw"
+            alt="Tom Morello Rage Against the Machine Tour 2022"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={tateMcrae} sizes="100vw" alt="Tate McRae Made In America Festival 2022" />
+        </SwiperSlide>
+      </Swiper> -->
+      <div class="gallery">
+        <Picture src={danAndShay} alt="Dan + Shay Stadium Tour 2022" />
+        <Picture src={tomMorello} alt="Tom Morello Rage Against the Machine Tour 2022" />
+        <Picture src={tateMcrae} alt="Tate McRae Made In America Festival 2022" />
       </div>
-      <!-- Pricing -->
     </section>
   </main>
 </Layout>
@@ -125,10 +146,29 @@ export const specData = [
     }
   }
 
-  .spec-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(auto, 324px));
-    gap: 4rem;
+  .spec-cards-custom {
+    margin-bottom: 12rem;
+  }
+
+  /* -------------------------------------------------------------------- */
+
+  .contact {
+    max-width: var(--max-width-md);
+  }
+
+  .gallery {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .gallery {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  }
+
+  .gallery img {
+    border-radius: var(--border-radius-img);
   }
 </style>
