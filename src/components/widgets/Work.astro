@@ -623,6 +623,13 @@ export const projectData = [
       }
     }
 
+    // Make sure scrolling is reset when modal is closed
+    body?.addEventListener('keyup', (event) => {
+      if (event.code === 'Escape') {
+        handleCloseModal()
+      }
+    })
+
     // Event Listeners
     document.addEventListener('keydown', handleArrowPress)
     projects.forEach((project) => project.addEventListener('click', handleShowProject))

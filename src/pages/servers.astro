@@ -14,7 +14,12 @@ import Swiper from '../components/widgets/Swiper.astro'
 import Layout from '../layouts/Layout.astro'
 
 // Hero background image
-const { src: heroBackgroundImage } = await getImage({ src: image, format: 'webp' })
+const heroBackgroundImage = await getImage({
+  src: image,
+  format: 'webp',
+  quality: 50,
+  loading: 'eager',
+})
 
 // Specs card data
 export const specData = [
@@ -51,8 +56,12 @@ export const specData = [
 ]
 ---
 
-<Layout title="Servers">
-  <header style={`background-image: url('${heroBackgroundImage}');`}>
+<Layout
+  title="Servers"
+  description="We design and build custom media server racks in house to meet the needs of shows large and small. Our SVX series media servers pack a big punch in a small footprint."
+  socialImage="images/servers-page-hero.webp"
+>
+  <header style={`background-image: url('${heroBackgroundImage.src}');`}>
     <PageTitle title="Servers" />
   </header>
   <main>
@@ -84,9 +93,17 @@ export const specData = [
         ]}
       />
       <div class="desktop-gallery">
-        <Picture src={danAndShay} alt="Dan + Shay Stadium Tour 2022" />
-        <Picture src={tomMorello} alt="Tom Morello Rage Against the Machine Tour 2022" />
-        <Picture src={tateMcrae} alt="Tate McRae Made In America Festival 2022" />
+        <Picture src={danAndShay} formats={['avif', 'webp']} alt="Dan + Shay Stadium Tour 2022" />
+        <Picture
+          src={tomMorello}
+          formats={['avif', 'webp']}
+          alt="Tom Morello Rage Against the Machine Tour 2022"
+        />
+        <Picture
+          src={tateMcrae}
+          formats={['avif', 'webp']}
+          alt="Tate McRae Made In America Festival 2022"
+        />
       </div>
     </section>
   </main>

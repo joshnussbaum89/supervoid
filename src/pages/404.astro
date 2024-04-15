@@ -1,0 +1,19 @@
+---
+import PageTitle from '../components/content/PageTitle.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="404" description="Page Not Found">
+  <header class="error">
+    <PageTitle title="404" body="Page Not Found" />
+  </header>
+</Layout>
+
+<style>
+  .error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+  }
+</style>

@@ -13,7 +13,13 @@ import Layout from '../layouts/Layout.astro'
       <Picture src={titleImage} formats={['avif', 'webp']} alt="Supervoid" loading="eager" />
       <p>Psychedelic Dreams for Stage + Screen</p>
     </div>
-    <Picture class="hero-image" src={homePageHeroImage} loading="eager" alt="Supervoid explosion" />
+    <Picture
+      class="hero-image"
+      src={homePageHeroImage}
+      formats={['avif', 'webp']}
+      alt="Supervoid explosion"
+      loading="eager"
+    />
   </header>
   <main>
     <Work />

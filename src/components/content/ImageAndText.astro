@@ -12,7 +12,7 @@ const { imageSrc, imageAlt, imageCaption, text } = Astro.props
 ---
 
 <figure class="image-and-text">
-  <Picture src={imageSrc} alt={imageAlt} />
+  <Picture src={imageSrc} formats={['avif', 'webp']} alt={imageAlt} />
   <figcaption>{imageCaption}</figcaption>
   <p>{text}</p>
 </figure>
