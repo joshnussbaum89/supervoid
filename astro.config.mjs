@@ -1,3 +1,4 @@
+import netlify from '@astrojs/netlify'
 import sitemap from '@astrojs/sitemap'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
@@ -6,13 +7,15 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://www.supervoid.tv',
   scopedStyleStrategy: 'class',
-  build: {
-    inlineStylesheets: 'always',
-  },
   integrations: [
     icon(),
     sitemap({
       lastmod: new Date(),
     }),
   ],
+  output: 'hybrid',
+  adapter: netlify({
+    imageCDN: false,
+    cacheOnDemandPages: true,
+  }),
 })
