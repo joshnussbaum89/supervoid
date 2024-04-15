@@ -26,8 +26,19 @@ function handleSectionFadeOnScroll() {
   }
 }
 
+/**
+ * When page loads, fade in sections with the class `aol-fade`
+ */
+function handleSectionFadeOnLoad() {
+  const sections = document.querySelectorAll('.aol-fade') as NodeListOf<HTMLElement>
+  sections.forEach((section) => section.classList.add('active'))
+}
+
 // On page load
 document.addEventListener('astro:page-load', () => {
+  // Fade in sections on load
+  handleSectionFadeOnLoad()
+
   // Fade in sections on scroll
   document.addEventListener('scroll', handleSectionFadeOnScroll)
 })
