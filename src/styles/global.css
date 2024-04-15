@@ -60,7 +60,7 @@
   /* Transitions */
 
   --transition-normal: all 0.25s ease-in-out;
-  --transition-long: all 0.5s ease-in-out;
+  --transition-long: 0.5s ease-in-out;
 
   /* Shadows */
   --shadow-text: 1px 1px 0 var(--color-black);
@@ -221,7 +221,7 @@ video {
 .aos-fade,
 .aol-fade {
   opacity: 0;
-  transition: var(--transition-long);
+  transition: opacity var(--transition-long);
 
   &.active {
     opacity: 1;
