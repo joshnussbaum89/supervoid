@@ -1,0 +1,45 @@
+---
+import { Picture } from 'astro:assets'
+
+export interface Props {
+  imageSrc: ImageMetadata
+  imageAlt: string
+  imageCaption?: string
+  text: string
+}
+
+const { imageSrc, imageAlt, imageCaption, text } = Astro.props
+---
+
+<figure class="image-and-text">
+  <Picture src={imageSrc} formats={['avif', 'webp']} alt={imageAlt} />
+  <figcaption>{imageCaption}</figcaption>
+  <p>{text}</p>
+</figure>
+
+<style>
+  .image-and-text {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+
+    & img {
+      border-radius: var(--border-radius-img);
+    }
+
+    & figcaption {
+      padding-bottom: 1rem;
+      font-size: var(--size-xs);
+      color: var(--color-grey);
+    }
+
+    & p {
+      max-width: var(--max-width-sm);
+      font-size: var(--size-sm);
+      text-transform: none;
+    }
+  }
+</style>

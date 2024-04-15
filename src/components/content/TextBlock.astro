@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components'
+
+export interface Props {
+  text: string
+}
+
+const { text } = Astro.props
+---
+
+<article class="text-block">
+  <p>{text}</p>
+  <Icon name="arrow-right" />
+</article>
+
+<style>
+  .text-block {
+    margin: 0 auto;
+    max-width: var(--max-width-sm);
+    text-align: center;
+
+    & p {
+      margin: 0 auto 1rem;
+      font-size: clamp(var(--size-sm), 4vw, var(--size-md));
+      text-transform: none;
+    }
+
+    & [data-icon] {
+      width: 2rem;
+      margin: 0 auto;
+      fill: var(--color-white);
+      transform: rotate(-90deg);
+    }
+  }
+</style>

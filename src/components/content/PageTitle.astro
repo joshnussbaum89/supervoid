@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: string
+  body?: string
+}
+
+const { title, body } = Astro.props
+---
+
+<h1>{title}</h1>
+{body && <p>{body}</p>}
+
+<style>
+  h1,
+  p {
+    text-align: center;
+    text-shadow: var(--shadow-text);
+  }
+
+  p {
+    font-size: clamp(var(--size-sm), 4vw, var(--size-md));
+  }
+</style>

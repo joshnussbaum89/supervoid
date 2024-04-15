@@ -1,0 +1,66 @@
+---
+import { Picture } from 'astro:assets'
+import homePageHeroImage from '../assets/home-page-hero.webp'
+import titleImage from '../assets/supervoid-title.webp'
+import About from '../components/widgets/About.astro'
+import Work from '../components/widgets/Work.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Animation, VFX, and Technical Design Studio">
+  <header>
+    <div class="header-info">
+      <Picture src={titleImage} formats={['avif', 'webp']} alt="Supervoid" loading="eager" />
+      <p>Psychedelic Dreams for Stage + Screen</p>
+    </div>
+    <Picture
+      class="hero-image"
+      src={homePageHeroImage}
+      formats={['avif', 'webp']}
+      alt="Supervoid explosion"
+      loading="eager"
+    />
+  </header>
+  <main>
+    <Work />
+    <About />
+  </main>
+</Layout>
+
+<style>
+  header {
+    position: relative;
+    height: 100vh;
+    background: var(--color-black);
+
+    .header-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      width: 100%;
+      padding: 0 1rem;
+      max-width: 48rem;
+      text-align: center;
+
+      p {
+        margin: auto;
+        font-size: clamp(var(--size-sm), 3.5vw, var(--size-md));
+        text-shadow: var(--shadow-text);
+        color: var(--color-white);
+      }
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 40rem;
+      filter: brightness(0.5);
+      border-radius: 20%;
+    }
+  }
+</style>

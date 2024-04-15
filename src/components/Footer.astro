@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<footer>
+  <p>Supervoid © {new Date().getFullYear()}</p>
+  <p>
+    Website by{' '}
+    <a href="https://wavelandweb.com" target="_blank" rel="noopener noreferrer">
+      Wave Land Web <Icon name="arrow-right-sm" />
+    </a>
+  </p>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 2rem 4rem;
+
+    @media (min-width: 768px) {
+      & {
+        flex-direction: row;
+        padding: 2rem;
+      }
+    }
+
+    & p {
+      font-size: var(--size-xxs);
+    }
+
+    & a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: var(--transition-normal);
+    }
+
+    & a:hover {
+      color: var(--color-red);
+    }
+
+    & [data-icon='arrow-right-sm'] {
+      width: 1rem;
+      height: 1rem;
+      transform: rotate(-45deg);
+    }
+  }
+</style>

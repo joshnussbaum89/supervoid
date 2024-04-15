@@ -1,0 +1,245 @@
+@font-face {
+  font-family: 'Benzin Regular';
+  src: url('/fonts/Benzin-Regular.woff2') format('woff2'),
+    url('/fonts/Benzin-Regular.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Benzin Bold';
+  src: url('/fonts/Benzin-ExtraBold.woff2') format('woff2'),
+    url('/fonts/Benzin-ExtraBold.woff2') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Containers */
+  --max-width-sm: 700px;
+  --max-width-md: 1100px;
+  --max-width: 1440px;
+  --section-padding-y: clamp(6rem, 10vw, 9rem);
+  --section-padding-x: 1rem;
+  --section-padding-y-lg: 16rem;
+
+  /* Fonts */
+
+  --font-supervoid-body: 'Benzin Regular', sans-serif;
+  --font-supervoid-header: 'Benzin Bold', sans-serif;
+
+  /* Colors */
+
+  --color-black: #000100;
+  --color-white: #f2f2f2;
+  --color-grey: #9b9b9b;
+  --color-purple: #3700b3;
+  --color-red: #920104;
+  --color-green: #03dac5;
+  --color-faded-black: #000000cc;
+  --color-faded-purple: #3600b357;
+  --color-dark-purple: #330737;
+  --color-red-gradient: linear-gradient(
+    135deg,
+    var(--color-red) 20%,
+    var(--color-dark-purple) 100%
+  );
+
+  /* Sizes */
+
+  --size-xxs: 0.8rem;
+  --size-xs: 1rem;
+  --size-sm: 1.4rem;
+  --size-md: 1.8rem;
+  --size-lg: 2.25rem;
+  --size-xl: 3.5rem;
+  --size-xxl: 5.5rem;
+
+  /* Transitions */
+
+  --transition-normal: all 0.25s ease-in-out;
+  --transition-long: all 0.5s ease-in-out;
+
+  /* Shadows */
+  --shadow-text: 1px 1px 0 var(--color-black);
+
+  /* Border Radius */
+  --border-radius-img: 1%;
+}
+
+* {
+  box-sizing: border-box;
+  color: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  line-height: normal;
+
+  /* Scrollbar */
+  scrollbar-color: var(--color-white) var(--color-black);
+  scrollbar-width: thin;
+}
+
+/* 
+  Benzin font renders differently on Firefox browser 
+  Line height is set visually to match Chrome and Safari
+*/
+@-moz-document url-prefix() {
+  html {
+    line-height: 1.46;
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-supervoid-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-white);
+  background: var(--color-black);
+  overflow: auto;
+}
+
+body[data-overlay-displayed='true'] {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: var(--font-supervoid-header);
+  text-transform: uppercase;
+  text-align: center;
+
+  /* Experimental, but fallback is default styling */
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(var(--size-lg), 10vw, var(--size-xxl));
+}
+
+h2 {
+  padding: 2rem;
+  font-size: clamp(var(--size-lg), 4vw, var(--size-xl));
+}
+
+h3 {
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+}
+
+p,
+li,
+a,
+button,
+figcaption {
+  font-family: inherit;
+  text-transform: lowercase;
+
+  /* Experimental, but fallback is default styling */
+  text-wrap: pretty;
+}
+
+p {
+  margin: 0;
+  font-size: clamp(var(--size-xs), 1.5vw, var(--size-sm));
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+  transition: var(--transition-normal);
+}
+
+a:hover {
+  color: var(--color-red);
+}
+
+li {
+  list-style-type: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-section {
+  width: 100%;
+  max-width: var(--max-width);
+  height: auto;
+  margin: 0 auto;
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.site-cta {
+  display: flex;
+  width: fit-content;
+  margin: 0.5rem auto 2rem;
+  padding: 1rem 2rem 1.4rem;
+  font-size: clamp(var(--size-sm), 2vw, var(--size-md));
+  color: var(--color-white);
+  background: var(--color-red-gradient);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.site-cta:hover {
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* 
+  Line-height is different on Firefox
+  Padding is set visually to match Chrome and Safari
+*/
+@-moz-document url-prefix() {
+  .site-cta {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Animations */
+
+.aos-fade,
+.aol-fade {
+  opacity: 0;
+  transition: var(--transition-long);
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+/* Swiper Styles */
+
+.swiper-slide img {
+  cursor: grab;
+}
+
+.swiper .swiper-pagination-bullet {
+  background: var(--color-grey);
+  opacity: 0.5;
+}
+
+.swiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--color-white);
+  opacity: 1;
+}
