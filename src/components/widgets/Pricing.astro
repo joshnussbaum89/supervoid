@@ -6,8 +6,18 @@ import serverFront from '../../assets/server-front.webp'
 
 <div class="pricing">
   <div class="server-images">
-    <Picture src={serverBack} alt="Back display of the Supervoid 2RU Fly Rack Kit" />
-    <Picture src={serverFront} alt="Front display of the Supervoid 2RU Fly Rack Kit" />
+    <Picture
+      src={serverBack}
+      widths={[240, 540, 720, serverBack.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${serverBack.width}px`}
+      alt="Back display of the Supervoid 2RU Fly Rack Kit"
+    />
+    <Picture
+      src={serverFront}
+      widths={[240, 540, 720, serverFront.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${serverFront.width}px`}
+      alt="Front display of the Supervoid 2RU Fly Rack Kit"
+    />
   </div>
   <p>
     our 2RU Fly Rack Kits contain everything you need to run your show. rentals start as low as

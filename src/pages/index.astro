@@ -10,12 +10,21 @@ import Layout from '../layouts/Layout.astro'
 <Layout title="Animation, VFX, and Technical Design Studio">
   <header>
     <div class="header-info">
-      <Picture src={titleImage} formats={['avif', 'webp']} alt="Supervoid" loading="eager" />
+      <Picture
+        src={titleImage}
+        widths={[240, 540, 720, titleImage.width]}
+        sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${titleImage.width}px`}
+        formats={['avif', 'webp']}
+        alt="Supervoid"
+        loading="eager"
+      />
       <p>Psychedelic Dreams for Stage + Screen</p>
     </div>
     <Picture
       class="hero-image"
       src={homePageHeroImage}
+      widths={[240, 540, 720, homePageHeroImage.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${homePageHeroImage.width}px`}
       formats={['avif', 'webp']}
       alt="Supervoid explosion"
       loading="eager"

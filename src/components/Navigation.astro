@@ -7,7 +7,14 @@ const currentPath = Astro.url.pathname
 
 <nav class="navigation">
   <a class="logo" href="/" title="Supervoid TV" aria-label="Supervoid TV">
-    <Picture src={siteLogo} formats={['avif', 'webp']} alt="Supervoid TV" loading="eager" />
+    <Picture
+      src={siteLogo}
+      formats={['avif', 'webp']}
+      widths={[240, 540, 720, siteLogo.width]}
+      sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${siteLogo.width}px`}
+      alt="Supervoid TV"
+      loading="eager"
+    />
   </a>
 
   <!-- Desktop Navigation -->

@@ -19,6 +19,8 @@ const heroBackgroundImage = await getImage({
   format: 'webp',
   quality: 50,
   loading: 'eager',
+  widths: [240, 540, 720, image.width],
+  sizes: `(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${image.width}px`,
 })
 
 // Specs card data
@@ -93,14 +95,24 @@ export const specData = [
         ]}
       />
       <div class="desktop-gallery">
-        <Picture src={danAndShay} formats={['avif', 'webp']} alt="Dan + Shay Stadium Tour 2022" />
+        <Picture
+          src={danAndShay}
+          widths={[240, 540, 720, danAndShay.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${danAndShay.width}px`}
+          formats={['avif', 'webp']}
+          alt="Dan + Shay Stadium Tour 2022"
+        />
         <Picture
           src={tomMorello}
+          widths={[240, 540, 720, tomMorello.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${tomMorello.width}px`}
           formats={['avif', 'webp']}
           alt="Tom Morello Rage Against the Machine Tour 2022"
         />
         <Picture
           src={tateMcrae}
+          widths={[240, 540, 720, tateMcrae.width]}
+          sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${tateMcrae.width}px`}
           formats={['avif', 'webp']}
           alt="Tate McRae Made In America Festival 2022"
         />

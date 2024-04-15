@@ -12,7 +12,13 @@ const { imageSrc, imageAlt, imageCaption, text } = Astro.props
 ---
 
 <figure class="image-and-text">
-  <Picture src={imageSrc} formats={['avif', 'webp']} alt={imageAlt} />
+  <Picture
+    src={imageSrc}
+    widths={[240, 540, 720, imageSrc.width]}
+    sizes={`(max-width: 360px) 240px, (max-width: 768px) 540px, (max-width: 1024px) 720px, ${imageSrc.width}px`}
+    formats={['avif', 'webp']}
+    alt={imageAlt}
+  />
   <figcaption>{imageCaption}</figcaption>
   <p>{text}</p>
 </figure>
