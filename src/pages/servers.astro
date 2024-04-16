@@ -128,11 +128,18 @@ export const specData = [
     padding: 1rem;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 
     /* Center page title */
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-device-width: 1366px) {
+      & {
+        background-attachment: scroll;
+      }
+    }
 
     /* Scrim */
     &::after {
