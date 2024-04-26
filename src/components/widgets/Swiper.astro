@@ -55,14 +55,14 @@ const { images } = Astro.props
   import 'swiper/css/pagination'
   import { A11y, Navigation, Pagination } from 'swiper/modules'
 
-  // document.addEventListener('astro:page-load', () => {
-  // configure Swiper
-  const swiper = new Swiper('.swiper', {
-    modules: [Navigation, Pagination, A11y],
+  document.addEventListener('astro:page-load', () => {
+    // configure Swiper
+    const swiper = new Swiper('.swiper', {
+      modules: [Navigation, Pagination, A11y],
 
-    pagination: {
-      el: '.swiper-pagination',
-    },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    })
   })
-  // })
 </script>

@@ -2,7 +2,9 @@
  * Fade in sections with the class `aos-fade` when they come into view
  */
 function handleSectionFadeOnScroll() {
-  if (!window.IntersectionObserver) return console.log('IntersectionObserver not supported')
+  if (!window.IntersectionObserver) {
+    return console.log('IntersectionObserver not supported')
+  }
 
   const sections = document.querySelectorAll('.aos-fade') as NodeListOf<HTMLElement>
 
@@ -35,10 +37,10 @@ function handleSectionFadeOnLoad() {
 }
 
 // On page load
-// document.addEventListener('astro:page-load', () => {
-// Fade in sections on load
-handleSectionFadeOnLoad()
+document.addEventListener('astro:page-load', () => {
+  // Fade in sections on load
+  handleSectionFadeOnLoad()
 
-// Fade in sections on scroll
-document.addEventListener('scroll', handleSectionFadeOnScroll)
-// })
+  // Fade in sections on scroll
+  document.addEventListener('scroll', handleSectionFadeOnScroll)
+})
