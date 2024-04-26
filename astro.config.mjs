@@ -1,3 +1,4 @@
+import netlify from '@astrojs/netlify'
 import partytown from '@astrojs/partytown'
 import sitemap from '@astrojs/sitemap'
 import sentry from '@sentry/astro'
@@ -7,7 +8,12 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.supervoid.tv',
+  output: 'hybrid',
   scopedStyleStrategy: 'class',
+  adapter: netlify({
+    imageCDN: false,
+    cacheOnDemandPages: true,
+  }),
   integrations: [
     icon(),
     partytown(),
