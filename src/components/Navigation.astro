@@ -207,60 +207,60 @@ import siteLogo from '../assets/logo.webp'
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    // Grab DOM elements
-    const body = document.querySelector('body')
-    const navigation = document.querySelector('.navigation')
-    const hamburger = document.getElementById('hamburger')
-    const mobileNavItems = document.querySelectorAll('.mobile-nav-overlay li')
+  // document.addEventListener('astro:page-load', () => {
+  // Grab DOM elements
+  const body = document.querySelector('body')
+  const navigation = document.querySelector('.navigation')
+  const hamburger = document.getElementById('hamburger')
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-overlay li')
 
-    // Track overlay state
-    let overlayDisplayed = false
+  // Track overlay state
+  let overlayDisplayed = false
 
-    /**
-     * Handle hide/show mobile navigation on click
-     */
-    function handleMobileNavigationOnClick() {
-      overlayDisplayed = !overlayDisplayed
+  /**
+   * Handle hide/show mobile navigation on click
+   */
+  function handleMobileNavigationOnClick() {
+    overlayDisplayed = !overlayDisplayed
+    body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
+    hamburger?.classList.toggle('active')
+    hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
+  }
+
+  /**
+   * Handle hide/show mobile navigation on resize
+   */
+  function handleMobileNavigationOnResize() {
+    if (window.innerWidth >= 768) {
+      overlayDisplayed = false
       body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
-      hamburger?.classList.toggle('active')
+      hamburger?.classList.remove('active')
       hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
     }
+  }
 
-    /**
-     * Handle hide/show mobile navigation on resize
-     */
-    function handleMobileNavigationOnResize() {
-      if (window.innerWidth >= 768) {
-        overlayDisplayed = false
-        body?.setAttribute('data-overlay-displayed', `${overlayDisplayed}`)
-        hamburger?.classList.remove('active')
-        hamburger?.setAttribute('aria-expanded', `${overlayDisplayed}`)
-      }
+  /**
+   * Scrolling effect: apply background to navigation on scroll
+   */
+  function handleActiveNavigationOnScroll() {
+    if (window.scrollY > 0) {
+      navigation?.classList.add('show')
+    } else {
+      navigation?.classList.remove('show')
     }
+  }
 
-    /**
-     * Scrolling effect: apply background to navigation on scroll
-     */
-    function handleActiveNavigationOnScroll() {
-      if (window.scrollY > 0) {
-        navigation?.classList.add('show')
-      } else {
-        navigation?.classList.remove('show')
-      }
+  // Event Listeners
+  hamburger?.addEventListener('click', handleMobileNavigationOnClick)
+  mobileNavItems.forEach((item) => item.addEventListener('click', handleMobileNavigationOnClick))
+  window.addEventListener('resize', handleMobileNavigationOnResize)
+  window.addEventListener('scroll', handleActiveNavigationOnScroll)
+
+  // Accessibility
+  body?.addEventListener('keyup', (event) => {
+    if (event.code === 'Escape' && overlayDisplayed) {
+      handleMobileNavigationOnClick()
     }
-
-    // Event Listeners
-    hamburger?.addEventListener('click', handleMobileNavigationOnClick)
-    mobileNavItems.forEach((item) => item.addEventListener('click', handleMobileNavigationOnClick))
-    window.addEventListener('resize', handleMobileNavigationOnResize)
-    window.addEventListener('scroll', handleActiveNavigationOnScroll)
-
-    // Accessibility
-    body?.addEventListener('keyup', (event) => {
-      if (event.code === 'Escape' && overlayDisplayed) {
-        handleMobileNavigationOnClick()
-      }
-    })
   })
+  // })
 </script>

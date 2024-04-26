@@ -35,10 +35,10 @@ function handleSectionFadeOnLoad() {
 }
 
 // On page load
-document.addEventListener('astro:page-load', () => {
-  // Fade in sections on load
-  handleSectionFadeOnLoad()
+// document.addEventListener('astro:page-load', () => {
+// Fade in sections on load
+handleSectionFadeOnLoad()
 
-  // Fade in sections on scroll
-  document.addEventListener('scroll', handleSectionFadeOnScroll)
-})
+// Fade in sections on scroll
+document.addEventListener('scroll', handleSectionFadeOnScroll)
+// })

@@ -525,116 +525,116 @@ export const projectData = [
 </style>
 
 <script is:inline define:vars={{ projectData }}>
-  document.addEventListener('astro:page-load', () => {
-    // Grab DOM elements
-    const body = document.querySelector('body')
-    const projects = document.querySelectorAll('.project-container')
-    const modal = document.querySelector('.project-modal')
-    const close = document.querySelector('.close')
-    const navigateLeft = document.querySelector('.navigate-left')
-    const navigateRight = document.querySelector('.navigate-right')
-    const modalGif = document.querySelector('.modal-gif')
-    const modalInfo = document.querySelector('.modal-info')
+  // document.addEventListener('astro:page-load', () => {
+  // Grab DOM elements
+  const body = document.querySelector('body')
+  const projects = document.querySelectorAll('.project-container')
+  const modal = document.querySelector('.project-modal')
+  const close = document.querySelector('.close')
+  const navigateLeft = document.querySelector('.navigate-left')
+  const navigateRight = document.querySelector('.navigate-right')
+  const modalGif = document.querySelector('.modal-gif')
+  const modalInfo = document.querySelector('.modal-info')
 
-    // Track current project data
-    let currentProjectId = 0
-    let currentProject = projectData[currentProjectId]
+  // Track current project data
+  let currentProjectId = 0
+  let currentProject = projectData[currentProjectId]
 
-    // Handle modal display
-    function handleShowProject(e) {
-      const { id, gif, client, project, description } =
-        e.target.closest('.project-container')?.dataset
+  // Handle modal display
+  function handleShowProject(e) {
+    const { id, gif, client, project, description } =
+      e.target.closest('.project-container')?.dataset
 
-      // Update current project id
-      currentProjectId = parseInt(id)
+    // Update current project id
+    currentProjectId = parseInt(id)
 
-      // Update modal data
-      modalGif.src = gif
-      modalGif.alt = `${client} - ${description}`
-      modalInfo.innerHTML = /* HTML */ `
-        <h3>${project}</h3>
-        <p><span class="modal-label">Client: </span> ${client}</p>
-        <p class="description"><span class="modal-label">Description: </span> ${description}</p>
-      `
+    // Update modal data
+    modalGif.src = gif
+    modalGif.alt = `${client} - ${description}`
+    modalInfo.innerHTML = /* HTML */ `
+      <h3>${project}</h3>
+      <p><span class="modal-label">Client: </span> ${client}</p>
+      <p class="description"><span class="modal-label">Description: </span> ${description}</p>
+    `
 
-      // Show modal
-      modal?.showModal()
-      body.setAttribute('data-overlay-displayed', true)
+    // Show modal
+    modal?.showModal()
+    body.setAttribute('data-overlay-displayed', true)
 
-      // Update current project
-      handleUpdateCurrentProject()
+    // Update current project
+    handleUpdateCurrentProject()
+  }
+
+  function handleCloseModal() {
+    modal?.close()
+    body.setAttribute('data-overlay-displayed', false)
+  }
+
+  // Update current project data and handle navigation visibility
+  function handleUpdateCurrentProject() {
+    currentProject = projectData[currentProjectId]
+
+    // Track navigation location
+    const userIsOnFirstProject = currentProjectId === 0
+    const userIsOnLastProject = currentProjectId === projectData.length - 1
+
+    if (userIsOnFirstProject) {
+      navigateLeft.classList.add('hide')
+    } else if (userIsOnLastProject) {
+      navigateRight.classList.add('hide')
+    } else {
+      navigateLeft.classList.remove('hide')
+      navigateRight.classList.remove('hide')
+    }
+  }
+
+  // Handle navigation
+  function handleProjectNavigation(direction = 'left' || 'right') {
+    // Determine direction
+    if (direction === 'left' && currentProjectId > 0) {
+      currentProjectId--
+    } else if (direction === 'right' && currentProjectId < projectData.length - 1) {
+      currentProjectId++
+    } else {
+      return
     }
 
-    function handleCloseModal() {
-      modal?.close()
-      body.setAttribute('data-overlay-displayed', false)
+    // Update current project
+    handleUpdateCurrentProject()
+
+    // Update modal data
+    modalGif.src = currentProject.gif
+    modalGif.alt = `${currentProject.client} - ${currentProject.description}`
+    modalInfo.innerHTML = /* HTML */ `
+      <h3>${currentProject.project}</h3>
+      <p><span class="modal-label">Client: </span> ${currentProject.client}</p>
+      <p class="description">
+        <span class="modal-label">Description: </span> ${currentProject.description}
+      </p>
+    `
+  }
+
+  // Handle arrow key navigation
+  const handleArrowPress = (event) => {
+    if (event.key === 'ArrowLeft') {
+      handleProjectNavigation('left')
+    } else if (event.key === 'ArrowRight') {
+      handleProjectNavigation('right')
     }
+  }
 
-    // Update current project data and handle navigation visibility
-    function handleUpdateCurrentProject() {
-      currentProject = projectData[currentProjectId]
-
-      // Track navigation location
-      const userIsOnFirstProject = currentProjectId === 0
-      const userIsOnLastProject = currentProjectId === projectData.length - 1
-
-      if (userIsOnFirstProject) {
-        navigateLeft.classList.add('hide')
-      } else if (userIsOnLastProject) {
-        navigateRight.classList.add('hide')
-      } else {
-        navigateLeft.classList.remove('hide')
-        navigateRight.classList.remove('hide')
-      }
+  // Make sure scrolling is reset when modal is closed
+  body?.addEventListener('keyup', (event) => {
+    if (event.code === 'Escape') {
+      handleCloseModal()
     }
-
-    // Handle navigation
-    function handleProjectNavigation(direction = 'left' || 'right') {
-      // Determine direction
-      if (direction === 'left' && currentProjectId > 0) {
-        currentProjectId--
-      } else if (direction === 'right' && currentProjectId < projectData.length - 1) {
-        currentProjectId++
-      } else {
-        return
-      }
-
-      // Update current project
-      handleUpdateCurrentProject()
-
-      // Update modal data
-      modalGif.src = currentProject.gif
-      modalGif.alt = `${currentProject.client} - ${currentProject.description}`
-      modalInfo.innerHTML = /* HTML */ `
-        <h3>${currentProject.project}</h3>
-        <p><span class="modal-label">Client: </span> ${currentProject.client}</p>
-        <p class="description">
-          <span class="modal-label">Description: </span> ${currentProject.description}
-        </p>
-      `
-    }
-
-    // Handle arrow key navigation
-    const handleArrowPress = (event) => {
-      if (event.key === 'ArrowLeft') {
-        handleProjectNavigation('left')
-      } else if (event.key === 'ArrowRight') {
-        handleProjectNavigation('right')
-      }
-    }
-
-    // Make sure scrolling is reset when modal is closed
-    body?.addEventListener('keyup', (event) => {
-      if (event.code === 'Escape') {
-        handleCloseModal()
-      }
-    })
-
-    // Event Listeners
-    document.addEventListener('keydown', handleArrowPress)
-    projects.forEach((project) => project.addEventListener('click', handleShowProject))
-    close?.addEventListener('click', handleCloseModal)
-    navigateLeft?.addEventListener('click', () => handleProjectNavigation('left'))
-    navigateRight?.addEventListener('click', () => handleProjectNavigation('right'))
   })
+
+  // Event Listeners
+  document.addEventListener('keydown', handleArrowPress)
+  projects.forEach((project) => project.addEventListener('click', handleShowProject))
+  close?.addEventListener('click', handleCloseModal)
+  navigateLeft?.addEventListener('click', () => handleProjectNavigation('left'))
+  navigateRight?.addEventListener('click', () => handleProjectNavigation('right'))
+  // })
 </script>

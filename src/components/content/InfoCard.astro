@@ -117,6 +117,11 @@ const { text, column } = Astro.props
    * Fade in cards when they come into view
    */
   function handleCardFadeOnScroll() {
+    if (!window.IntersectionObserver) {
+      console.log('IntersectionObserver not supported')
+      return
+    }
+    
     const cards = document.querySelectorAll('.info-card') as NodeListOf<HTMLElement>
 
     if (cards.length !== 0) {
@@ -143,11 +148,13 @@ const { text, column } = Astro.props
   }
 
   // Initialize IntersectionObserver on page load
-  document.addEventListener('astro:page-load', () => {
-    // Check if IntersectionObserver is supported
-    if (!window.IntersectionObserver) return console.log('IntersectionObserver not supported')
+  // document.addEventListener('astro:page-load', () => {
+  // Check if IntersectionObserver is supported
+  // if (!window.IntersectionObserver) {
+  //   console.log('IntersectionObserver not supported')
+  // }
 
-    // Fade in cards on scroll
-    document.addEventListener('scroll', handleCardFadeOnScroll)
-  })
+  // Fade in cards on scroll
+  document.addEventListener('scroll', handleCardFadeOnScroll)
+  // })
 </script>
