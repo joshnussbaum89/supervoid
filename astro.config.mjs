@@ -9,6 +9,9 @@ export default defineConfig({
   site: 'https://www.supervoid.tv',
   output: 'hybrid',
   scopedStyleStrategy: 'class',
+  build: {
+    inlineStylesheets: 'always',
+  },
   adapter: netlify({
     imageCDN: false,
     cacheOnDemandPages: true,
@@ -20,4 +23,7 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
+  devToolbar: {
+    enabled: false,
+  },
 })
