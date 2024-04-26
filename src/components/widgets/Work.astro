@@ -295,8 +295,8 @@ export const projectData = [
           >
             <Picture
               src={project.gif}
-              width={740}
-              height={416}
+              width="740"
+              height="416"
               alt={`${project.client} - ${project.description}`}
             />
             <div class="project-overlay">
@@ -524,7 +524,7 @@ export const projectData = [
   }
 </style>
 
-<script define:vars={{ projectData }}>
+<script is:inline define:vars={{ projectData }}>
   document.addEventListener('astro:page-load', () => {
     // Grab DOM elements
     const body = document.querySelector('body')
