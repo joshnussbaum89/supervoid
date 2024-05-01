@@ -13,7 +13,7 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   image: {
-    domains: ['vimeocdn.com'],
+    domains: ['videoapi-muybridge.vimeocdn.com'],
   },
   adapter: netlify({
     cacheOnDemandPages: true,
