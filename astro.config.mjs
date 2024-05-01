@@ -16,6 +16,7 @@ export default defineConfig({
     domains: ['videoapi-muybridge.vimeocdn.com'],
   },
   adapter: netlify({
+    imageCDN: false,
     cacheOnDemandPages: true,
   }),
   integrations: [
