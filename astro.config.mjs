@@ -12,8 +12,10 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
+  image: {
+    domains: ['vimeocdn.com'],
+  },
   adapter: netlify({
-    imageCDN: false,
     cacheOnDemandPages: true,
   }),
   integrations: [
