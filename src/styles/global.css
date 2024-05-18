@@ -4,16 +4,16 @@
     url('/fonts/Benzin-Regular.woff') format('woff');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'Benzin Bold';
   src: url('/fonts/Benzin-ExtraBold.woff2') format('woff2'),
-    url('/fonts/Benzin-ExtraBold.woff2') format('woff');
+    url('/fonts/Benzin-ExtraBold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 :root {
@@ -218,8 +218,7 @@ video {
 
 /* Animations */
 
-.aos-fade,
-.aol-fade {
+.aos-fade {
   opacity: 0;
   transition: opacity var(--transition-long);
 
